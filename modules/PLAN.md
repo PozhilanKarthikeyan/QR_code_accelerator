@@ -76,11 +76,12 @@ Working default: **1024** (builds in about 95 s in Bluesim). Revisit once the fo
 | 2 | Format decoder (`QRFormat.bsv`) | 15+15 bits to ok / level / mask; Table 1 positions | | **done, verified** |
 | 3 | Reader (`QRReader.bsv`) | walker + format reads + mem port + unmask -> codeword bytes | | **done, verified** |
 | 4 | Block buffer (`QRBlocks.bsv`) | bytes -> blocks (counters, no division), group planner, block walker, read port | | **done, verified** |
+| 5a | GF(2^8) arithmetic (`QRGF.bsv`) | add/multiply/inverse/constants | | **done, verified** |
 | 5 | Reed-Solomon | syndromes, Berlekamp-Massey, Chien, Forney | | not started |
 | 6 | Payload parser | corrected bytes -> characters, `last` flag | | not started |
 | 7 | Top level (`mkQRDecoder`) | `start` / `getByte` / `failed` / `done`, controller | | not started |
 
-Suggested build order: 1, 2, 3, 4, then GF multiplier, 5, 6, 7. Test each unit against the model before connecting it.
+Suggested build order: 1, 2, 3, 4, 5a, 5, 6, 7. Test each unit against the model before connecting it.
 
 ### Unit 1 contract (done)
 
@@ -146,6 +147,19 @@ interface QRBlockBuf#(cap):
 - Verified (`modules/blocks/run.sh`, expect `PASS` for each size): for all 160 (version, level) pairs, every block's bytes match the spec's formula for k (random data), the groups are contiguous, within the capacity and greedy-maximal. Sizes tested: 153 (34 passes worst), 300, 1024 (5 passes worst). Three planted bugs (wrong offset for the extra byte of long blocks, wrong position for check bytes, planner off by one) are all caught.
 - Limits found: bsc elaboration works up to the full 3706 bytes but warns about step counts (limit 1M); the Bluesim C++ for 3706 bytes (3.8 MB) did not compile in 4 GB of RAM, while 1024 compiles in about 95 s. Bigger buffers also make every later test build slower.
 
+### Unit 5a contract (done): GF(2^8)
+
+```
+gfXtime(a)          // a * alpha
+gfMul(a, b)         // a * b  (8 AND-XOR rows; with a constant argument it shrinks to a few XORs)
+gfInv(a)            // 1/a as a^254, gfInv(0) = 0; fully parallel (13 multipliers), a later area optimisation target
+alphaPow(Integer k) // alpha^k as a compile-time constant (square-and-multiply)
+alphaPowNeg(Integer k) // alpha^-k as a compile-time constant
+```
+- Field: polynomial 0x11D, alpha = 2, addition is XOR (spec 1.4).
+- Verified (`modules/gf/run.sh`, expect `PASS`): all 65,536 products, all 256 inverses (and a*inv(a)=1), times-alpha for all 256 values, alpha^k for k = 0..254 and alpha^-k for k = 0..40, each against an independent re-implementation of the spec's definition AND the model. Changing one bit of the reduction constant is caught (63,901 mismatches).
+- Use `alphaPow` only with small compile-time constants: each call costs elaboration steps (bsc stops at 1,000,000 steps in total).
+
 ## Verification plan
 
 - Per unit: exhaustive where the input space allows (GF multiplier, format decoder), random plus hand-picked hard cases otherwise.
@@ -190,8 +204,9 @@ Confirm on the course forum (questions that would reveal part of a solution go t
 ## Status log
 
 - Unit 1 (walker + mask) done. 40/40 versions and 8/8 masks match the model.
+- Unit 5a (GF arithmetic) done: all 65,536 products and the rest match the spec definition and the model.
 - Unit 4 (block buffer) done. All 160 version/level pairs match the spec's interleaving at cap 153, 300 and 1024; three planted bugs caught.
 - Unit 3 (reader) done. 1,563 cases / 1.98M codeword bytes identical to the model, with back-pressure; two planted bugs caught.
 - Unit 2 (format decoder) done. Exhaustive nearest-word test, 1200 positions and 400k random pairs match the model.
 - Model (`qr_model/`) passes its 16 self-tests and generates 1,614 vectors.
-- `QRDecoder.bsv` is still the placeholder; units 5 to 7 not started. Next: the GF(2^8) multiplier and unit 5 (Reed-Solomon).
+- `QRDecoder.bsv` is still the placeholder; units 5 to 7 not started. Next: unit 5, Reed-Solomon, built on the GF functions.
