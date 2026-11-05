@@ -57,6 +57,9 @@ interface QRBlockBuf#(numeric type cap);
    // (and stays until the next readReq).  addr = base + position in the block.
    method Action     readReq(UInt#(12) addr);
    method Bit#(8)    readData();
+   // Overwrite one byte of the buffer (used by Reed-Solomon to write a correction back).
+   // Never in the same cycle as putByte.
+   method Action     writeByte(UInt#(12) addr, Bit#(8) x);
 endinterface
 
 // ---------------------------------------------------------------------------
@@ -163,6 +166,7 @@ module mkQRBlockBuf(QRBlockBuf#(cap))
    PulseWire           rewW    <- mkPulseWire;
    PulseWire           advW    <- mkPulseWire;
    RWire#(UInt#(12))   rdW     <- mkRWire;
+   RWire#(Tuple2#(UInt#(12), Bit#(8))) fixW <- mkRWire;
 
    // data bytes of block b: the first n1 blocks have d1, the rest d1+1
    function UInt#(7) dlen(UInt#(7) b) = (b >= n1R) ? d1R + 1 : d1R;
@@ -170,6 +174,7 @@ module mkQRBlockBuf(QRBlockBuf#(cap))
 
    (* fire_when_enabled, no_implicit_conditions *)
    rule step;
+      Maybe#(Tuple2#(UInt#(12), Bit#(8))) wr = tagged Invalid;   // the one write to the buffer this cycle
       // ----------------------------------------------------------- set-up / planning / filling
       if (cfgW.wget matches tagged Valid .p) begin
          ecR <= p.ecLen;  n1R <= p.n1;  d1R <= p.d1;  nbR <= p.nb;
@@ -206,7 +211,7 @@ module mkQRBlockBuf(QRBlockBuf#(cap))
                       :              zeroExtend(dl) + zeroExtend(widx);
          UInt#(12) addr = wbase + zeroExtend(pos);
          Bool inGroup = (wb >= g0R) && (wb < g1R);
-         if (inGroup) mem.write(addr, x);
+         if (inGroup) wr = tagged Valid tuple2(addr, x);
 
          // where does the next byte go?
          Bool      lastB    = (wb == nbR - 1);
@@ -244,6 +249,10 @@ module mkQRBlockBuf(QRBlockBuf#(cap))
          if (allIn) begin filling <= False;  fullR <= True; end
       end
 
+      // a correction written back by the RS stage (never in the same cycle as a fill)
+      if (fixW.wget matches tagged Valid {.fa, .fx}) wr = tagged Valid tuple2(fa, fx);
+      if (wr matches tagged Valid {.wa, .wx}) mem.write(wa, wx);
+
       // ----------------------------------------------------------- block walker
       if (rewW)      begin ib <= g0R;  ibase <= 0; end
       else if (advW) begin ib <= ib + 1;  ibase <= ibase + blen(ib); end
@@ -273,6 +282,7 @@ module mkQRBlockBuf(QRBlockBuf#(cap))
 
    method Action readReq(UInt#(12) addr) = rdW.wset(addr);
    method Bit#(8) readData = mem.readData;
+   method Action writeByte(UInt#(12) addr, Bit#(8) x) = fixW.wset(tuple2(addr, x));
 endmodule
 
 endpackage
