@@ -77,11 +77,11 @@ Working default: **1024** (builds in about 95 s in Bluesim). Revisit once the fo
 | 3 | Reader (`QRReader.bsv`) | walker + format reads + mem port + unmask -> codeword bytes | | **done, verified** |
 | 4 | Block buffer (`QRBlocks.bsv`) | bytes -> blocks (counters, no division), group planner, block walker, read port | | **done, verified** |
 | 5a | GF(2^8) arithmetic (`QRGF.bsv`) | add/multiply/inverse/constants | | **done, verified** |
-| 5 | Reed-Solomon | syndromes, Berlekamp-Massey, Chien, Forney | | not started |
+| 5 | Reed-Solomon (`QRRS.bsv`) | syndromes, Berlekamp-Massey, Chien, Forney, verify | | **done, verified** |
 | 6 | Payload parser | corrected bytes -> characters, `last` flag | | not started |
 | 7 | Top level (`mkQRDecoder`) | `start` / `getByte` / `failed` / `done`, controller | | not started |
 
-Suggested build order: 1, 2, 3, 4, 5a, 5, 6, 7. Test each unit against the model before connecting it.
+Suggested build order: 1, 2, 3, 4, 5a, 5, 6, 7 (6 and 7 remain). Test each unit against the model before connecting it.
 
 ### Unit 1 contract (done)
 
@@ -160,6 +160,25 @@ alphaPowNeg(Integer k) // alpha^-k as a compile-time constant
 - Verified (`modules/gf/run.sh`, expect `PASS`): all 65,536 products, all 256 inverses (and a*inv(a)=1), times-alpha for all 256 values, alpha^k for k = 0..254 and alpha^-k for k = 0..40, each against an independent re-implementation of the spec's definition AND the model. Changing one bit of the reduction constant is caught (63,901 mismatches).
 - Use `alphaPow` only with small compile-time constants: each call costs elaboration steps (bsc stops at 1,000,000 steps in total).
 
+### Unit 5 contract (done): Reed-Solomon
+
+```
+mkQRRS(QRBlockBuf#(cap) bb) -> QRRS          // takes the block buffer as an argument and uses its read and write ports
+interface QRRS:
+  decodeBlock(UInt#(5) ec, BlockDesc d)      // correct block d (from bb.curBlock); ec = check bytes per block (BlockParams.ecLen)
+  getData() -> Bit#(8)                       // the corrected DATA bytes of the block, in order (implicit condition)
+  done()   // all data bytes of the block have been taken
+  failed() // block could not be corrected; no bytes are output for it
+```
+- Per block the top level does: `rs.decodeBlock(p.ecLen, bb.curBlock)`, move every `getData` byte on to the payload parser, wait for `done` or `failed`, then `bb.advanceBlock`. On `failed` the whole symbol fails (earlier blocks' bytes may already have gone out, which spec C2 allows).
+- Steps: syndromes (one read pass, all syndromes updated per byte) -> all zero means clean -> output; else Berlekamp-Massey (L > e/2 fails) -> Omega -> Chien search with Forney (fixes are written back into the buffer, exactly L roots required) -> verify pass (syndromes must now be zero) -> output.
+- Baseline cost choices: one shared GF multiplier and one shared inverter (`gfInv`, 13 multipliers' worth of logic), 30 constant multipliers for the syndromes and 31 for the Chien search. Storage: 95 bytes (S 32, Lambda 16, B 16, T 16, Omega 15) = 760 flops, plus about 100 bits of control.
+- Speed (measured, slowest blocks over 4,099 test blocks): clean 527 cycles (mostly the output copy), fixed 2,003, fixed with the maximum number of errors 2,059, failed 1,459. Worst case per symbol is about 81 blocks x 2k = 160k cycles; a lightly damaged symbol is far cheaper.
+- Verified (`modules/rs/run.sh`, expect `PASS`): 4,099 blocks over 416 cases covering all 160 version/level pairs (small versions repeated). Mix: 1,214 clean, 1,727 with 1..t-1 errors, 518 with exactly t errors, 298 too damaged (must fail), 342 built so the block lies within reach of a DIFFERENT valid block (the decoder must succeed with that block's data), errors also in check bytes and at block boundaries. Compared against an independent RS encoder written from the spec and the model's decoder.
+- Planted bugs caught: Chien search direction, Berlekamp-Massey length test off by one, correction written one byte off, and removing both safety checks. Removing only the "exactly L roots" check is NOT caught because the verify pass catches the same blocks; the roots check only fails earlier, so keep both.
+- Design-space levers: parallelise the Berlekamp-Massey update, replace `gfInv` by a serial inverse on the shared multiplier, drop the T array, use fewer syndrome multipliers by processing syndromes serially.
+- Changed unit 4: `QRBlockBuf` gained `writeByte(addr, x)` (used for the corrections). Use the new `QRBlocks.bsv`; its tests still pass.
+
 ## Verification plan
 
 - Per unit: exhaustive where the input space allows (GF multiplier, format decoder), random plus hand-picked hard cases otherwise.
@@ -204,9 +223,10 @@ Confirm on the course forum (questions that would reveal part of a solution go t
 ## Status log
 
 - Unit 1 (walker + mask) done. 40/40 versions and 8/8 masks match the model.
+- Unit 5 (Reed-Solomon) done. 4,099 blocks match, including blocks built to land near a different valid block; planted bugs caught.
 - Unit 5a (GF arithmetic) done: all 65,536 products and the rest match the spec definition and the model.
 - Unit 4 (block buffer) done. All 160 version/level pairs match the spec's interleaving at cap 153, 300 and 1024; three planted bugs caught.
 - Unit 3 (reader) done. 1,563 cases / 1.98M codeword bytes identical to the model, with back-pressure; two planted bugs caught.
 - Unit 2 (format decoder) done. Exhaustive nearest-word test, 1200 positions and 400k random pairs match the model.
 - Model (`qr_model/`) passes its 16 self-tests and generates 1,614 vectors.
-- `QRDecoder.bsv` is still the placeholder; units 5 to 7 not started. Next: unit 5, Reed-Solomon, built on the GF functions.
+- `QRDecoder.bsv` is still the placeholder; units 6 and 7 not started. Next: unit 6, the payload parser.
