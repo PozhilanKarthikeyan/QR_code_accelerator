@@ -19,19 +19,18 @@ Living document. Read this first, then the spec PDF. Update the **Status log** a
 ## Repo layout
 
 ```
-src/                    (the zip must call this bsv/, see "Submission")
-  QRTypes.bsv           supplied, do not edit
-  QRTables.bsv          supplied, do not edit
-  QRDecoder.bsv         top level (still the placeholder)
-  QRWalker.bsv          unit 1, done
-  QRFormat.bsv          unit 2, done
-  TbSample.bsv          supplied example testbench
+src/                    supplied files: QRTypes.bsv, QRTables.bsv, QRDecoder.bsv (placeholder), TbSample.bsv
+modules/                one folder per unit, so two people never overwrite each other
+  walker/  format/  reader/   each holds its .bsv, its test bench, check_*.py and run.sh
+  PLAN.md               this file (keep ONE copy)
 qr_model/               Python reference model (gen_vectors.py makes ~1600 test cases)
-verification/walker/    tests for unit 1; run.sh runs them
-verification/format/    tests for unit 2; run.sh runs them
 ```
 
-Submission (spec 6.3): `<Roll_Number>/{README.md, report.pdf, pd_report.pdf, bsv/, verification/, pd/}`. Build the zip from this repo at the end, then check it in a fresh copy of the handout (see README).
+Run a unit's tests from inside its folder, e.g. `cd modules/reader && ./run.sh` (defaults assume `../../src` and `../../qr_model`).
+`reader/run.sh` also needs `../walker` and `../format` and generates test vectors into `vectors/` (needs `segno`).
+Build output (`build/`, `vectors/`, `*.out`) must not be committed; keep it in `.gitignore`.
+
+**Submission (spec 6.3):** `<Roll_Number>/{README.md, report.pdf, pd_report.pdf, bsv/, verification/, pd/}`. At the end, copy every design `.bsv` (including `QRTypes`/`QRTables` as supplied) into `bsv/`, the test benches and scripts into `verification/`, and build the zip. Check it in a fresh copy of the handout.
 
 ## Key numbers (computed from the supplied tables)
 
@@ -49,15 +48,18 @@ start(size) -> [1 version] -> [2 format] -> [3 walker + unmask] -> byte buffer
 
 **Central decision: where the codeword bytes are kept.** The symbol stores blocks interleaved, but output must be block 0 first. Re-reading memory is legal but there is no cheap jump to the k-th module, so re-reading means re-walking the whole symbol.
 
-**Design knob P = blocks handled per pass.** Each pass walks the whole symbol but stores only the bytes of the current group of P blocks, then corrects and emits those blocks in order.
+**Design knob = buffer size `cap` in bytes** (a type parameter of `QRBlockBuf#(cap)`; legal range 153 to 4095). Each pass keeps as many whole blocks as fit (the group), the top level re-reads the symbol for the next group. Larger buffer = more area, fewer passes. Measured by the unit-4 test (worst case over all 160 version/level pairs; a read pass costs about N*(N-1)+40 cycles):
 
-| P | Buffer | Passes (v40, 81 blocks) | Cycles |
+| cap (bytes) | flop bits | max passes per symbol | worst-case read cycles |
 |---|---|---|---|
-| all | 3,706 bytes (~30k flops) | 1 | ~30k |
-| 8 | 1,224 bytes | 11 | ~330k |
-| 1 | 153 bytes | 81 | ~2.4M |
+| 153 (minimum) | 1,224 | 34 | 1,060,528 |
+| 300 | 2,400 | 22 | 625,504 |
+| 512 | 4,096 | 9 | 280,728 |
+| 1024 | 8,192 | 5 | 155,960 |
+| 2048 | 16,384 | 2 | 62,384 |
+| 3706 (whole symbol) | 29,648 | 1 | 31,192 |
 
-Plan: write it parametric from the start, get P = all working first, then shrink P as a synthesis iteration. **Open question for the forum: what is the cycle limit?** It decides how small P can go.
+Working default: **1024** (builds in about 95 s in Bluesim). Revisit once the forum gives the cycle limit and once synthesis numbers exist. It is one line to change.
 
 **Behaviours to keep in mind (spec Section 4):**
 - Memory answers one cycle after the request, so the reader must save the requested (r, c) and unmask with that saved position.
@@ -72,13 +74,13 @@ Plan: write it parametric from the start, get P = all working first, then shrink
 |---|---|---|---|---|
 | 1 | Walker + mask (`QRWalker.bsv`) | which modules to read, in order; mask test | | **done, verified** |
 | 2 | Format decoder (`QRFormat.bsv`) | 15+15 bits to ok / level / mask; Table 1 positions | | **done, verified** |
-| 3 | Reader | walker + mem port + unmask -> bytes | | not started |
-| 4 | De-interleaver + buffer | bytes -> blocks (counters, no division) | | not started |
+| 3 | Reader (`QRReader.bsv`) | walker + format reads + mem port + unmask -> codeword bytes | | **done, verified** |
+| 4 | Block buffer (`QRBlocks.bsv`) | bytes -> blocks (counters, no division), group planner, block walker, read port | | **done, verified** |
 | 5 | Reed-Solomon | syndromes, Berlekamp-Massey, Chien, Forney | | not started |
 | 6 | Payload parser | corrected bytes -> characters, `last` flag | | not started |
 | 7 | Top level (`mkQRDecoder`) | `start` / `getByte` / `failed` / `done`, controller | | not started |
 
-Suggested build order: GF multiplier, 2, 3, 4, 5, 6, 7. Test each unit against the model before connecting it.
+Suggested build order: 1, 2, 3, 4, then GF multiplier, 5, 6, 7. Test each unit against the model before connecting it.
 
 ### Unit 1 contract (done)
 
@@ -108,6 +110,42 @@ decodeFormat(Bit#(15) copy1, Bit#(15) copy2) -> FormatInfo { Bool ok; Bit#(2) le
 - Baseline is the "all 32 at once" version; the one-candidate-per-cycle version is a later synthesis experiment.
 - Verified (`verification/format/run.sh`, expect these three lines): `nearestFormat` 32768/32768 words (all 2^15) identical to the model; `formatPosition` 1200/1200; `decodeFormat` 400000/400000 random pairs (including copy-2 wins and ties at non-zero distance). The 32 words in `QRTables.bsv` were also re-derived from the spec's BCH description, minimum distance 7. A deliberately broken tie rule makes the checker report ~75k mismatches, so the test does catch that bug.
 
+### Unit 3 contract (done)
+
+```
+interface QRReader:
+  startFormat(Coord n)                       // read both format copies (30 reads)
+  formatInfo() -> Maybe#(FormatInfo)         // Invalid until all 30 bits arrived; valid until next start
+  startData(Coord n, UInt#(6) ver, Bit#(3) mask)   // walk + read + unmask; restarts from the first module
+  getCodeword() -> Bit#(8)                   // next unmasked codeword byte, in symbol order (implicit condition)
+  dataFinished() -> Bool                     // all modules read and every byte taken
+  interface MemPort mem                      // the top level passes this straight through
+```
+- Bytes come out in the order they sit in the symbol (k = 0, 1, 2 ... in the spec's interleaving formula), first bit read = MSB. The few remainder bits of some versions never make a byte and are dropped.
+- Restart (`startFormat` / `startData`) only while idle: after `formatInfo` is valid, or after `dataFinished`. The top level can call `startData` again for each pass of the group-per-pass design.
+- Speed: about 1 module per cycle; a full decode read costs `N*(N-1)+1` cycles plus about 34 (30 format reads and the pipeline). A slow consumer stalls the reader safely: it never loses or repeats a bit.
+- How it handles the memory port: it remembers each request and trusts `resp` only in the cycle after (the answer *holds* afterwards); it relies on C4 (a ready request is always taken in the same cycle); a one-position buffer sits between the walker and the port.
+- Verified (`modules/reader/run.sh`, expect `PASS`): all 1,614 model cases; 1,563 give identical codeword bytes (about 1.98M bytes), 37 format failures behave as expected, 14 bad sizes skipped; every third case takes bytes at once, the others with random back-pressure. Planted bugs (unmask with the wrong position; ignore a full output slot) are both caught.
+
+### Unit 4 contract (done)
+
+```
+interface QRBlockBuf#(cap):
+  configure(BlockParams p)            // once per symbol (from blockParams(ver, level))
+  planPass(UInt#(7) g0)               // choose the group of blocks g0 .. groupEnd-1 (0 for the first pass)
+  groupValid() / groupStart() / groupEnd() / moreGroups()
+  putByte(Bit#(8))                    // feed the symbol's bytes in symbol order, ALL p.total of them, every pass
+  filled()                            // every byte of this pass has been seen
+  rewindBlocks() / advanceBlock() / curBlock() -> BlockDesc{valid, idx, base, dataLen, len}
+  readReq(UInt#(12) addr) / readData() // data appears the cycle after readReq and holds; addr = base + position in block
+```
+- Per pass the top level does: `planPass(g0)`, wait `groupValid`, `rd.startData(...)`, move every reader byte into `putByte`, wait `filled`, then run RS over the group's blocks (`rewindBlocks`, then `curBlock` / `advanceBlock` until `!valid`), then `planPass(groupEnd)` if `moreGroups`. The reader's format step is done once, not per pass.
+- Inside a block the bytes are the data bytes followed by the check bytes, which is exactly the order RS wants. Blocks in a group sit back to back; `curBlock.base` gives each one's start address.
+- The de-interleaver uses counters only (phase, block, index); the offset of the first long block is remembered from the first data round. The group planner adds blocks greedily until the next one would not fit (at most 81 cycles per pass).
+- Storage is plain registers without reset (`mkRegU`) inside `mkByteMem`, with a decoded row/column address. No library memory, so the Verilog needs nothing from bsc's library. Reading is a balanced AND-OR tree.
+- Verified (`modules/blocks/run.sh`, expect `PASS` for each size): for all 160 (version, level) pairs, every block's bytes match the spec's formula for k (random data), the groups are contiguous, within the capacity and greedy-maximal. Sizes tested: 153 (34 passes worst), 300, 1024 (5 passes worst). Three planted bugs (wrong offset for the extra byte of long blocks, wrong position for check bytes, planner off by one) are all caught.
+- Limits found: bsc elaboration works up to the full 3706 bytes but warns about step counts (limit 1M); the Bluesim C++ for 3706 bytes (3.8 MB) did not compile in 4 GB of RAM, while 1024 compiles in about 95 s. Bigger buffers also make every later test build slower.
+
 ## Verification plan
 
 - Per unit: exhaustive where the input space allows (GF multiplier, format decoder), random plus hand-picked hard cases otherwise.
@@ -120,14 +158,14 @@ decodeFormat(Bit#(15) copy1, Bit#(15) copy2) -> FormatInfo { Bool ok; Bit#(2) le
 
 Run Design Compiler (normal synthesis, not topographical) with 40% external delay; reuse the udcounter scripts and do not change the timing libraries. Record Table 5 for every iteration, then ICC place and route (not ICC2) for the best one (Table 6). Candidate levers, one or two per iteration:
 
-1. Baseline (P = all): get it correct first.
-2. Shrink P (area against cycles).
+1. Baseline (a working `cap`, e.g. 1024): get it correct first.
+2. Shrink the buffer `cap` (area against cycles).
 3. Format decoder: all 32 comparisons at once vs one per cycle.
 4. RS: one shared GF multiplier vs several.
 5. Merge counters, share (r, c) logic, look ahead in the walker so it skips function modules faster.
 6. Retime or tighten the clock period.
 
-Tackle P first: while the buffer is huge it hides the effect of every other change.
+Tackle `cap` first: while the buffer is large it hides the effect of every other change.
 
 ## Decisions and open questions
 
@@ -142,6 +180,9 @@ Confirm on the course forum (questions that would reveal part of a solution go t
 - `dist` is a reserved word (SystemVerilog keyword); the compiler's error message about it is confusing. Use another name.
 - `Coord` is a `UInt#(8)`: use `pack(r)[0]` to pick a bit.
 
+- Bluesim builds slow down badly with thousands of registers (see unit 4). Develop and test with a small `cap` (153 or 300).
+- In `bsc` output, `\|` (the OR operator passed to `fold`) is easy to mangle when pasting; keep a single backslash.
+
 ## Environment
 
 `bsc` 2024.07 and Bluesim were used to verify unit 1. The course Docker image has `bsc`, Verilator and cocotb.
@@ -149,6 +190,8 @@ Confirm on the course forum (questions that would reveal part of a solution go t
 ## Status log
 
 - Unit 1 (walker + mask) done. 40/40 versions and 8/8 masks match the model.
+- Unit 4 (block buffer) done. All 160 version/level pairs match the spec's interleaving at cap 153, 300 and 1024; three planted bugs caught.
+- Unit 3 (reader) done. 1,563 cases / 1.98M codeword bytes identical to the model, with back-pressure; two planted bugs caught.
 - Unit 2 (format decoder) done. Exhaustive nearest-word test, 1200 positions and 400k random pairs match the model.
 - Model (`qr_model/`) passes its 16 self-tests and generates 1,614 vectors.
-- `QRDecoder.bsv` is still the placeholder; units 3 to 7 not started. Next: unit 3, the reader (walker + format decoder + memory port).
+- `QRDecoder.bsv` is still the placeholder; units 5 to 7 not started. Next: the GF(2^8) multiplier and unit 5 (Reed-Solomon).
