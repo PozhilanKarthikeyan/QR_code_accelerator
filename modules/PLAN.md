@@ -16,6 +16,79 @@ Living document. Read this first, then the spec PDF. Update the **Status log** a
 6. Everyone must understand every line they submit (spec Section 7).
 7. Keep the repo **private** until grading is over; submissions are compared against public repositories.
 
+## Handover: how to continue (read this before touching anything)
+
+**Start-up checklist.**
+1. Read this file, then the spec PDF (Sections 1, 4 and 5 matter most).
+2. Get `bsc` (2024.07 or similar) on the PATH. If it is not installed (the course Docker image has it), this is what worked in a plain Ubuntu 22/24 sandbox:
+   ```
+   curl -sL -o bsc.tgz https://github.com/B-Lang-org/bsc/releases/download/2024.07/bsc-2024.07-ubuntu-22.04.tar.gz
+   tar xzf bsc.tgz
+   export BLUESPECDIR=$PWD/bsc-2024.07-ubuntu-22.04/lib
+   export PATH=$PWD/bsc-2024.07-ubuntu-22.04/bin:$PATH
+   apt-get install -y tcl8.6            # Bluesim needs it (run apt-get update first if the package is not found)
+   pip install segno pytest --break-system-packages
+   ```
+   Both environment variables are needed in every new shell. Without `bsc` you can only write code unseen, so say so instead of claiming it works.
+3. Run every `modules/*/run.sh` (walker, format, reader, blocks, gf, rs). Each must print `PASS` or its three-number pass line. Do not change units 1 to 5 unless one of these fails.
+4. Machine limits seen so far: with 4 GB of RAM, Bluesim cannot build a 3,706-byte buffer; use `cap` <= 1024. A single tool command may be limited to about 5 minutes; run long builds in the background (`setsid nohup ... &`) and poll.
+
+**The pattern every unit followed (keep following it).**
+1. Read the spec section; write the unit's contract here first (interface, what it promises, what the next unit must do).
+2. Write the RTL from the spec, not from `qr_model/`. Small pure functions where possible. For stateful modules: methods only raise wires (`RWire`, `PulseWire`), and ONE rule owns every register (this avoids bsc's "conflicting writes" and ordering problems).
+3. Write a test bench that plays the course test bench (answers `mem.req` one cycle later, applies back-pressure) and prints lines for a Python checker.
+4. The checker compares against an independent computation from the spec AND the model, exits non-zero on any difference, and prints a one-line summary.
+5. Plant 2 to 4 bugs on a scratch copy and confirm the checker catches each. Report honestly any that survive (and why).
+6. Give the unit a one-command `run.sh`, update this file (status table, contract, status log), and tell the team which files go where.
+7. Treat bsc warnings about rules that "can never fire" or "conflict" as bugs in the design or test bench, not as noise (this found a real test-bench bug in unit 5).
+
+**The whole decode as one sequence (what `mkQRDecoder` must do).** Units 1 to 5 are done; unit 6 and the glue are not.
+```
+start(N)
+  1. N must be 21..177 with (N-17) % 4 == 0, else failed.   ver = (N-17)/4
+  2. rd.startFormat(N); wait rd.formatInfo valid.            not ok -> failed
+  3. p = blockParams(ver, fi.level); bb.configure(p); g0 = 0
+  4. for each group of blocks (until !bb.moreGroups):
+       bb.planPass(g0); wait bb.groupValid
+       rd.startData(N, ver, fi.mask)
+       move every rd.getCodeword byte into bb.putByte  (p.total bytes); wait bb.filled and rd.dataFinished
+       bb.rewindBlocks
+       while bb.curBlock.valid:
+           rs.decodeBlock(p.ecLen, bb.curBlock)
+           move every rs.getData byte into the payload parser; wait rs.done (rs.failed -> failed)
+           bb.advanceBlock
+       g0 = bb.groupEnd
+  5. tell the payload parser the data has ended; when its last character has been taken -> done
+```
+- Reading and RS never overlap (the reader is idle whenever RS runs), so a failure never has to abort a running reader.
+- ALL blocks must pass RS before `done` rises, even if the message ended in block 0 (spec G3). If the parser has already emitted the byte with `last`, keep decoding the remaining blocks, then raise `done` or `failed`. Spec C2 allows `failed` after bytes were returned (open question 3 below asks the TAs to confirm this exact case).
+- After the terminator, ignore further data bytes (they are padding) but still let RS verify the blocks.
+- `start` may only be called when idle (A3); `failed`/`done` stay high until the next `start`; once `failed` is high `getByte` must not fire (C3). `start` and `getByte` need implicit conditions, no `always_ready` (C5).
+- The top level owns: `QRReader rd`, `QRBlockBuf#(cap) bb` (cap = 1024 to start), `QRRS rs <- mkQRRS(bb)`, the payload parser, and `interface mem = rd.mem`. Keep `(* synthesize *)`, the module name and the interface of `mkQRDecoder` from `src/QRDecoder.bsv`.
+
+**Unit 6 (payload parser), proposed contract.** Spec Section 1.5 and G4. Not yet written.
+```
+interface QRPayload:
+  start(UInt#(6) ver)               // select the count widths, clear all state
+  putByte(Bit#(8) b)                // corrected data bytes, block 0 first (implicit condition: ready for more)
+  endOfData()                       // the stream is over (all data bytes of all blocks were fed)
+  getByte() -> OutByte{data,last}   // characters in order; `last` only on the final one (implicit condition)
+  failed() / done()                 // malformed payload / all characters taken (also an empty message)
+```
+- The data is a bit stream, MSB first. Segment = 4-bit mode, count (width by version: 1-9, 10-26, 27-40, see Table 4 in the spec), characters. Modes: 0001 numeric (3 digits in 10 bits, last group 2 digits in 7 bits or 1 digit in 4 bits), 0010 alphanumeric (2 chars in 11 bits as 45a+b, last single char in 6 bits), 0100 byte (8 bits), 0000 terminator. Output is the ASCII code for numeric and alphanumeric characters (alphabet `0-9 A-Z space $ % * + - . / :`), the raw byte for byte mode.
+- Fail on: unknown mode indicator; a segment that runs past the end of the data; a numeric group above 999 (above 99 for two digits, above 9 for one); an alphanumeric pair above 2024 (a single above 44). The message ends at a terminator OR when fewer than 4 bits remain.
+- `last` needs a one-character holdback: a character can only be marked last once the next mode indicator (terminator) or the end of data has been seen. An empty message gives no byte and a `done` at once.
+- Decisions the spec leaves open and the model made (confirm with the TAs, see open questions): a segment with count 0 is legal; fewer than 4 bits left with no terminator ends the message successfully; leading zeros in numeric groups are kept.
+- Test against `qr_model/payload.py` on payloads built by hand (all modes, mixed segments, short final groups, every failure case) and on the model's ~1,600 vectors.
+
+**Unit 7 (top level).** Implement the sequence above in `src/QRDecoder.bsv` (or a new file imported by it). Needs a small controller FSM and the byte-forwarding rules. Test with a test bench that plays the course test bench against ALL of `qr_model/gen_vectors.py`'s cases (the spec's section 5.3 list), checks C1 to C5, takes bytes with random back-pressure, and decodes many symbols in a row without reset. Then synthesis and place-and-route (spec Section 6).
+
+**Known pitfalls (all hit already).**
+- BSV: `dist` is a reserved word; variable names must start with a lowercase letter; `Coord` is a `UInt#(8)`, so use `pack(x)[i]` for a bit; two writes to the same register in one rule are an error unless provably exclusive, so use variables or wires; bit-select of a value needs the width stated (`UInt#(5) i = truncate(x);`).
+- The memory answer HOLDS: trust `resp` only in the cycle after you asked (unit 3 does this).
+- A "ready means taken" assumption (C4) is used in the reader's position buffer.
+- Big register arrays make bsc and the Bluesim C++ build slow (see unit 4 numbers).
+
 ## Repo layout
 
 ```
