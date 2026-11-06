@@ -68,16 +68,40 @@ function Tuple2#(Bit#(5), UInt#(4)) nearestFormat(Bit#(15) w);
 endfunction
 
 // ---------------------------------------------------------------------------
+// Threshold match (iteration 2).  Any two valid words differ in at least 7 positions, so at most
+// one of the 32 words can lie within 3 positions of w.  Test all 32 independently (no compare
+// chain between them) and OR together the index and distance of the one that matches (if any).
+//   hit  : some valid word is within 3 positions of w
+//   idx  : its 5 data bits {level, mask}   (0 when !hit)
+//   dist : its distance, 0..3              (0 when !hit)
+// ---------------------------------------------------------------------------
+function Tuple3#(Bool, Bit#(5), Bit#(2)) nearWithin3(Bit#(15) w);
+   Bool     hit  = False;
+   Bit#(5)  idx  = 0;
+   Bit#(2)  dist = 0;
+   for (Integer d = 0; d < 32; d = d + 1) begin
+      UInt#(4) c = countOnes(w ^ formatCodeword(d));
+      Bool     h = (c <= 3);
+      hit  = hit  || h;
+      idx  = idx  | (h ? fromInteger(d) : 0);
+      dist = dist | (h ? truncate(pack(c)) : 0);
+   end
+   return tuple3(hit, idx, dist);
+endfunction
+
+// ---------------------------------------------------------------------------
 // G2: take the copy nearer to a valid word (first copy on a tie); fail if that
 // copy is more than 3 positions away.
+//   Only copies within 3 can succeed, so: first copy if it matches and the second does not or is
+//   no nearer; second copy if only it matches; fail if neither matches.
+//   (nearestFormat above is kept: it is still what the unit test checks for all 2^15 words.)
 // ---------------------------------------------------------------------------
 function FormatInfo decodeFormat(Bit#(15) copy1, Bit#(15) copy2);
-   match {.d1, .dst1} = nearestFormat(copy1);
-   match {.d2, .dst2} = nearestFormat(copy2);
-   Bool     useFirst = dst1 <= dst2;
+   match {.h1, .d1, .e1} = nearWithin3(copy1);
+   match {.h2, .d2, .e2} = nearWithin3(copy2);
+   Bool     useFirst = h1 && (!h2 || e1 <= e2);
+   Bool     good     = h1 || h2;
    Bit#(5)  d        = useFirst ? d1 : d2;
-   UInt#(4) dst     = useFirst ? dst1 : dst2;
-   Bool     good     = dst <= 3;
    return FormatInfo { ok:    good,
                        level: good ? d[4:3] : 0,
                        mask:  good ? d[2:0] : 0 };
