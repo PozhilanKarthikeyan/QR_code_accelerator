@@ -1,0 +1,8 @@
+
+To invoke DC synthesis tool in gui mode
+design_vision -gui | tee dc.log
+
+To invoke DC synthesis tool in batch mode
+design_vision -f ../scripts/dc.tcl | tee dc.log
+
+Always invoke the tool from the "work" directory as the relative paths in the scripts assume so and also to segregate the temporary files that the tool generates.

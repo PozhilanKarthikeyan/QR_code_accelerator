@@ -1,0 +1,145 @@
+Warning: duplicate option '-nosplit' overrides previous value. (CMD-018)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2o
+        -max_paths 20
+        -transition_time
+        -capacitance
+Design : udcounter
+Version: U-2022.12
+Date   : Tue Sep  8 14:31:39 2026
+****************************************
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: Count_reg_2_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count[2] (output port clocked by Clk)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_2_/CK (SAEDRVT14_FDPRBQ_V2LP_1)                         0.00      0.00       0.00 r
+  Count_reg_2_/Q (SAEDRVT14_FDPRBQ_V2LP_1)                          0.12      0.14       0.14 r
+  Count[2] (net)                                4         0.02                0.00       0.14 r
+  Count[2] (out)                                                    0.12      0.00       0.14 r
+  data arrival time                                                                      0.14
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  output external delay                                                      -0.15       0.35
+  data required time                                                                     0.35
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.35
+  data arrival time                                                                     -0.14
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.21
+
+
+  Startpoint: Count_reg_3_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count[3] (output port clocked by Clk)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_3_/CK (SAEDRVT14_FDPRBQ_V2LP_1)                         0.00      0.00       0.00 r
+  Count_reg_3_/Q (SAEDRVT14_FDPRBQ_V2LP_1)                          0.09      0.12       0.12 r
+  Count[3] (net)                                3         0.02                0.00       0.12 r
+  Count[3] (out)                                                    0.09      0.00       0.12 r
+  data arrival time                                                                      0.12
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  output external delay                                                      -0.15       0.35
+  data required time                                                                     0.35
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.35
+  data arrival time                                                                     -0.12
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.23
+
+
+  Startpoint: Count_reg_0_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count[0] (output port clocked by Clk)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_0_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.08      0.11       0.11 r
+  Count[0] (net)                                3         0.02                0.00       0.11 r
+  Count[0] (out)                                                    0.08      0.00       0.11 r
+  data arrival time                                                                      0.11
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  output external delay                                                      -0.15       0.35
+  data required time                                                                     0.35
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.35
+  data arrival time                                                                     -0.11
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.24
+
+
+  Startpoint: Count_reg_1_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count[1] (output port clocked by Clk)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_1_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_1_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.06      0.08       0.08 r
+  Count[1] (net)                                2         0.01                0.00       0.08 r
+  Count[1] (out)                                                    0.06      0.00       0.08 r
+  data arrival time                                                                      0.08
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  output external delay                                                      -0.15       0.35
+  data required time                                                                     0.35
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.35
+  data arrival time                                                                     -0.08
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.27
+
+
+1

@@ -1,0 +1,450 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+                 Version U-2022.12 for linux64 - Nov 22, 2022 
+
+                    Copyright (c) 1988 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+# -------------------------------------------------------
+# Design and Path Variables
+# -------------------------------------------------------
+set DESIGN udcounter
+udcounter
+set _OUTPUTS_PATH ../outputs
+../outputs
+set _REPORTS_PATH ../reports
+../reports
+##
+# -------------------------------------------------------
+# Library Setup - SAED14nm EDK 03_2025
+# -------------------------------------------------------
+set PDK_PATH "/home/tools/pdk/SAED14nm_EDK_03_2025"
+/home/tools/pdk/SAED14nm_EDK_03_2025
+set target_library    [list]
+set link_library      "*"
+*
+# Define the root path for your 2022 installation
+set SYNOPSYS_ROOT "/home/tools/pd_tools/syn/U-2022.12"
+/home/tools/pd_tools/syn/U-2022.12
+set synthetic_library [list \
+  $SYNOPSYS_ROOT/libraries/syn/dw_foundation.sldb \
+  $SYNOPSYS_ROOT/libraries/syn/standard.sldb \
+]
+/home/tools/pd_tools/syn/U-2022.12/libraries/syn/dw_foundation.sldb /home/tools/pd_tools/syn/U-2022.12/libraries/syn/standard.sldb
+# Target library: SAED14 RVT, NLDM, base, SS corner (0.72V, 125C) - worst case for setup
+set target_library [concat $target_library \
+$PDK_PATH/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db \
+]
+/home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db
+# Link library: same RVT base library
+set link_library [concat $link_library \
+$PDK_PATH/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db \
+]
+* /home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db
+# Combine all libraries
+set link_library [concat $link_library $target_library $synthetic_library]
+* /home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db /home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db /home/tools/pd_tools/syn/U-2022.12/libraries/syn/dw_foundation.sldb /home/tools/pd_tools/syn/U-2022.12/libraries/syn/standard.sldb
+##
+# -------------------------------------------------------
+# Output Directory Setup and SVF
+# -------------------------------------------------------
+file mkdir ${_OUTPUTS_PATH}
+file mkdir ${_REPORTS_PATH}
+set_svf ${_OUTPUTS_PATH}/${DESIGN}.svf
+1
+# -------------------------------------------------------
+# RTL Read and Elaboration
+# -------------------------------------------------------
+analyze -format verilog -autoread ../../rtl/
+Information: Use of command 'analyze -autoread' is not recommended. This command will be obsolete in a future release. (INFO-103)
+== ANALYZE autoread all files ==
+
+Starting ANALYZE autoread mode...
+Information: Adding '/scratch/CS6230_EE23B081/udcounter/rtl/'.  (AUTOREAD-100)
+Warning: Adding missing directory to search_path - '/scratch/CS6230_EE23B081/udcounter/rtl/'. (AUTOREAD-105)
+Information: Adding '/scratch/CS6230_EE23B081/udcounter/rtl/udcounter.v'.  (AUTOREAD-100)
+Information: Scanning file { udcounter.v }. (AUTOREAD-303)
+Compiling source file /scratch/CS6230_EE23B081/udcounter/rtl/udcounter.v
+Warning:  /scratch/CS6230_EE23B081/udcounter/rtl/udcounter.v:14: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Presto compilation completed successfully.
+Autoread command completed successfully.
+1
+elaborate $DESIGN
+Loading db file '/home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db'
+Loading db file '/home/tools/pd_tools/syn/U-2022.12/libraries/syn/dw_foundation.sldb'
+Loading db file '/home/tools/pd_tools/syn/U-2022.12/libraries/syn/standard.sldb'
+Loading db file '/home/tools/pd_tools/syn/U-2022.12/libraries/syn/gtech.db'
+  Loading link library 'saed14rvt_base_ss0p72v125c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine udcounter line 16 in file
+		'/scratch/CS6230_EE23B081/udcounter/rtl/udcounter.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      Count_reg      | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (udcounter)
+Elaborated 1 design.
+Current design is now 'udcounter'.
+1
+current_design $DESIGN
+Current design is 'udcounter'.
+{udcounter}
+link
+
+  Linking design 'udcounter'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  udcounter                   /scratch/CS6230_EE23B081/udcounter/syn/work/udcounter.db
+  saed14rvt_base_ss0p72v125c (library) /home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db
+  dw_foundation.sldb (library) /home/tools/pd_tools/syn/U-2022.12/libraries/syn/dw_foundation.sldb
+
+1
+# Write pre-synthesis (GTECH) netlist for reference
+#write -f ddc     -hier -o  ${_OUTPUTS_PATH}/$DESIGN.gtech.hier.ddc
+#write -f verilog -hier -o  ${_OUTPUTS_PATH}/$DESIGN.gtech.hier.v
+# -------------------------------------------------------
+# Apply Timing Constraints
+# -------------------------------------------------------
+source ../scripts/udcounter.sdc
+1
+# -------------------------------------------------------
+# Optimization Constraints
+# -------------------------------------------------------
+set_max_area 0
+1
+set_dont_retime $DESIGN true
+1
+##
+# -------------------------------------------------------
+# Path Group Setup 
+# -------------------------------------------------------
+set unq_input_list [all_inputs]
+{Clk reset UpOrDown}
+foreach_in_collection unq_clock_element [all_clocks] {
+  set unq_clock_name [get_port $unq_clock_element]
+  set unq_input_list [remove_from_collection $unq_input_list $unq_clock_name]
+}
+# Critical range scaled down for 14nm (0.15 ns)
+group_path -name f2f -from [all_registers]  -to [all_registers] -critical_range 0.15
+1
+group_path -name i2f -from $unq_input_list  -to [all_registers] -critical_range 0.15
+1
+group_path -name f2o -from [all_registers]  -to [all_outputs]   -critical_range 0.15
+1
+group_path -name i2o -from $unq_input_list  -to [all_outputs]   -critical_range 0.15
+1
+##
+# -------------------------------------------------------
+# Pre-Compile Design Check
+# -------------------------------------------------------
+check_design > ${_REPORTS_PATH}/check_design.pre_compile.rpt
+# -------------------------------------------------------
+# Synthesis: compile_ultra
+# -------------------------------------------------------
+compile_ultra -no_autoungroup -no_seq_output_inversion -timing_high_effort_script 
+Warning: The -timing_high_effort_script option is ignored.  (OPT-1342)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db"
+Library analysis succeeded.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | U-2022.12-DWBB_202212.0 |     *     |
+| Licensed DW Building Blocks        | U-2022.12-DWBB_202212.0 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Comand Line  | compile_ultra -no_seq_output_inversion -no_autoungroup                            |
+|              | -timing_high_effort_script                                                        |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 27                                     |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 4                                      |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 6                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 11                                     |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'udcounter'
+
+Warning: Library cell 'SAEDRVT14_FSDP_V2LP_1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDP_V2_2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDP_V2_0P5' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_1' could not be modeled for sequential mapping. (OPT-1201)
+Loaded alib file './alib-52/saed14rvt_base_ss0p72v125c.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'udcounter'
+Information: Added key list 'DesignWare' to design 'udcounter'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'SAEDRVT14_TIE1_V1ECO_1' in the library 'saed14rvt_base_ss0p72v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'SAEDRVT14_TIE1_V1_2' in the library 'saed14rvt_base_ss0p72v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'SAEDRVT14_TIE1_4' in the library 'saed14rvt_base_ss0p72v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'SAEDRVT14_TIE0_V1_2' in the library 'saed14rvt_base_ss0p72v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'SAEDRVT14_TIE0_4' in the library 'saed14rvt_base_ss0p72v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:13      10.7      0.00       0.0       0.0                           33095.8242
+    0:00:13      10.7      0.00       0.0       0.0                           33095.8242
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:15       9.3      0.08       0.2       0.0                           20553.4121
+    0:00:15      10.3      0.00       0.0       0.0                           28132.3750
+    0:00:15      10.3      0.00       0.0       0.0                           28132.3750
+    0:00:15      10.3      0.00       0.0       0.0                           28132.3750
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+    0:00:15      10.3      0.00       0.0       0.0                           28132.3750
+    0:00:15      10.3      0.00       0.0       0.0                           28132.3750
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:15      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:15      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:15      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+
+Threshold voltage group cell usage:
+>> RVT 100.00%
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:16      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:17      10.3      0.00       0.0       0.0                           27719.4746
+    0:00:17       9.9      0.00       0.0       0.0                           25862.5254
+    0:00:17       9.9      0.00       0.0       0.0                           25862.5254
+    0:00:17       9.9      0.00       0.0       0.0                           25862.5254
+    0:00:18       9.9      0.00       0.0       0.0                           25862.5254
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.8      0.00       0.0       0.0                           25209.5371
+    0:00:18       9.5      0.00       0.0       0.0                           22373.2871
+Loading db file '/home/tools/pdk/SAED14nm_EDK_03_2025/SAED14nm_EDK_STD_RVT/liberty/nldm/base/saed14rvt_base_ss0p72v125c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Library cell 'SAEDRVT14_FSDP_V2LP_1' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDP_V2_2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDP_V2_0P5' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_4' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_2' could not be modeled for sequential mapping. (OPT-1201)
+Warning: Library cell 'SAEDRVT14_FSDN_V2_1' could not be modeled for sequential mapping. (OPT-1201)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+# -------------------------------------------------------
+# Naming Convention Enforcement
+# -------------------------------------------------------
+define_name_rules verilog -allowed "a-z A-Z 0-9 _ /"
+1
+change_names -hier -rules verilog
+1
+# -------------------------------------------------------
+# Write Post-Synthesis Outputs
+# -------------------------------------------------------
+write -format verilog -hierarchy -output ${_OUTPUTS_PATH}/$DESIGN.verilog.v
+Writing verilog file '/scratch/CS6230_EE23B081/udcounter/syn/outputs/udcounter.verilog.v'.
+1
+write -format ddc     -hierarchy -output ${_OUTPUTS_PATH}/$DESIGN.compile.ddc
+Writing ddc file '../outputs/udcounter.compile.ddc'.
+1
+# -------------------------------------------------------
+# Timing and QoR Reports
+# -------------------------------------------------------
+report_qor > ${_REPORTS_PATH}/dc_compile_ultra_1.qor
+report_timing -nosplit -max_paths 20 -input -nets -cap -tran -nosplit -sig 2 -group f2f > ${_REPORTS_PATH}/setup.f2f.tim.rpt
+report_timing -nosplit -max_paths 20 -input -nets -cap -tran -nosplit -sig 2 -group i2f > ${_REPORTS_PATH}/setup.i2f.tim.rpt
+report_timing -nosplit -max_paths 20 -input -nets -cap -tran -nosplit -sig 2 -group f2o > ${_REPORTS_PATH}/setup.f2o.tim.rpt
+report_timing -nosplit -max_paths 20 -input -nets -cap -tran -nosplit -sig 3 -group i2o > ${_REPORTS_PATH}/setup.i2o.tim.rpt
+check_design > ${_REPORTS_PATH}/check_design.dc_compile_1.rpt
+# -------------------------------------------------------
+# Multi-Port Net Fix
+# -------------------------------------------------------
+set verilogout_no_tri  "true"
+true
+set_app_var compile_advanced_fix_multiple_port_nets "true"
+true
+set_fix_multiple_port_nets -all -buffer_constants
+1
+change_names -hier -rules verilog
+1
+write -format verilog -hierarchy -output ${_OUTPUTS_PATH}/$DESIGN.verilog_noassign.v
+Writing verilog file '/scratch/CS6230_EE23B081/udcounter/syn/outputs/udcounter.verilog_noassign.v'.
+1
+#exit
+design_vision> Current design is 'udcounter'.
+Current design is 'udcounter'.

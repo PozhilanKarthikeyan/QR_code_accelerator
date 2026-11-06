@@ -1,0 +1,198 @@
+Warning: duplicate option '-nosplit' overrides previous value. (CMD-018)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2f
+        -max_paths 20
+        -transition_time
+        -capacitance
+Design : udcounter
+Version: U-2022.12
+Date   : Tue Sep  8 14:31:39 2026
+****************************************
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: Count_reg_0_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count_reg_3_
+            (rising edge-triggered flip-flop clocked by Clk)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_0_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.08      0.11       0.11 r
+  Count[0] (net)                                3         0.02                0.00       0.11 r
+  U24/CI (SAEDRVT14_ADDF_V1_2)                                      0.08      0.00       0.11 r
+  U24/S (SAEDRVT14_ADDF_V1_2)                                       0.04      0.14       0.24 f
+  n13 (net)                                     2         0.01                0.00       0.24 f
+  U15/A (SAEDRVT14_INV_6)                                           0.04      0.00       0.24 f
+  U15/X (SAEDRVT14_INV_6)                                           0.02      0.03       0.27 r
+  n17 (net)                                     3         0.02                0.00       0.27 r
+  U21/B2 (SAEDRVT14_OAI22_1P5)                                      0.02      0.00       0.27 r
+  U21/X (SAEDRVT14_OAI22_1P5)                                       0.06      0.04       0.32 f
+  n15 (net)                                     1         0.01                0.00       0.32 f
+  U27/B (SAEDRVT14_OAI21_3)                                         0.06      0.00       0.32 f
+  U27/X (SAEDRVT14_OAI21_3)                                         0.05      0.06       0.38 r
+  n19 (net)                                     2         0.01                0.00       0.38 r
+  U19/A1 (SAEDRVT14_ND2_MM_2)                                       0.05      0.00       0.38 r
+  U19/X (SAEDRVT14_ND2_MM_2)                                        0.02      0.03       0.40 f
+  n18 (net)                                     1         0.00                0.00       0.40 f
+  U28/B (SAEDRVT14_OAI21_0P5)                                       0.02      0.00       0.40 f
+  U28/X (SAEDRVT14_OAI21_0P5)                                       0.06      0.05       0.45 r
+  N23 (net)                                     1         0.00                0.00       0.45 r
+  Count_reg_3_/D (SAEDRVT14_FDPRBQ_V2LP_1)                          0.06      0.00       0.45 r
+  data arrival time                                                                      0.45
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  Count_reg_3_/CK (SAEDRVT14_FDPRBQ_V2LP_1)                                   0.00       0.50 r
+  library setup time                                                         -0.04       0.46
+  data required time                                                                     0.46
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.46
+  data arrival time                                                                     -0.45
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.00
+
+
+  Startpoint: Count_reg_0_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count_reg_2_
+            (rising edge-triggered flip-flop clocked by Clk)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_0_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.08      0.11       0.11 r
+  Count[0] (net)                                3         0.02                0.00       0.11 r
+  U24/CI (SAEDRVT14_ADDF_V1_2)                                      0.08      0.00       0.11 r
+  U24/CO (SAEDRVT14_ADDF_V1_2)                                      0.07      0.12       0.23 r
+  n16 (net)                                     4         0.03                0.00       0.23 r
+  U17/A (SAEDRVT14_INV_S_1)                                         0.07      0.00       0.23 r
+  U17/X (SAEDRVT14_INV_S_1)                                         0.03      0.05       0.28 f
+  n11 (net)                                     1         0.00                0.00       0.28 f
+  U25/B1 (SAEDRVT14_OAI22_1)                                        0.03      0.00       0.28 f
+  U25/X (SAEDRVT14_OAI22_1)                                         0.06      0.06       0.34 r
+  n12 (net)                                     1         0.01                0.00       0.34 r
+  U16/S (SAEDRVT14_MUXI2_U_0P5)                                     0.06      0.00       0.34 r
+  U16/X (SAEDRVT14_MUXI2_U_0P5)                                     0.09      0.10       0.43 r
+  N22 (net)                                     1         0.00                0.00       0.43 r
+  Count_reg_2_/D (SAEDRVT14_FDPRBQ_V2LP_1)                          0.09      0.00       0.43 r
+  data arrival time                                                                      0.43
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  Count_reg_2_/CK (SAEDRVT14_FDPRBQ_V2LP_1)                                   0.00       0.50 r
+  library setup time                                                         -0.06       0.44
+  data required time                                                                     0.44
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.44
+  data arrival time                                                                     -0.43
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.01
+
+
+  Startpoint: Count_reg_0_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count_reg_1_
+            (rising edge-triggered flip-flop clocked by Clk)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_0_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.08      0.11       0.11 r
+  Count[0] (net)                                3         0.02                0.00       0.11 r
+  U24/CI (SAEDRVT14_ADDF_V1_2)                                      0.08      0.00       0.11 r
+  U24/S (SAEDRVT14_ADDF_V1_2)                                       0.04      0.14       0.24 f
+  n13 (net)                                     2         0.01                0.00       0.24 f
+  U15/A (SAEDRVT14_INV_6)                                           0.04      0.00       0.24 f
+  U15/X (SAEDRVT14_INV_6)                                           0.02      0.03       0.27 r
+  n17 (net)                                     3         0.02                0.00       0.27 r
+  U20/A (SAEDRVT14_INV_0P75)                                        0.02      0.00       0.27 r
+  U20/X (SAEDRVT14_INV_0P75)                                        0.03      0.04       0.31 f
+  n10 (net)                                     1         0.01                0.00       0.31 f
+  U23/A (SAEDRVT14_INV_S_2)                                         0.03      0.00       0.31 f
+  U23/X (SAEDRVT14_INV_S_2)                                         0.03      0.04       0.35 r
+  n20 (net)                                     2         0.01                0.00       0.35 r
+  Count_reg_1_/D (SAEDRVT14_FDPRBQ_V2_1)                            0.03      0.00       0.35 r
+  data arrival time                                                                      0.35
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  Count_reg_1_/CK (SAEDRVT14_FDPRBQ_V2_1)                                     0.00       0.50 r
+  library setup time                                                         -0.04       0.46
+  data required time                                                                     0.46
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.46
+  data arrival time                                                                     -0.35
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.12
+
+
+  Startpoint: Count_reg_0_
+              (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Count_reg_0_
+            (rising edge-triggered flip-flop clocked by Clk)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  udcounter          8000                  saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock Clk (rise edge)                                                       0.00       0.00
+  clock network delay (ideal)                                                 0.00       0.00
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                           0.00      0.00       0.00 r
+  Count_reg_0_/Q (SAEDRVT14_FDPRBQ_V2_1)                            0.08      0.10       0.10 f
+  Count[0] (net)                                3         0.02                0.00       0.10 f
+  U18/A (SAEDRVT14_INV_S_1)                                         0.08      0.00       0.10 f
+  U18/X (SAEDRVT14_INV_S_1)                                         0.04      0.06       0.16 r
+  N20 (net)                                     1         0.00                0.00       0.16 r
+  Count_reg_0_/D (SAEDRVT14_FDPRBQ_V2_1)                            0.04      0.00       0.16 r
+  data arrival time                                                                      0.16
+
+  clock Clk (rise edge)                                                       0.50       0.50
+  clock network delay (ideal)                                                 0.00       0.50
+  Count_reg_0_/CK (SAEDRVT14_FDPRBQ_V2_1)                                     0.00       0.50 r
+  library setup time                                                         -0.04       0.46
+  data required time                                                                     0.46
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                     0.46
+  data arrival time                                                                     -0.16
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                            0.30
+
+
+1

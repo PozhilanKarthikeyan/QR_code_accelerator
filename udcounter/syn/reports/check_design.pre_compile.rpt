@@ -1,0 +1,16 @@
+ 
+****************************************
+check_design summary:
+Version:     U-2022.12
+Date:        Tue Sep  8 14:27:33 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                               2
+    Cells do not drive (LINT-1)                                     2
+--------------------------------------------------------------------------------
+
+Warning: In design 'udcounter', cell 'C65' does not drive any nets. (LINT-1)
+Warning: In design 'udcounter', cell 'C66' does not drive any nets. (LINT-1)
+1

@@ -1,0 +1,9 @@
+Always invoke the tool from the "work" directory as the relative paths in the scripts assume so and also to segregate the temporary files that the tool generates.
+
+To invoke IC Compiler PNR tool in gui mode
+icc_shell -shared_license -gui | tee icc.log
+
+Once the GUI comes up, source the script in the command window
+source ../scripts/icc.tcl 
+
+
