@@ -150,6 +150,7 @@ module mkTbTop(Empty);
       Bool d = dut.done;
       UInt#(8) em = errM;
       if (f && d) em = em + 1;                                    // never both
+      if (st == BRun && (f || d) && gcyc - startAt == 1) em = em + 1;   // C2: both low in the cycle after start
       if (st == BRun) begin
          if (f || d) begin
             if (f && expOk)  em = em + 1;                         // a valid symbol must not fail
