@@ -7,6 +7,7 @@
 package TbPayload;
 
 import RegFile  :: *;
+import ConfigReg :: *;
 import QRTypes  :: *;
 import QRPayload :: *;
 
@@ -26,11 +27,14 @@ module mkTbPayload(Empty);
    Reg#(UInt#(6))  ver     <- mkReg(1);
    Reg#(UInt#(16)) len     <- mkReg(0);
    Reg#(UInt#(18)) off     <- mkReg(0);
-   Reg#(UInt#(16)) cnt     <- mkReg(0);
-   Reg#(Bool)      endSent <- mkReg(False);
-   Reg#(UInt#(20)) cyc     <- mkReg(0);
+   Reg#(UInt#(16)) cnt     <- mkConfigReg(0);      // ConfigReg: rFin may read it without an ordering conflict
+   Reg#(Bool)      endSent <- mkConfigReg(False);
+   Reg#(UInt#(32)) gcyc    <- mkReg(0);     // free-running cycle counter
+   Reg#(UInt#(32)) t0      <- mkReg(0);     // gcyc when the current case started
    Reg#(Bit#(32))  lfsr    <- mkReg(32'hACE12345);
 
+   UInt#(32) cyc = gcyc - t0;               // cycles since this case started
+   Bool allFed  = (cnt == len && endSent);   // every byte of the stream was accepted by the parser
    Bool fast    = (pack(ci)[1:0] == 0);
    Bool gapFeed = fast || (lfsr[1:0] != 0);
    Bool gapGet  = fast || (lfsr[5:3] == 0);
@@ -38,7 +42,7 @@ module mkTbPayload(Empty);
    (* fire_when_enabled, no_implicit_conditions *)
    rule tick;
       lfsr <= {lfsr[30:0], lfsr[31] ^ lfsr[21] ^ lfsr[1] ^ lfsr[0]};
-      cyc  <= (st == Start) ? 0 : cyc + 1;
+      gcyc <= gcyc + 1;
    endrule
 
    rule rCfg (st == Cfg);
@@ -54,6 +58,7 @@ module mkTbPayload(Empty);
 
    rule rStart (st == Start);
       p.start(ver);
+      t0 <= gcyc;
       cnt <= 0;
       endSent <= False;
       st <= Run;
@@ -74,10 +79,10 @@ module mkTbPayload(Empty);
       $display("B %0d %0d %0d", ci, o.data, o.last ? 1 : 0);
    endrule
 
-   rule rFin (st == Run && (p.failed || p.done || cyc > 500000));
+   rule rFin (st == Run && (p.failed || (p.done && allFed) || cyc > 200000));
       if (p.failed && p.done) $display("R %0d X %0d", ci, cyc);
       else if (p.failed)      $display("R %0d F %0d", ci, cyc);
-      else if (p.done)        $display("R %0d S %0d", ci, cyc);
+      else if (p.done && allFed) $display("R %0d S %0d", ci, cyc);
       else                    $display("R %0d T %0d", ci, cyc);
       st <= Next;
    endrule

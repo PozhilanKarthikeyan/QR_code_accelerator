@@ -7,7 +7,7 @@ MODEL=${MODEL_DIR:-../../qr_model}
 mkdir -p build
 python3 check_payload.py gen $MODEL
 NC=$(wc -l < cfg.hex)
-bsc -u -sim -D NCASES=$NC -p .:$SRC:+ -bdir build -simdir build -info-dir build -g mkTbPayload TbPayload.bsv >/dev/null
+bsc -u -sim -D NCASES=$NC -p $SRC:+ -bdir build -simdir build -info-dir build -g mkTbPayload TbPayload.bsv >/dev/null
 bsc -sim -e mkTbPayload -bdir build -simdir build -o build/TbPayload >/dev/null
 ./build/TbPayload > payload.out
 python3 check_payload.py check $MODEL

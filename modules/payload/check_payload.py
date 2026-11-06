@@ -189,6 +189,13 @@ def build(rnd):
     add_segs("pad 0xFF after term", 3, [("B", b"hi")], tail=b"\xff" * 30)
     add_segs("pad long v40", 40, [("A", "HI")], tail=rb(2900))
     add_segs("pad EC11 long v40", 40, [("N", "1")], tail=bytes([0xEC, 0x11] * 1400))
+    # short messages followed by a tail: the producer must never stall after the terminator
+    for i in range(80):
+        v = rnd.choice(EDGE_VERS)
+        k = rnd.choice("NAB")
+        n = rnd.randrange(0, 5)
+        val = rs("0123456789", n) if k == "N" else rs(ALN, n) if k == "A" else rb(n)
+        add_segs(f"short msg + tail {i} v{v}", v, [(k, val)], tail=rb(rnd.randrange(4, 12)))
     # no terminator: the data simply ends (fewer than 4 bits left means done)
     for pad in "01":
         for v in (1, 10, 27):
