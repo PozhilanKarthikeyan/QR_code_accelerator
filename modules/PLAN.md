@@ -30,7 +30,7 @@ Living document. Read this first, then the spec PDF. Update the **Status log** a
    pip install segno pytest --break-system-packages
    ```
    Both environment variables are needed in every new shell. Without `bsc` you can only write code unseen, so say so instead of claiming it works.
-3. Run every `modules/*/run.sh` (walker, format, reader, blocks, gf, rs). Each must print `PASS` or its three-number pass line. Do not change units 1 to 5 unless one of these fails.
+3. Run every `modules/*/run.sh` (walker, format, reader, blocks, gf, rs, payload). Each must print `PASS` or its three-number pass line. Do not change units 1 to 6 unless one of these fails.
 4. Machine limits seen so far: with 4 GB of RAM, Bluesim cannot build a 3,706-byte buffer; use `cap` <= 1024. A single tool command may be limited to about 5 minutes; run long builds in the background (`setsid nohup ... &`) and poll.
 
 **The pattern every unit followed (keep following it).**
@@ -42,7 +42,7 @@ Living document. Read this first, then the spec PDF. Update the **Status log** a
 6. Give the unit a one-command `run.sh`, update this file (status table, contract, status log), and tell the team which files go where.
 7. Treat bsc warnings about rules that "can never fire" or "conflict" as bugs in the design or test bench, not as noise (this found a real test-bench bug in unit 5).
 
-**The whole decode as one sequence (what `mkQRDecoder` must do).** Units 1 to 5 are done; unit 6 and the glue are not.
+**The whole decode as one sequence (what `mkQRDecoder` must do).** Units 1 to 6 are done; only the glue (unit 7) is not.
 ```
 start(N)
   1. N must be 21..177 with (N-17) % 4 == 0, else failed.   ver = (N-17)/4
@@ -66,20 +66,7 @@ start(N)
 - `start` may only be called when idle (A3); `failed`/`done` stay high until the next `start`; once `failed` is high `getByte` must not fire (C3). `start` and `getByte` need implicit conditions, no `always_ready` (C5).
 - The top level owns: `QRReader rd`, `QRBlockBuf#(cap) bb` (cap = 1024 to start), `QRRS rs <- mkQRRS(bb)`, the payload parser, and `interface mem = rd.mem`. Keep `(* synthesize *)`, the module name and the interface of `mkQRDecoder` from `src/QRDecoder.bsv`.
 
-**Unit 6 (payload parser), proposed contract.** Spec Section 1.5 and G4. Not yet written.
-```
-interface QRPayload:
-  start(UInt#(6) ver)               // select the count widths, clear all state
-  putByte(Bit#(8) b)                // corrected data bytes, block 0 first (implicit condition: ready for more)
-  endOfData()                       // the stream is over (all data bytes of all blocks were fed)
-  getByte() -> OutByte{data,last}   // characters in order; `last` only on the final one (implicit condition)
-  failed() / done()                 // malformed payload / all characters taken (also an empty message)
-```
-- The data is a bit stream, MSB first. Segment = 4-bit mode, count (width by version: 1-9, 10-26, 27-40, see Table 4 in the spec), characters. Modes: 0001 numeric (3 digits in 10 bits, last group 2 digits in 7 bits or 1 digit in 4 bits), 0010 alphanumeric (2 chars in 11 bits as 45a+b, last single char in 6 bits), 0100 byte (8 bits), 0000 terminator. Output is the ASCII code for numeric and alphanumeric characters (alphabet `0-9 A-Z space $ % * + - . / :`), the raw byte for byte mode.
-- Fail on: unknown mode indicator; a segment that runs past the end of the data; a numeric group above 999 (above 99 for two digits, above 9 for one); an alphanumeric pair above 2024 (a single above 44). The message ends at a terminator OR when fewer than 4 bits remain.
-- `last` needs a one-character holdback: a character can only be marked last once the next mode indicator (terminator) or the end of data has been seen. An empty message gives no byte and a `done` at once.
-- Decisions the spec leaves open and the model made (confirm with the TAs, see open questions): a segment with count 0 is legal; fewer than 4 bits left with no terminator ends the message successfully; leading zeros in numeric groups are kept.
-- Test against `qr_model/payload.py` on payloads built by hand (all modes, mixed segments, short final groups, every failure case) and on the model's ~1,600 vectors.
+**Unit 6 (payload parser).** Done and verified; see "Unit 6 contract" below.
 
 **Unit 7 (top level).** Implement the sequence above in `src/QRDecoder.bsv` (or a new file imported by it). Needs a small controller FSM and the byte-forwarding rules. Test with a test bench that plays the course test bench against ALL of `qr_model/gen_vectors.py`'s cases (the spec's section 5.3 list), checks C1 to C5, takes bytes with random back-pressure, and decodes many symbols in a row without reset. Then synthesis and place-and-route (spec Section 6).
 
@@ -151,10 +138,10 @@ Working default: **1024** (builds in about 95 s in Bluesim). Revisit once the fo
 | 4 | Block buffer (`QRBlocks.bsv`) | bytes -> blocks (counters, no division), group planner, block walker, read port | | **done, verified** |
 | 5a | GF(2^8) arithmetic (`QRGF.bsv`) | add/multiply/inverse/constants | | **done, verified** |
 | 5 | Reed-Solomon (`QRRS.bsv`) | syndromes, Berlekamp-Massey, Chien, Forney, verify | | **done, verified** |
-| 6 | Payload parser | corrected bytes -> characters, `last` flag | | not started |
+| 6 | Payload parser (`QRPayload.bsv`) | corrected bytes -> characters, `last` flag | | **done, verified** |
 | 7 | Top level (`mkQRDecoder`) | `start` / `getByte` / `failed` / `done`, controller | | not started |
 
-Suggested build order: 1, 2, 3, 4, 5a, 5, 6, 7 (6 and 7 remain). Test each unit against the model before connecting it.
+Suggested build order: 1, 2, 3, 4, 5a, 5, 6, 7 (only 7 remains). Test each unit against the model before connecting it.
 
 ### Unit 1 contract (done)
 
@@ -252,6 +239,23 @@ interface QRRS:
 - Design-space levers: parallelise the Berlekamp-Massey update, replace `gfInv` by a serial inverse on the shared multiplier, drop the T array, use fewer syndrome multipliers by processing syndromes serially.
 - Changed unit 4: `QRBlockBuf` gained `writeByte(addr, x)` (used for the corrections). Use the new `QRBlocks.bsv`; its tests still pass.
 
+### Unit 6 contract (done): payload parser
+
+```
+interface QRPayload:
+  start(UInt#(6) ver)               // select count widths, clear all state (call only when idle)
+  putByte(Bit#(8) b)                // next corrected data byte, block 0 first; implicit condition: <= 16 bits buffered (or the message has ended)
+  endOfData()                       // call once, AFTER the last putByte of the last block
+  getByte() -> OutByte{data,last}   // implicit condition: a character is ready and not failed
+  failed() / done()                 // malformed payload / every character taken (empty message: done at once)
+```
+- Design: right-aligned 24-bit bit accumulator plus a state machine (Mode, Count, Num, Aln, Byt, Emit, Flush, Done, Fail). One rule owns all registers; methods only raise wires. Numeric and alphanumeric groups are decoded into up to 3 characters in a staging vector, then pushed one per cycle through a one-character holdback (`held`) into the output slot; `last` is set when `held` is released by Flush. Costs one extra cycle per group (parse, then emit).
+- **Top-level obligation:** after the terminator (or a failure) the parser still ACCEPTS and discards `putByte`, so the top level keeps forwarding `rs.getData` bytes for the remaining blocks without stalling. Call `endOfData` only after every block has been fed; `last` can only appear after that. `done` may rise before `endOfData` (terminator early); calling `endOfData` then is harmless.
+- Failure conditions: unknown mode (anything but 0001, 0010, 0100, 0000); count field, numeric group, alphanumeric pair/single or byte that runs past the end of the data; numeric group above 999 / 99 / 9; alphanumeric pair above 2024 or single above 44. The message ends at a terminator or when fewer than 4 bits remain. Assumptions taken from the model (open question 2): a segment with count 0 is legal; leading zeros in numeric groups are kept.
+- Verified (`modules/payload/run.sh`, expect a line ending `PASS`), per the team's own run: 2,014 cases (895 decode, 1,119 must fail), 20,021 characters, 0 mismatches. Expected results come from a reference parser written from the spec and cross-checked against `qr_model/payload.py` (they agree on all cases); constructed cases also carry the message that was encoded. Coverage: every numeric/alphanumeric/byte length, all count-width classes (versions 1, 9, 10, 26, 27, 40), counts up to 5,000, multi-segment messages, padding and garbage after the terminator, 1 to 3 leftover bits, bad modes, cut headers and groups, out-of-range values, 1,200 fuzzed streams; random input gaps and output back-pressure; `last` checked on the final character only.
+- `modules/payload/mutants.sh` plants 7 bugs (count-width boundary, numeric and alphanumeric limits, `last` never set, <4 bits left failing, bytes after the end not discarded, byte-mode width): all CAUGHT. Run it after any change to the parser. Idea: copy this script's approach to the other units.
+- Design-space levers: the constant division and modulo logic (`/100`, `%10`, `/45`, `%45`) could be serialised; the staging vector could shrink.
+
 ## Verification plan
 
 - Per unit: exhaustive where the input space allows (GF multiplier, format decoder), random plus hand-picked hard cases otherwise.
@@ -296,10 +300,11 @@ Confirm on the course forum (questions that would reveal part of a solution go t
 ## Status log
 
 - Unit 1 (walker + mask) done. 40/40 versions and 8/8 masks match the model.
+- Unit 6 (payload parser) done. 2,014 cases match a spec-derived reference and the model; 7 planted bugs caught (`mutants.sh`).
 - Unit 5 (Reed-Solomon) done. 4,099 blocks match, including blocks built to land near a different valid block; planted bugs caught.
 - Unit 5a (GF arithmetic) done: all 65,536 products and the rest match the spec definition and the model.
 - Unit 4 (block buffer) done. All 160 version/level pairs match the spec's interleaving at cap 153, 300 and 1024; three planted bugs caught.
 - Unit 3 (reader) done. 1,563 cases / 1.98M codeword bytes identical to the model, with back-pressure; two planted bugs caught.
 - Unit 2 (format decoder) done. Exhaustive nearest-word test, 1200 positions and 400k random pairs match the model.
 - Model (`qr_model/`) passes its 16 self-tests and generates 1,614 vectors.
-- `QRDecoder.bsv` is still the placeholder; units 6 and 7 not started. Next: unit 6, the payload parser.
+- `QRDecoder.bsv` is still the placeholder; unit 7 (top level) not started. Next: unit 7, then the synthesis iterations.
