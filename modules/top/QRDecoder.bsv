@@ -1,7 +1,7 @@
 // Unit 7: the top level.  Wires the reader (unit 3), the block buffer (unit 4), Reed-Solomon (unit 5)
 // and the payload parser (unit 6) together and runs the sequence below.  Spec rules C1-C5 apply.
 //
-//   start(size)       size ok? (21..177, 17+4v)  else failed at once
+//   start(size)       size ok? (21..177, 17+4v)  else failed two cycles later (via TBad; C2 needs it low the cycle after start)
 //   startFormat(n)    read both format copies             -> TFmt   (unreadable -> failed)
 //   configure(p)      blockParams(version, level)         -> TCfg
 //   per PASS (a group of blocks that fits in the buffer; one pass when the whole symbol fits):
@@ -34,7 +34,7 @@ typedef `CAP QRCap;
 typedef 1024 QRCap;
 `endif
 
-typedef enum { TIdle, TFmt, TCfg, TPlan, TWaitPlan, TFill, TRewind, TBlk, TRun, TAdv, TFinal }
+typedef enum { TIdle, TFmt, TCfg, TPlan, TWaitPlan, TFill, TRewind, TBlk, TRun, TAdv, TFinal, TBad }
    TopSt deriving (Bits, Eq, FShow);
 
 // The reader as a module of its own.  Its format decoder (decodeFormat: 2 x 32 unrolled popcount/compare
@@ -89,16 +89,16 @@ module mkQRDecoder (QRDecoder);
          UInt#(8) t = sz - 17;
          Bool okSize = (sz >= 21) && (sz <= 177) && (pack(t)[1:0] == 0);
          ndone = False;
+         nfail = False;                                         // C2: failed low in the cycle after start
          if (okSize) begin
             UInt#(6) v = truncate(t >> 2);
-            nfail = False;
             nR    <= sz;
             verR  <= v;
             rd.startFormat(sz);
             pl.start(v);
             nst = TFmt;
          end
-         else nfail = True;                                    // bad side length
+         else nst = TBad;                                       // bad side length: failed rises one cycle later
       end
       else if (st != TIdle && pl.failed) begin                 // malformed payload
          nfail = True;
@@ -173,6 +173,8 @@ module mkQRDecoder (QRDecoder);
             TFinal: begin
                if (pl.done) begin ndone = True; nst = TIdle; end
             end
+
+            TBad: begin nfail = True; nst = TIdle; end          // bad side length (G1)
 
             default: begin end
          endcase
