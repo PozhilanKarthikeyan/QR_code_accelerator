@@ -37,10 +37,19 @@ typedef 1024 QRCap;
 typedef enum { TIdle, TFmt, TCfg, TPlan, TWaitPlan, TFill, TRewind, TBlk, TRun, TAdv, TFinal }
    TopSt deriving (Bits, Eq, FShow);
 
+// The reader as a module of its own.  Its format decoder (decodeFormat: 2 x 32 unrolled popcount/compare
+// steps) is large; inlined into mkQRDecoder it was elaborated inside the controller rule and used up
+// bsc's elaboration step budget (warning G0024).  As its own synthesized module it gets its own budget.
+(* synthesize *)
+module mkQRReaderS (QRReader);
+   QRReader r <- mkQRReader;
+   return r;
+endmodule
+
 (* synthesize *)
 module mkQRDecoder (QRDecoder);
 
-   QRReader            rd <- mkQRReader;
+   QRReader            rd <- mkQRReaderS;
    QRBlockBuf#(QRCap)  bb <- mkQRBlockBuf;
    QRRS                rs <- mkQRRS(bb);
    QRPayload           pl <- mkQRPayload;
