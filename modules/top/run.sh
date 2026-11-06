@@ -20,10 +20,14 @@ P=.:$MODS/walker:$MODS/format:$MODS/reader:$MODS/blocks:$MODS/gf:$MODS/rs:$MODS/
 mkdir -p $B/v $B/sim vectors
 [ -f vectors/cases.hex ] || python3 $MODEL/gen_vectors.py --out vectors --seed 1 --scale 1
 NC=$(wc -l < vectors/cases.hex)
-bsc -u -verilog $BSCX -D CAP=$CAP -p $P -bdir $B/v -vdir $B/v -info-dir $B/v -g mkQRDecoder QRDecoder.bsv >/dev/null
+echo "[1/4] $(date +%T) elaborating mkQRDecoder to Verilog (first time: several minutes)"
+bsc -u -verilog $BSCX -D CAP=$CAP -p $P -bdir $B/v -vdir $B/v -info-dir $B/v -g mkQRDecoder QRDecoder.bsv
 grep -q RDY_start $B/v/mkQRDecoder.v && grep -q RDY_getByte $B/v/mkQRDecoder.v
 touch TbTop.bsv
-bsc -u -sim $BSCX -D CAP=$CAP -D NCASES=$NC -D STEP=$STEP -p $P -bdir $B/sim -simdir $B/sim -info-dir $B/sim -g mkTbTop TbTop.bsv >/dev/null
-bsc -sim -e mkTbTop -bdir $B/sim -simdir $B/sim -o $B/sim/TbTop >/dev/null
+echo "[2/4] $(date +%T) compiling the test bench and the decoder for Bluesim"
+bsc -u -sim $BSCX -D CAP=$CAP -D NCASES=$NC -D STEP=$STEP -p $P -bdir $B/sim -simdir $B/sim -info-dir $B/sim -g mkTbTop TbTop.bsv
+echo "[3/4] $(date +%T) linking the simulator"
+bsc -sim -e mkTbTop -bdir $B/sim -simdir $B/sim -o $B/sim/TbTop
+echo "[4/4] $(date +%T) simulating (STEP=$STEP)"
 (cd vectors && ../$B/sim/TbTop > ../top.out)
 STEP=$STEP python3 check_top.py $MODEL

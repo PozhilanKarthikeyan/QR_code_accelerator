@@ -1,0 +1,37 @@
+nohup: ignoring input
+[1/4] 10:25:10 elaborating mkQRDecoder to Verilog (first time: several minutes)
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+All packages are up to date.
+[2/4] 10:25:11 compiling the test bench and the decoder for Bluesim
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+Warning: Unknown position: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    ./QRDecoder.bsv
+  Ignoring:
+    ../../src/QRDecoder.bsv
+compiling TbTop.bsv
+code generation for mkTbTop starts
+Elaborated module file created: build/cap300/sim/mkTbTop.ba
+All packages are up to date.
+[3/4] 10:25:12 linking the simulator
+Bluesim object reused: build/cap300/sim/mkQRDecoder.{h,o}
+Bluesim object reused: build/cap300/sim/mkQRReaderS.{h,o}
+Bluesim object created: build/cap300/sim/mkTbTop.{h,o}
+Bluesim object created: build/cap300/sim/model_mkTbTop.{h,o}
+Simulation shared library created: build/cap300/sim/TbTop.so
+Simulation executable created: build/cap300/sim/TbTop
+[4/4] 10:25:14 simulating (STEP=1)
+latency (cases run without back-pressure): 286 cases, max 192458 cycles, mean 11826; slowest: 192458 'full v27 L byte1465'; 32883 'damage t/blk v40 L'; 32505 'damage t/blk v40 Q'
+top: 1614 cases (1168 decode, 446 must fail), 0 mismatches -> PASS
