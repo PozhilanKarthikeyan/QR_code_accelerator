@@ -73,20 +73,20 @@ endfunction
 // chain between them) and OR together the index and distance of the one that matches (if any).
 //   hit  : some valid word is within 3 positions of w
 //   idx  : its 5 data bits {level, mask}   (0 when !hit)
-//   dist : its distance, 0..3              (0 when !hit)
+//   dst : its distance, 0..3              (0 when !hit)
 // ---------------------------------------------------------------------------
 function Tuple3#(Bool, Bit#(5), Bit#(2)) nearWithin3(Bit#(15) w);
    Bool     hit  = False;
    Bit#(5)  idx  = 0;
-   Bit#(2)  dist = 0;
+   Bit#(2)  dst = 0;
    for (Integer d = 0; d < 32; d = d + 1) begin
       UInt#(4) c = countOnes(w ^ formatCodeword(d));
       Bool     h = (c <= 3);
       hit  = hit  || h;
       idx  = idx  | (h ? fromInteger(d) : 0);
-      dist = dist | (h ? truncate(pack(c)) : 0);
+      dst = dst | (h ? truncate(pack(c)) : 0);
    end
-   return tuple3(hit, idx, dist);
+   return tuple3(hit, idx, dst);
 endfunction
 
 // ---------------------------------------------------------------------------
