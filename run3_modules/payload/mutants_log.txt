@@ -1,0 +1,7 @@
+count-width class boundary 26 -> 27: CAUGHT
+numeric limit 999 -> 1023: CAUGHT
+alphanumeric pair limit 2024 -> 2025: CAUGHT
+last flag never set: CAUGHT
+fewer than 4 bits left fails: CAUGHT
+bytes after the end are not discarded: CAUGHT
+byte-mode count width 16 -> 8: CAUGHT

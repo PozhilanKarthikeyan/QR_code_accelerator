@@ -1,0 +1,2 @@
+gen: 2014 cases (895 decode, 1119 must fail), 42206 stream bytes; reference and model agree on all
+payload: 2014 cases (895 decode, 1119 fail), 20021 characters, 0 mismatches -> PASS

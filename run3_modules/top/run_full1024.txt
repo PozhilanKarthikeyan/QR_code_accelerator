@@ -1,0 +1,81 @@
+nohup: ignoring input
+[1/4] 18:44:13 elaborating mkQRDecoder to Verilog (first time: several minutes)
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/run2_modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+compiling ../../src/QRTypes.bsv
+compiling ../../src/QRTables.bsv
+compiling ../format/QRFormat.bsv
+compiling ../blocks/QRBlocks.bsv
+compiling ../payload/QRPayload.bsv
+compiling ../walker/QRWalker.bsv
+compiling ../reader/QRReader.bsv
+compiling ../gf/QRGF.bsv
+compiling ../rs/QRRS.bsv
+compiling QRDecoder.bsv
+code generation for mkQRReaderS starts
+Verilog file created: build/cap1024/v/mkQRReaderS.v
+code generation for mkQRDecoder starts
+Warning: "Prelude.bs", line 1329, column 9: (G0024)
+  The function unfolding steps interval has been exceeded when unfolding
+  `Prelude.Ord~Prelude.Integer'. The current number of steps is 100000. Next
+  warning at 200000 steps. Elaboration terminates at 1000000 steps.
+  During elaboration of the body of rule `step' at "../rs/QRRS.bsv", line 132,
+  column 9.
+  During elaboration of `rs' at "QRDecoder.bsv", line 54, column 24.
+  During elaboration of `mkQRDecoder' at "QRDecoder.bsv", line 50, column 8.
+Verilog file created: build/cap1024/v/mkQRDecoder.v
+All packages are up to date.
+[2/4] 18:44:31 compiling the test bench and the decoder for Bluesim
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/run2_modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+Warning: Unknown position: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    ./QRDecoder.bsv
+  Ignoring:
+    ../../src/QRDecoder.bsv
+compiling ../../src/QRTypes.bsv
+compiling ../../src/QRTables.bsv
+compiling ../format/QRFormat.bsv
+compiling ../blocks/QRBlocks.bsv
+compiling ../payload/QRPayload.bsv
+compiling ../walker/QRWalker.bsv
+compiling ../reader/QRReader.bsv
+compiling ../gf/QRGF.bsv
+compiling ../rs/QRRS.bsv
+compiling ./QRDecoder.bsv
+code generation for mkQRReaderS starts
+Elaborated module file created: build/cap1024/sim/mkQRReaderS.ba
+code generation for mkQRDecoder starts
+Warning: "Prelude.bs", line 1329, column 9: (G0024)
+  The function unfolding steps interval has been exceeded when unfolding
+  `Prelude.Ord~Prelude.Integer'. The current number of steps is 100000. Next
+  warning at 200000 steps. Elaboration terminates at 1000000 steps.
+  During elaboration of the body of rule `step' at "../rs/QRRS.bsv", line 132,
+  column 9.
+  During elaboration of `rs' at "QRDecoder.bsv", line 54, column 24.
+  During elaboration of `mkQRDecoder' at "QRDecoder.bsv", line 50, column 8.
+Elaborated module file created: build/cap1024/sim/mkQRDecoder.ba
+compiling TbTop.bsv
+code generation for mkTbTop starts
+Elaborated module file created: build/cap1024/sim/mkTbTop.ba
+All packages are up to date.
+[3/4] 18:44:48 linking the simulator
+Bluesim object created: build/cap1024/sim/mkTbTop.{h,o}
+Bluesim object created: build/cap1024/sim/mkQRDecoder.{h,o}
+Bluesim object created: build/cap1024/sim/mkQRReaderS.{h,o}
+Bluesim object created: build/cap1024/sim/model_mkTbTop.{h,o}
+Simulation shared library created: build/cap1024/sim/TbTop.so
+Simulation executable created: build/cap1024/sim/TbTop
+[4/4] 18:45:21 simulating (STEP=1)
+latency (cases run without back-pressure): 286 cases, max 37388 cycles, mean 11278; slowest: 37388 'full v27 L byte1465'; 32887 'damage t/blk v40 L'; 32518 'damage t/blk v40 Q'
+top: 1614 cases (1168 decode, 446 must fail), 0 mismatches -> PASS
