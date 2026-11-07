@@ -1,2 +1,10 @@
 nohup: ignoring input
 format level bits inverted: CAUGHT
+mask forgotten (always 0): CAUGHT
+next pass restarts at block 0: CAUGHT
+Reed-Solomon failure ignored: CAUGHT
+endOfData never sent: CAUGHT
+getByte still ready after failed: CAUGHT
+wrong check-byte count: CAUGHT
+done without waiting for the parser: CAUGHT
+side length never checked: CAUGHT

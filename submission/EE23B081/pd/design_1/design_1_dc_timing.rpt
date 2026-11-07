@@ -1,0 +1,2224 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2f
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Fri Nov  6 19:08:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: rd/r_fmtW2_reg_13_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: maskR_reg_0_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtW2_reg_13_/CK (SAEDRVT14_FDP_V2_4)                       0.000     0.000 #    0.000 r
+  rd/r_fmtW2_reg_13_/Q (SAEDRVT14_FDP_V2_4)                        0.011     0.064      0.064 f
+  rd/y__h69328_0_ (net)                         1        0.006               0.000      0.064 f
+  rd/U990/A (SAEDRVT14_BUF_10)                                     0.011     0.000      0.064 f
+  rd/U990/X (SAEDRVT14_BUF_10)                                     0.013     0.024      0.089 f
+  rd/n221 (net)                                 3        0.022               0.000      0.089 f
+  rd/U3425/A (SAEDRVT14_BUF_16)                                    0.013     0.000      0.089 f
+  rd/U3425/X (SAEDRVT14_BUF_16)                                    0.012     0.025      0.114 f
+  rd/n2749 (net)                                4        0.031               0.000      0.114 f
+  rd/U3411/A (SAEDRVT14_BUF_16)                                    0.012     0.000      0.114 f
+  rd/U3411/X (SAEDRVT14_BUF_16)                                    0.012     0.024      0.138 f
+  rd/n1671 (net)                                4        0.030               0.000      0.138 f
+  rd/U3445/CI (SAEDRVT14_ADDF_V1_2)                                0.012     0.000      0.138 f
+  rd/U3445/S (SAEDRVT14_ADDF_V1_2)                                 0.021     0.089      0.227 r
+  rd/n1504 (net)                                1        0.006               0.000      0.227 r
+  rd/U3447/B (SAEDRVT14_ADDF_V1_2)                                 0.021     0.000      0.227 r
+  rd/U3447/S (SAEDRVT14_ADDF_V1_2)                                 0.039     0.096      0.323 f
+  rd/n1535 (net)                                2        0.014               0.000      0.323 f
+  rd/U936/A1 (SAEDRVT14_EN2_3)                                     0.039     0.000      0.323 f
+  rd/U936/X (SAEDRVT14_EN2_3)                                      0.021     0.065      0.388 r
+  rd/n989 (net)                                 1        0.010               0.000      0.388 r
+  rd/U1828/A (SAEDRVT14_INV_S_10)                                  0.021     0.000      0.388 r
+  rd/U1828/X (SAEDRVT14_INV_S_10)                                  0.023     0.028      0.416 f
+  rd/n1585 (net)                                5        0.046               0.000      0.416 f
+  rd/U3456/A2 (SAEDRVT14_ND2_8)                                    0.023     0.000      0.416 f
+  rd/U3456/X (SAEDRVT14_ND2_8)                                     0.017     0.023      0.439 r
+  rd/n1546 (net)                                2        0.016               0.000      0.439 r
+  rd/U3128/A1 (SAEDRVT14_AN2_8)                                    0.017     0.000      0.439 r
+  rd/U3128/X (SAEDRVT14_AN2_8)                                     0.009     0.026      0.465 r
+  rd/n1100 (net)                                1        0.009               0.000      0.465 r
+  rd/U1277/A2 (SAEDRVT14_NR2_MM_8)                                 0.009     0.000      0.465 r
+  rd/U1277/X (SAEDRVT14_NR2_MM_8)                                  0.009     0.011      0.476 f
+  rd/n1163 (net)                                1        0.008               0.000      0.476 f
+  rd/U1991/A1 (SAEDRVT14_NR2_MM_8)                                 0.009     0.000      0.476 f
+  rd/U1991/X (SAEDRVT14_NR2_MM_8)                                  0.012     0.013      0.489 r
+  rd/n952 (net)                                 1        0.008               0.000      0.489 r
+  rd/U3091/B (SAEDRVT14_OAI21_V1_8)                                0.012     0.000      0.489 r
+  rd/U3091/X (SAEDRVT14_OAI21_V1_8)                                0.014     0.017      0.506 f
+  rd/n954 (net)                                 1        0.006               0.000      0.506 f
+  rd/U2874/A1 (SAEDRVT14_AN2_MM_12)                                0.014     0.000      0.507 f
+  rd/U2874/X (SAEDRVT14_AN2_MM_12)                                 0.013     0.028      0.535 f
+  rd/n734 (net)                                 2        0.025               0.000      0.535 f
+  rd/U1264/A1 (SAEDRVT14_ND2_16)                                   0.013     0.000      0.535 f
+  rd/U1264/X (SAEDRVT14_ND2_16)                                    0.009     0.012      0.547 r
+  rd/n1009 (net)                                1        0.011               0.000      0.547 r
+  rd/U865/A1 (SAEDRVT14_ND2_MM_12)                                 0.009     0.000      0.547 r
+  rd/U865/X (SAEDRVT14_ND2_MM_12)                                  0.008     0.009      0.556 f
+  rd/n1008 (net)                                1        0.008               0.000      0.556 f
+  rd/U2980/B (SAEDRVT14_AOI21_8)                                   0.008     0.000      0.556 f
+  rd/U2980/X (SAEDRVT14_AOI21_8)                                   0.020     0.020      0.577 r
+  rd/n1337 (net)                                1        0.012               0.000      0.577 r
+  rd/U3259/A2 (SAEDRVT14_ND2_16)                                   0.020     0.000      0.577 r
+  rd/U3259/X (SAEDRVT14_ND2_16)                                    0.015     0.020      0.597 f
+  rd/n1339 (net)                                3        0.023               0.000      0.597 f
+  rd/U3265/S1 (SAEDRVT14_MUXI3_4)                                  0.015     0.000      0.597 f
+  rd/U3265/X (SAEDRVT14_MUXI3_4)                                   0.015     0.052      0.649 f
+  rd/n1562 (net)                                1        0.011               0.000      0.649 f
+  rd/U1244/A (SAEDRVT14_INV_12)                                    0.015     0.000      0.650 f
+  rd/U1244/X (SAEDRVT14_INV_12)                                    0.012     0.015      0.665 r
+  rd/n1588 (net)                                3        0.025               0.000      0.665 r
+  rd/U2827/A2 (SAEDRVT14_AOI21_8)                                  0.012     0.000      0.665 r
+  rd/U2827/X (SAEDRVT14_AOI21_8)                                   0.032     0.024      0.690 f
+  rd/n591 (net)                                 1        0.012               0.000      0.690 f
+  rd/U1294/A1 (SAEDRVT14_NR2_MM_16)                                0.032     0.000      0.690 f
+  rd/U1294/X (SAEDRVT14_NR2_MM_16)                                 0.014     0.018      0.707 r
+  rd/n586 (net)                                 1        0.013               0.000      0.707 r
+  rd/U1295/A1 (SAEDRVT14_ND2_MM_16)                                0.014     0.000      0.708 r
+  rd/U1295/X (SAEDRVT14_ND2_MM_16)                                 0.010     0.012      0.720 f
+  rd/n584 (net)                                 1        0.013               0.000      0.720 f
+  rd/U2825/A1 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      0.720 f
+  rd/U2825/X (SAEDRVT14_ND2_MM_16)                                 0.014     0.015      0.735 r
+  rd/n1637 (net)                                3        0.027               0.000      0.735 r
+  rd/U3203/S (SAEDRVT14_MUX2_MM_4)                                 0.014     0.000      0.736 r
+  rd/U3203/X (SAEDRVT14_MUX2_MM_4)                                 0.013     0.042      0.778 f
+  rd/n1630 (net)                                1        0.007               0.000      0.778 f
+  rd/U791/A (SAEDRVT14_BUF_16)                                     0.013     0.000      0.778 f
+  rd/U791/X (SAEDRVT14_BUF_16)                                     0.012     0.024      0.802 f
+  rd/n223 (net)                                 3        0.031               0.000      0.802 f
+  rd/U1312/A (SAEDRVT14_INV_S_16)                                  0.012     0.000      0.803 f
+  rd/U1312/X (SAEDRVT14_INV_S_16)                                  0.005     0.007      0.810 r
+  rd/n1640 (net)                                1        0.008               0.000      0.810 r
+  rd/U3486/A1 (SAEDRVT14_OAI21_V1_8)                               0.005     0.000      0.810 r
+  rd/U3486/X (SAEDRVT14_OAI21_V1_8)                                0.021     0.014      0.824 f
+  rd/n1654 (net)                                1        0.008               0.000      0.824 f
+  rd/U1325/A2 (SAEDRVT14_AOI21_8)                                  0.021     0.000      0.824 f
+  rd/U1325/X (SAEDRVT14_AOI21_8)                                   0.015     0.021      0.845 r
+  rd/n1657 (net)                                1        0.007               0.000      0.845 r
+  rd/U3279/A1 (SAEDRVT14_OR2_MM_20)                                0.015     0.000      0.846 r
+  rd/U3279/X (SAEDRVT14_OR2_MM_20)                                 0.019     0.035      0.881 r
+  rd/n1379 (net)                                6        0.065               0.000      0.881 r
+  rd/U762/A1 (SAEDRVT14_AOI21_V1_8)                                0.019     0.000      0.881 r
+  rd/U762/X (SAEDRVT14_AOI21_V1_8)                                 0.031     0.029      0.910 f
+  rd/n1666 (net)                                1        0.013               0.000      0.910 f
+  rd/U2631/A2 (SAEDRVT14_ND2_MM_16)                                0.031     0.000      0.910 f
+  rd/U2631/X (SAEDRVT14_ND2_MM_16)                                 0.016     0.023      0.933 r
+  rd/n294 (net)                                 2        0.021               0.000      0.933 r
+  rd/U753/A1 (SAEDRVT14_ND2_MM_10)                                 0.016     0.000      0.933 r
+  rd/U753/X (SAEDRVT14_ND2_MM_10)                                  0.017     0.015      0.948 f
+  rd/n1681 (net)                                1        0.012               0.000      0.948 f
+  rd/U1344/A2 (SAEDRVT14_ND2_16)                                   0.017     0.000      0.949 f
+  rd/U1344/X (SAEDRVT14_ND2_16)                                    0.014     0.013      0.962 r
+  rd/n1697 (net)                                1        0.010               0.000      0.962 r
+  rd/U738/A1 (SAEDRVT14_ND2_MM_10)                                 0.014     0.000      0.962 r
+  rd/U738/X (SAEDRVT14_ND2_MM_10)                                  0.009     0.011      0.974 f
+  rd/n1704 (net)                                1        0.007               0.000      0.974 f
+  rd/U2636/A1 (SAEDRVT14_AN2_MM_20)                                0.009     0.000      0.974 f
+  rd/U2636/X (SAEDRVT14_AN2_MM_20)                                 0.012     0.027      1.001 f
+  rd/n300 (net)                                 3        0.034               0.000      1.001 f
+  rd/U2635/A1 (SAEDRVT14_NR2_MM_16)                                0.012     0.000      1.001 f
+  rd/U2635/X (SAEDRVT14_NR2_MM_16)                                 0.012     0.011      1.012 r
+  rd/n1307 (net)                                1        0.010               0.000      1.012 r
+  rd/U727/A1 (SAEDRVT14_NR2_MM_12)                                 0.012     0.000      1.013 r
+  rd/U727/X (SAEDRVT14_NR2_MM_12)                                  0.012     0.012      1.024 f
+  rd/n1774 (net)                                1        0.012               0.000      1.024 f
+  rd/U2900/A1 (SAEDRVT14_NR2_MM_16)                                0.012     0.000      1.024 f
+  rd/U2900/X (SAEDRVT14_NR2_MM_16)                                 0.029     0.028      1.053 r
+  rd/n1804 (net)                                4        0.050               0.000      1.053 r
+  rd/U2802/A1 (SAEDRVT14_NR2_MM_16)                                0.029     0.000      1.053 r
+  rd/U2802/X (SAEDRVT14_NR2_MM_16)                                 0.014     0.020      1.073 f
+  rd/n1032 (net)                                2        0.020               0.000      1.073 f
+  rd/U713/A (SAEDRVT14_INV_S_7)                                    0.014     0.000      1.073 f
+  rd/U713/X (SAEDRVT14_INV_S_7)                                    0.011     0.014      1.087 r
+  rd/n575 (net)                                 1        0.012               0.000      1.087 r
+  rd/U710/A1 (SAEDRVT14_ND2_16)                                    0.011     0.000      1.087 r
+  rd/U710/X (SAEDRVT14_ND2_16)                                     0.014     0.014      1.101 f
+  rd/n1862 (net)                                2        0.018               0.000      1.101 f
+  rd/U2800/A2 (SAEDRVT14_ND2_16)                                   0.014     0.000      1.101 f
+  rd/U2800/X (SAEDRVT14_ND2_16)                                    0.012     0.013      1.114 r
+  rd/n581 (net)                                 1        0.012               0.000      1.114 r
+  rd/U703/A1 (SAEDRVT14_ND2_16)                                    0.012     0.000      1.115 r
+  rd/U703/X (SAEDRVT14_ND2_16)                                     0.018     0.015      1.130 f
+  rd/n1141 (net)                                2        0.019               0.000      1.130 f
+  rd/U2722/A2 (SAEDRVT14_NR2_MM_16)                                0.018     0.000      1.130 f
+  rd/U2722/X (SAEDRVT14_NR2_MM_16)                                 0.019     0.024      1.154 r
+  rd/n567 (net)                                 3        0.030               0.000      1.154 r
+  rd/U1351/A (SAEDRVT14_BUF_20)                                    0.019     0.000      1.154 r
+  rd/U1351/X (SAEDRVT14_BUF_20)                                    0.010     0.026      1.179 r
+  rd/n421 (net)                                 2        0.025               0.000      1.179 r
+  rd/U2656/A1 (SAEDRVT14_NR2_MM_16)                                0.010     0.000      1.180 r
+  rd/U2656/X (SAEDRVT14_NR2_MM_16)                                 0.012     0.013      1.192 f
+  rd/n337 (net)                                 2        0.022               0.000      1.192 f
+  rd/U682/A1 (SAEDRVT14_NR2_MM_12)                                 0.012     0.000      1.192 f
+  rd/U682/X (SAEDRVT14_NR2_MM_12)                                  0.022     0.012      1.205 r
+  rd/n408 (net)                                 1        0.010               0.000      1.205 r
+  rd/U677/A1 (SAEDRVT14_ND2_MM_10)                                 0.022     0.000      1.205 r
+  rd/U677/X (SAEDRVT14_ND2_MM_10)                                  0.012     0.016      1.221 f
+  rd/n406 (net)                                 1        0.010               0.000      1.221 f
+  rd/U669/A1 (SAEDRVT14_NR2_MM_12)                                 0.012     0.000      1.221 f
+  rd/U669/X (SAEDRVT14_NR2_MM_12)                                  0.011     0.013      1.235 r
+  rd/n411 (net)                                 1        0.011               0.000      1.235 r
+  rd/U2713/A2 (SAEDRVT14_NR2_MM_12)                                0.011     0.000      1.235 r
+  rd/U2713/X (SAEDRVT14_NR2_MM_12)                                 0.008     0.011      1.246 f
+  rd/n415 (net)                                 1        0.008               0.000      1.246 f
+  rd/U2716/A2 (SAEDRVT14_OAI21_V1_8)                               0.008     0.000      1.246 f
+  rd/U2716/X (SAEDRVT14_OAI21_V1_8)                                0.023     0.023      1.269 r
+  rd/n995 (net)                                 2        0.016               0.000      1.269 r
+  rd/U2783/S (SAEDRVT14_MUX2_MM_4)                                 0.023     0.000      1.270 r
+  rd/U2783/X (SAEDRVT14_MUX2_MM_4)                                 0.034     0.063      1.333 f
+  rd/n1873 (net)                                3        0.026               0.000      1.333 f
+  rd/U627/A1 (SAEDRVT14_OR2_MM_6)                                  0.034     0.000      1.333 f
+  rd/U627/X (SAEDRVT14_OR2_MM_6)                                   0.017     0.039      1.372 f
+  rd/n898 (net)                                 2        0.015               0.000      1.372 f
+  rd/U624/A2 (SAEDRVT14_ND2_CDC_4)                                 0.017     0.000      1.372 f
+  rd/U624/X (SAEDRVT14_ND2_CDC_4)                                  0.031     0.019      1.392 r
+  rd/n831 (net)                                 1        0.007               0.000      1.392 r
+  rd/U1471/A2 (SAEDRVT14_ND2_5)                                    0.031     0.000      1.392 r
+  rd/U1471/X (SAEDRVT14_ND2_5)                                     0.018     0.024      1.416 f
+  rd/n830 (net)                                 1        0.009               0.000      1.416 f
+  rd/U1470/A1 (SAEDRVT14_NR2_MM_10)                                0.018     0.000      1.416 f
+  rd/U1470/X (SAEDRVT14_NR2_MM_10)                                 0.021     0.025      1.441 r
+  rd/n2106 (net)                                2        0.022               0.000      1.441 r
+  rd/U3037/A1 (SAEDRVT14_OAI21_V1_8)                               0.021     0.000      1.442 r
+  rd/U3037/X (SAEDRVT14_OAI21_V1_8)                                0.026     0.025      1.466 f
+  rd/n896 (net)                                 1        0.012               0.000      1.466 f
+  rd/U1057/A2 (SAEDRVT14_ND2_16)                                   0.026     0.000      1.467 f
+  rd/U1057/X (SAEDRVT14_ND2_16)                                    0.018     0.023      1.490 r
+  rd/n2125 (net)                                3        0.026               0.000      1.490 r
+  rd/U2773/A (SAEDRVT14_BUF_8)                                     0.018     0.000      1.490 r
+  rd/U2773/X (SAEDRVT14_BUF_8)                                     0.014     0.028      1.518 r
+  rd/n541 (net)                                 2        0.018               0.000      1.518 r
+  rd/U564/A1 (SAEDRVT14_NR2_MM_10)                                 0.014     0.000      1.518 r
+  rd/U564/X (SAEDRVT14_NR2_MM_10)                                  0.017     0.012      1.530 f
+  rd/n894 (net)                                 1        0.009               0.000      1.530 f
+  rd/U3068/A (SAEDRVT14_INV_S_8)                                   0.017     0.000      1.531 f
+  rd/U3068/X (SAEDRVT14_INV_S_8)                                   0.012     0.016      1.546 r
+  rd/n2223 (net)                                2        0.015               0.000      1.546 r
+  rd/U544/A2 (SAEDRVT14_NR2_MM_8)                                  0.012     0.000      1.547 r
+  rd/U544/X (SAEDRVT14_NR2_MM_8)                                   0.013     0.017      1.564 f
+  rd/n2229 (net)                                2        0.014               0.000      1.564 f
+  rd/U3731/A (SAEDRVT14_INV_6)                                     0.013     0.000      1.564 f
+  rd/U3731/X (SAEDRVT14_INV_6)                                     0.011     0.014      1.578 r
+  rd/n2231 (net)                                1        0.011               0.000      1.578 r
+  rd/U516/A1 (SAEDRVT14_ND2_MM_12)                                 0.011     0.000      1.578 r
+  rd/U516/X (SAEDRVT14_ND2_MM_12)                                  0.018     0.019      1.597 f
+  rd/n2307 (net)                                3        0.026               0.000      1.597 f
+  rd/U2778/A1 (SAEDRVT14_AN2_MM_20)                                0.018     0.000      1.597 f
+  rd/U2778/X (SAEDRVT14_AN2_MM_20)                                 0.012     0.031      1.628 f
+  rd/n2289 (net)                                3        0.029               0.000      1.628 f
+  rd/U2777/A2 (SAEDRVT14_ND2_16)                                   0.012     0.000      1.628 f
+  rd/U2777/X (SAEDRVT14_ND2_16)                                    0.044     0.017      1.645 r
+  rd/n2396 (net)                                3        0.027               0.000      1.645 r
+  rd/U1891/A (SAEDRVT14_INV_S_16)                                  0.044     0.000      1.645 r
+  rd/U1891/X (SAEDRVT14_INV_S_16)                                  0.016     0.024      1.669 f
+  rd/n2478 (net)                                4        0.031               0.000      1.669 f
+  rd/U481/A1 (SAEDRVT14_NR2_MM_8)                                  0.016     0.000      1.669 f
+  rd/U481/X (SAEDRVT14_NR2_MM_8)                                   0.032     0.021      1.690 r
+  rd/n2402 (net)                                2        0.013               0.000      1.690 r
+  rd/U3784/A1 (SAEDRVT14_OAI21_V1_4)                               0.032     0.000      1.690 r
+  rd/U3784/X (SAEDRVT14_OAI21_V1_4)                                0.037     0.031      1.721 f
+  rd/n2352 (net)                                1        0.007               0.000      1.721 f
+  rd/U2799/B (SAEDRVT14_AOI21_6)                                   0.037     0.000      1.721 f
+  rd/U2799/X (SAEDRVT14_AOI21_6)                                   0.030     0.036      1.758 r
+  rd/n2398 (net)                                2        0.012               0.000      1.758 r
+  rd/U3800/A1 (SAEDRVT14_ND2_CDC_0P5)                              0.030     0.000      1.758 r
+  rd/U3800/X (SAEDRVT14_ND2_CDC_0P5)                               0.060     0.054      1.812 f
+  rd/n2405 (net)                                1        0.006               0.000      1.812 f
+  rd/U454/A1 (SAEDRVT14_NR2_MM_4)                                  0.060     0.000      1.812 f
+  rd/U454/X (SAEDRVT14_NR2_MM_4)                                   0.036     0.044      1.856 r
+  rd/n2406 (net)                                1        0.011               0.000      1.856 r
+  rd/U2875/A2 (SAEDRVT14_NR2_MM_12)                                0.036     0.000      1.856 r
+  rd/U2875/X (SAEDRVT14_NR2_MM_12)                                 0.013     0.022      1.879 f
+  rd/n903 (net)                                 1        0.013               0.000      1.879 f
+  rd/U2903/A2 (SAEDRVT14_NR2_MM_16)                                0.013     0.000      1.879 f
+  rd/U2903/X (SAEDRVT14_NR2_MM_16)                                 0.010     0.014      1.892 r
+  rd/n901 (net)                                 1        0.012               0.000      1.892 r
+  rd/U2944/A1 (SAEDRVT14_NR2_MM_16)                                0.010     0.000      1.893 r
+  rd/U2944/X (SAEDRVT14_NR2_MM_16)                                 0.010     0.010      1.902 f
+  rd/n702 (net)                                 1        0.013               0.000      1.902 f
+  rd/U2887/A1 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      1.903 f
+  rd/U2887/X (SAEDRVT14_ND2_MM_16)                                 0.018     0.019      1.922 r
+  rd/n914 (net)                                 3        0.038               0.000      1.922 r
+  rd/U1003/A (SAEDRVT14_INV_S_16)                                  0.018     0.000      1.922 r
+  rd/U1003/X (SAEDRVT14_INV_S_16)                                  0.008     0.012      1.934 f
+  rd/n897 (net)                                 2        0.017               0.000      1.934 f
+  rd/U3008/A (SAEDRVT14_BUF_20)                                    0.008     0.000      1.934 f
+  rd/U3008/X (SAEDRVT14_BUF_20)                                    0.009     0.020      1.954 f
+  rd/n764 (net)                                 3        0.028               0.000      1.954 f
+  rd/U2880/A1 (SAEDRVT14_ND2_MM_12)                                0.009     0.000      1.954 f
+  rd/U2880/X (SAEDRVT14_ND2_MM_12)                                 0.014     0.015      1.969 r
+  rd/n677 (net)                                 2        0.020               0.000      1.969 r
+  rd/U1680/A1 (SAEDRVT14_ND2_MM_12)                                0.014     0.000      1.969 r
+  rd/U1680/X (SAEDRVT14_ND2_MM_12)                                 0.026     0.014      1.983 f
+  rd/n672 (net)                                 1        0.013               0.000      1.983 f
+  rd/U2872/A2 (SAEDRVT14_NR2_MM_16)                                0.026     0.000      1.983 f
+  rd/U2872/X (SAEDRVT14_NR2_MM_16)                                 0.018     0.017      2.001 r
+  rd/n917 (net)                                 1        0.013               0.000      2.001 r
+  rd/U1094/A2 (SAEDRVT14_NR2_MM_16)                                0.018     0.000      2.001 r
+  rd/U1094/X (SAEDRVT14_NR2_MM_16)                                 0.012     0.018      2.019 f
+  rd/n909 (net)                                 2        0.022               0.000      2.019 f
+  rd/U1093/A2 (SAEDRVT14_NR2_MM_16)                                0.012     0.000      2.019 f
+  rd/U1093/X (SAEDRVT14_NR2_MM_16)                                 0.025     0.025      2.044 r
+  rd/n1095 (net)                                4        0.041               0.000      2.044 r
+  rd/U1234/A1 (SAEDRVT14_OR2_4)                                    0.025     0.000      2.045 r
+  rd/U1234/X (SAEDRVT14_OR2_4)                                     0.025     0.040      2.085 r
+  rd/n900 (net)                                 2        0.020               0.000      2.085 r
+  rd/U1103/A2 (SAEDRVT14_ND2_16)                                   0.025     0.000      2.085 r
+  rd/U1103/X (SAEDRVT14_ND2_16)                                    0.026     0.030      2.115 f
+  rd/n793 (net)                                 5        0.042               0.000      2.115 f
+  rd/U181/A1 (SAEDRVT14_NR2_1P5)                                   0.026     0.000      2.115 f
+  rd/U181/X (SAEDRVT14_NR2_1P5)                                    0.045     0.039      2.154 r
+  rd/n782 (net)                                 1        0.006               0.000      2.154 r
+  rd/U173/A1 (SAEDRVT14_NR2_MM_3)                                  0.045     0.000      2.154 r
+  rd/U173/X (SAEDRVT14_NR2_MM_3)                                   0.047     0.053      2.208 f
+  rd/n2883 (net)                                2        0.013               0.000      2.208 f
+  rd/U1872/A1 (SAEDRVT14_NR2_MM_4)                                 0.047     0.000      2.208 f
+  rd/U1872/X (SAEDRVT14_NR2_MM_4)                                  0.041     0.026      2.234 r
+  rd/n781 (net)                                 1        0.005               0.000      2.234 r
+  rd/U3018/A2 (SAEDRVT14_OAI21_0P5)                                0.041     0.000      2.234 r
+  rd/U3018/X (SAEDRVT14_OAI21_0P5)                                 0.065     0.064      2.299 f
+  rd/n2887 (net)                                1        0.005               0.000      2.299 f
+  rd/U3215/A1 (SAEDRVT14_AOI21_1P5)                                0.065     0.000      2.299 f
+  rd/U3215/X (SAEDRVT14_AOI21_1P5)                                 0.042     0.053      2.352 r
+  rd/n1230 (net)                                1        0.006               0.000      2.352 r
+  rd/U3214/A1 (SAEDRVT14_NR2_MM_4)                                 0.042     0.000      2.352 r
+  rd/U3214/X (SAEDRVT14_NR2_MM_4)                                  0.028     0.035      2.386 f
+  rd/n4713 (net)                                2        0.011               0.000      2.386 f
+  rd/U1392/A1 (SAEDRVT14_OR2_MM_0P5)                               0.028     0.000      2.386 f
+  rd/U1392/X (SAEDRVT14_OR2_MM_0P5)                                0.047     0.057      2.443 f
+  rd/n1209 (net)                                1        0.005               0.000      2.443 f
+  rd/U1387/A1 (SAEDRVT14_AOI21_0P5)                                0.047     0.000      2.443 f
+  rd/U1387/X (SAEDRVT14_AOI21_0P5)                                 0.062     0.067      2.511 r
+  rd/n4715 (net)                                1        0.005               0.000      2.511 r
+  rd/U3182/A2 (SAEDRVT14_NR2_1P5)                                  0.062     0.000      2.511 r
+  rd/U3182/X (SAEDRVT14_NR2_1P5)                                   0.042     0.059      2.569 f
+  rd/n1207 (net)                                1        0.007               0.000      2.569 f
+  rd/U1383/A1 (SAEDRVT14_AOI21_6)                                  0.042     0.000      2.570 f
+  rd/U1383/X (SAEDRVT14_AOI21_6)                                   0.018     0.027      2.596 r
+  rd/n1206 (net)                                1        0.006               0.000      2.596 r
+  rd/U3207/A1 (SAEDRVT14_OAI21_V1_4)                               0.018     0.000      2.596 r
+  rd/U3207/X (SAEDRVT14_OAI21_V1_4)                                0.028     0.025      2.621 f
+  rd/n4717 (net)                                1        0.007               0.000      2.621 f
+  rd/U2648/B2 (SAEDRVT14_OAI22_4)                                  0.028     0.000      2.621 f
+  rd/U2648/X (SAEDRVT14_OAI22_4)                                   0.021     0.027      2.649 r
+  rd/formatInfo[0] (net)                        1        0.005               0.000      2.649 r
+  rd/formatInfo[0] (mkQRReaderS)                                             0.000      2.649 r
+  rd_formatInfo[0] (net)                                 0.005               0.000      2.649 r
+  U44564/A1 (SAEDRVT14_AO21_4)                                     0.021     0.000      2.649 r
+  U44564/X (SAEDRVT14_AO21_4)                                      0.011     0.033      2.681 r
+  n10270 (net)                                  1        0.005               0.000      2.681 r
+  maskR_reg_0_/D (SAEDRVT14_FDP_V2_0P5)                            0.011     0.000      2.681 r
+  data arrival time                                                                     2.681
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  maskR_reg_0_/CK (SAEDRVT14_FDP_V2_0P5)                                     0.000      2.700 r
+  library setup time                                                        -0.018      2.682
+  data required time                                                                    2.682
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.682
+  data arrival time                                                                    -2.681
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rd/r_fmtW1_reg_10_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: maskR_reg_2_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtW1_reg_10_/CK (SAEDRVT14_FDP_V2_4)                       0.000     0.000 #    0.000 r
+  rd/r_fmtW1_reg_10_/Q (SAEDRVT14_FDP_V2_4)                        0.019     0.072      0.072 f
+  rd/y__h40694_0_ (net)                         2        0.014               0.000      0.072 f
+  rd/U934/A (SAEDRVT14_BUF_12)                                     0.019     0.000      0.072 f
+  rd/U934/X (SAEDRVT14_BUF_12)                                     0.021     0.034      0.106 f
+  rd/n3940 (net)                                6        0.049               0.000      0.106 f
+  rd/U2751/A3 (SAEDRVT14_EN3_3)                                    0.021     0.000      0.107 f
+  rd/U2751/X (SAEDRVT14_EN3_3)                                     0.013     0.072      0.179 f
+  rd/n4086 (net)                                1        0.007               0.000      0.179 f
+  rd/U1223/A (SAEDRVT14_BUF_16)                                    0.013     0.000      0.179 f
+  rd/U1223/X (SAEDRVT14_BUF_16)                                    0.009     0.023      0.201 f
+  rd/n192 (net)                                 3        0.022               0.000      0.201 f
+  rd/U917/A (SAEDRVT14_BUF_12)                                     0.009     0.000      0.202 f
+  rd/U917/X (SAEDRVT14_BUF_12)                                     0.008     0.019      0.221 f
+  rd/n518 (net)                                 2        0.013               0.000      0.221 f
+  rd/U1644/A1 (SAEDRVT14_OR2_MM_6)                                 0.008     0.000      0.221 f
+  rd/U1644/X (SAEDRVT14_OR2_MM_6)                                  0.011     0.025      0.246 f
+  rd/n487 (net)                                 1        0.010               0.000      0.246 f
+  rd/U1635/A (SAEDRVT14_INV_S_10)                                  0.011     0.000      0.246 f
+  rd/U1635/X (SAEDRVT14_INV_S_10)                                  0.011     0.013      0.259 r
+  rd/n3142 (net)                                2        0.018               0.000      0.259 r
+  rd/U895/A1 (SAEDRVT14_NR2_MM_8)                                  0.011     0.000      0.260 r
+  rd/U895/X (SAEDRVT14_NR2_MM_8)                                   0.012     0.011      0.271 f
+  rd/n308 (net)                                 1        0.008               0.000      0.271 f
+  rd/U1838/A (SAEDRVT14_INV_6)                                     0.012     0.000      0.271 f
+  rd/U1838/X (SAEDRVT14_INV_6)                                     0.010     0.012      0.283 r
+  rd/n307 (net)                                 1        0.009               0.000      0.283 r
+  rd/U1604/A1 (SAEDRVT14_NR2_MM_10)                                0.010     0.000      0.283 r
+  rd/U1604/X (SAEDRVT14_NR2_MM_10)                                 0.011     0.012      0.295 f
+  rd/n3149 (net)                                2        0.013               0.000      0.295 f
+  rd/U2637/A2 (SAEDRVT14_EN3_3)                                    0.011     0.000      0.295 f
+  rd/U2637/X (SAEDRVT14_EN3_3)                                     0.013     0.067      0.362 r
+  rd/n979 (net)                                 1        0.007               0.000      0.362 r
+  rd/U853/A (SAEDRVT14_BUF_16)                                     0.013     0.000      0.362 r
+  rd/U853/X (SAEDRVT14_BUF_16)                                     0.011     0.024      0.386 r
+  rd/n213 (net)                                 3        0.027               0.000      0.386 r
+  rd/U839/A2 (SAEDRVT14_ND2_5)                                     0.011     0.000      0.387 r
+  rd/U839/X (SAEDRVT14_ND2_5)                                      0.041     0.020      0.406 f
+  rd/n1121 (net)                                1        0.012               0.000      0.406 f
+  rd/U2908/A2 (SAEDRVT14_ND2_16)                                   0.041     0.000      0.406 f
+  rd/U2908/X (SAEDRVT14_ND2_16)                                    0.020     0.028      0.434 r
+  rd/n3166 (net)                                3        0.025               0.000      0.434 r
+  rd/U1791/A2 (SAEDRVT14_ND2_4)                                    0.020     0.000      0.434 r
+  rd/U1791/X (SAEDRVT14_ND2_4)                                     0.014     0.019      0.453 f
+  rd/n3167 (net)                                1        0.006               0.000      0.453 f
+  rd/U3033/A1 (SAEDRVT14_EN2_4)                                    0.014     0.000      0.453 f
+  rd/U3033/X (SAEDRVT14_EN2_4)                                     0.027     0.054      0.507 r
+  rd/n3218 (net)                                2        0.019               0.000      0.507 r
+  rd/U2745/B (SAEDRVT14_AOI21_8)                                   0.027     0.000      0.507 r
+  rd/U2745/X (SAEDRVT14_AOI21_8)                                   0.018     0.023      0.530 f
+  rd/n472 (net)                                 1        0.008               0.000      0.530 f
+  rd/U2739/A1 (SAEDRVT14_OAI21_V1_8)                               0.018     0.000      0.530 f
+  rd/U2739/X (SAEDRVT14_OAI21_V1_8)                                0.015     0.019      0.549 r
+  rd/n462 (net)                                 1        0.008               0.000      0.549 r
+  rd/U1368/A (SAEDRVT14_BUF_20)                                    0.015     0.000      0.549 r
+  rd/U1368/X (SAEDRVT14_BUF_20)                                    0.011     0.025      0.574 r
+  rd/n220 (net)                                 3        0.031               0.000      0.574 r
+  rd/U2737/A1 (SAEDRVT14_ND2_MM_10)                                0.011     0.000      0.574 r
+  rd/U2737/X (SAEDRVT14_ND2_MM_10)                                 0.011     0.012      0.586 f
+  rd/n477 (net)                                 1        0.010               0.000      0.586 f
+  rd/U2746/A1 (SAEDRVT14_ND2_MM_10)                                0.011     0.000      0.587 f
+  rd/U2746/X (SAEDRVT14_ND2_MM_10)                                 0.010     0.012      0.599 r
+  rd/n1128 (net)                                1        0.011               0.000      0.599 r
+  rd/U3087/A2 (SAEDRVT14_NR2_MM_12)                                0.010     0.000      0.599 r
+  rd/U3087/X (SAEDRVT14_NR2_MM_12)                                 0.009     0.012      0.611 f
+  rd/n949 (net)                                 1        0.012               0.000      0.611 f
+  rd/U2952/A1 (SAEDRVT14_NR2_MM_16)                                0.009     0.000      0.611 f
+  rd/U2952/X (SAEDRVT14_NR2_MM_16)                                 0.018     0.018      0.629 r
+  rd/n1104 (net)                                3        0.027               0.000      0.629 r
+  rd/U3085/S (SAEDRVT14_MUX2_MM_4)                                 0.018     0.000      0.629 r
+  rd/U3085/X (SAEDRVT14_MUX2_MM_4)                                 0.020     0.052      0.682 f
+  rd/n3264 (net)                                2        0.015               0.000      0.682 f
+  rd/U761/A1 (SAEDRVT14_NR2_MM_6)                                  0.020     0.000      0.682 f
+  rd/U761/X (SAEDRVT14_NR2_MM_6)                                   0.023     0.025      0.707 r
+  rd/n878 (net)                                 1        0.012               0.000      0.707 r
+  rd/U1345/A1 (SAEDRVT14_NR2_MM_16)                                0.023     0.000      0.707 r
+  rd/U1345/X (SAEDRVT14_NR2_MM_16)                                 0.023     0.025      0.732 f
+  rd/n1318 (net)                                4        0.041               0.000      0.732 f
+  rd/U743/A (SAEDRVT14_INV_S_10)                                   0.023     0.000      0.732 f
+  rd/U743/X (SAEDRVT14_INV_S_10)                                   0.012     0.016      0.748 r
+  rd/n3318 (net)                                2        0.016               0.000      0.748 r
+  rd/U1500/A2 (SAEDRVT14_NR2_MM_8)                                 0.012     0.000      0.749 r
+  rd/U1500/X (SAEDRVT14_NR2_MM_8)                                  0.009     0.012      0.761 f
+  rd/n534 (net)                                 1        0.007               0.000      0.761 f
+  rd/U2769/A1 (SAEDRVT14_ND2_4)                                    0.009     0.000      0.761 f
+  rd/U2769/X (SAEDRVT14_ND2_4)                                     0.021     0.022      0.783 r
+  rd/n533 (net)                                 1        0.012               0.000      0.783 r
+  rd/U2768/A2 (SAEDRVT14_ND2_16)                                   0.021     0.000      0.783 r
+  rd/U2768/X (SAEDRVT14_ND2_16)                                    0.015     0.019      0.802 f
+  rd/n1025 (net)                                2        0.020               0.000      0.802 f
+  rd/U3125/A2 (SAEDRVT14_ND2_16)                                   0.015     0.000      0.802 f
+  rd/U3125/X (SAEDRVT14_ND2_16)                                    0.010     0.014      0.816 r
+  rd/n1037 (net)                                1        0.013               0.000      0.816 r
+  rd/U2906/A1 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      0.816 r
+  rd/U2906/X (SAEDRVT14_ND2_MM_16)                                 0.030     0.026      0.842 f
+  rd/n3405 (net)                                5        0.059               0.000      0.842 f
+  rd/U2905/A (SAEDRVT14_INV_S_20)                                  0.030     0.000      0.843 f
+  rd/U2905/X (SAEDRVT14_INV_S_20)                                  0.012     0.016      0.859 r
+  rd/n4451 (net)                                3        0.028               0.000      0.859 r
+  rd/U4186/A1 (SAEDRVT14_NR2_MM_10)                                0.012     0.000      0.859 r
+  rd/U4186/X (SAEDRVT14_NR2_MM_10)                                 0.012     0.010      0.869 f
+  rd/n3366 (net)                                1        0.006               0.000      0.869 f
+  rd/U2942/A1 (SAEDRVT14_OR2_MM_8)                                 0.012     0.000      0.869 f
+  rd/U2942/X (SAEDRVT14_OR2_MM_8)                                  0.011     0.027      0.896 f
+  rd/n1364 (net)                                1        0.013               0.000      0.896 f
+  rd/U3131/A2 (SAEDRVT14_NR2_MM_16)                                0.011     0.000      0.896 f
+  rd/U3131/X (SAEDRVT14_NR2_MM_16)                                 0.015     0.017      0.914 r
+  rd/n1347 (net)                                2        0.022               0.000      0.914 r
+  rd/U3248/A (SAEDRVT14_INV_S_20)                                  0.015     0.000      0.914 r
+  rd/U3248/X (SAEDRVT14_INV_S_20)                                  0.018     0.021      0.935 f
+  rd/n3491 (net)                                7        0.071               0.000      0.935 f
+  rd/U4211/A1 (SAEDRVT14_OR3_4)                                    0.018     0.000      0.935 f
+  rd/U4211/X (SAEDRVT14_OR3_4)                                     0.014     0.033      0.969 f
+  rd/n3413 (net)                                1        0.008               0.000      0.969 f
+  rd/U4214/A1 (SAEDRVT14_OAI21_V1_8)                               0.014     0.000      0.969 f
+  rd/U4214/X (SAEDRVT14_OAI21_V1_8)                                0.018     0.020      0.988 r
+  rd/n3418 (net)                                1        0.010               0.000      0.988 r
+  rd/U2951/A1 (SAEDRVT14_ND2_MM_10)                                0.018     0.000      0.989 r
+  rd/U2951/X (SAEDRVT14_ND2_MM_10)                                 0.014     0.017      1.005 f
+  rd/n712 (net)                                 1        0.013               0.000      1.005 f
+  rd/U2885/A1 (SAEDRVT14_ND2_MM_16)                                0.014     0.000      1.005 f
+  rd/U2885/X (SAEDRVT14_ND2_MM_16)                                 0.013     0.016      1.022 r
+  rd/n3464 (net)                                2        0.025               0.000      1.022 r
+  rd/U2884/A (SAEDRVT14_INV_S_20)                                  0.013     0.000      1.022 r
+  rd/U2884/X (SAEDRVT14_INV_S_20)                                  0.013     0.015      1.037 f
+  rd/n4455 (net)                                4        0.047               0.000      1.037 f
+  rd/U3000/A1 (SAEDRVT14_NR2_MM_12)                                0.013     0.000      1.038 f
+  rd/U3000/X (SAEDRVT14_NR2_MM_12)                                 0.025     0.017      1.054 r
+  rd/n751 (net)                                 2        0.016               0.000      1.054 r
+  rd/U654/A (SAEDRVT14_INV_4)                                      0.025     0.000      1.055 r
+  rd/U654/X (SAEDRVT14_INV_4)                                      0.012     0.017      1.072 f
+  rd/n808 (net)                                 1        0.006               0.000      1.072 f
+  rd/U649/A1 (SAEDRVT14_ND2_3)                                     0.012     0.000      1.072 f
+  rd/U649/X (SAEDRVT14_ND2_3)                                      0.014     0.017      1.088 r
+  rd/n3511 (net)                                1        0.006               0.000      1.088 r
+  rd/U4262/A (SAEDRVT14_INV_S_2)                                   0.014     0.000      1.089 r
+  rd/U4262/X (SAEDRVT14_INV_S_2)                                   0.015     0.018      1.106 f
+  rd/n3512 (net)                                1        0.006               0.000      1.106 f
+  rd/U3206/D1 (SAEDRVT14_MUX2_MM_4)                                0.015     0.000      1.106 f
+  rd/U3206/X (SAEDRVT14_MUX2_MM_4)                                 0.011     0.033      1.139 f
+  rd/n1196 (net)                                1        0.006               0.000      1.139 f
+  rd/U2882/D0 (SAEDRVT14_MUX2_MM_4)                                0.011     0.000      1.139 f
+  rd/U2882/X (SAEDRVT14_MUX2_MM_4)                                 0.023     0.041      1.180 f
+  rd/n3555 (net)                                2        0.017               0.000      1.180 f
+  rd/U1370/A1 (SAEDRVT14_NR2_MM_12)                                0.023     0.000      1.180 f
+  rd/U1370/X (SAEDRVT14_NR2_MM_12)                                 0.018     0.015      1.195 r
+  rd/n715 (net)                                 1        0.008               0.000      1.195 r
+  rd/U2927/A1 (SAEDRVT14_AOI21_8)                                  0.018     0.000      1.195 r
+  rd/U2927/X (SAEDRVT14_AOI21_8)                                   0.017     0.021      1.216 f
+  rd/n1366 (net)                                1        0.007               0.000      1.216 f
+  rd/U3236/A1 (SAEDRVT14_OR2_MM_20)                                0.017     0.000      1.216 f
+  rd/U3236/X (SAEDRVT14_OR2_MM_20)                                 0.023     0.044      1.260 f
+  rd/n3576 (net)                                7        0.078               0.000      1.260 f
+  rd/U2793/A1 (SAEDRVT14_NR2_MM_12)                                0.023     0.000      1.261 f
+  rd/U2793/X (SAEDRVT14_NR2_MM_12)                                 0.016     0.015      1.275 r
+  rd/n566 (net)                                 1        0.008               0.000      1.275 r
+  rd/U2792/B (SAEDRVT14_AOI21_8)                                   0.016     0.000      1.275 r
+  rd/U2792/X (SAEDRVT14_AOI21_8)                                   0.028     0.024      1.300 f
+  rd/n1278 (net)                                2        0.016               0.000      1.300 f
+  rd/U597/A (SAEDRVT14_BUF_S_2)                                    0.028     0.000      1.300 f
+  rd/U597/X (SAEDRVT14_BUF_S_2)                                    0.015     0.030      1.330 f
+  rd/n3581 (net)                                1        0.006               0.000      1.330 f
+  rd/U593/A (SAEDRVT14_INV_S_2)                                    0.015     0.000      1.330 f
+  rd/U593/X (SAEDRVT14_INV_S_2)                                    0.018     0.021      1.351 r
+  rd/n972 (net)                                 1        0.007               0.000      1.351 r
+  rd/U2988/A2 (SAEDRVT14_OR2_MM_12)                                0.018     0.000      1.351 r
+  rd/U2988/X (SAEDRVT14_OR2_MM_12)                                 0.008     0.026      1.377 r
+  rd/n736 (net)                                 1        0.013               0.000      1.377 r
+  rd/U2987/A1 (SAEDRVT14_ND2_MM_16)                                0.008     0.000      1.377 r
+  rd/U2987/X (SAEDRVT14_ND2_MM_16)                                 0.018     0.016      1.393 f
+  rd/n3625 (net)                                3        0.029               0.000      1.393 f
+  rd/U1476/A1 (SAEDRVT14_ND2_MM_12)                                0.018     0.000      1.393 f
+  rd/U1476/X (SAEDRVT14_ND2_MM_12)                                 0.019     0.013      1.406 r
+  rd/n969 (net)                                 1        0.009               0.000      1.406 r
+  rd/U566/A1 (SAEDRVT14_ND2_MM_8)                                  0.019     0.000      1.407 r
+  rd/U566/X (SAEDRVT14_ND2_MM_8)                                   0.012     0.015      1.422 f
+  rd/n968 (net)                                 1        0.008               0.000      1.422 f
+  rd/U3094/A1 (SAEDRVT14_OAI21_V1_8)                               0.012     0.000      1.422 f
+  rd/U3094/X (SAEDRVT14_OAI21_V1_8)                                0.022     0.024      1.446 r
+  rd/n970 (net)                                 1        0.015               0.000      1.446 r
+  rd/U2960/A (SAEDRVT14_INV_S_20)                                  0.022     0.000      1.446 r
+  rd/U2960/X (SAEDRVT14_INV_S_20)                                  0.014     0.019      1.465 f
+  rd/n3630 (net)                                5        0.046               0.000      1.465 f
+  rd/U3127/A1 (SAEDRVT14_OAI21_V1_8)                               0.014     0.000      1.465 f
+  rd/U3127/X (SAEDRVT14_OAI21_V1_8)                                0.041     0.022      1.487 r
+  rd/n1027 (net)                                1        0.012               0.000      1.487 r
+  rd/U1332/A1 (SAEDRVT14_NR2_MM_16)                                0.041     0.000      1.487 r
+  rd/U1332/X (SAEDRVT14_NR2_MM_16)                                 0.014     0.022      1.509 f
+  rd/n1260 (net)                                2        0.016               0.000      1.509 f
+  rd/U1272/A1 (SAEDRVT14_OR2_MM_8)                                 0.014     0.000      1.509 f
+  rd/U1272/X (SAEDRVT14_OR2_MM_8)                                  0.012     0.028      1.537 f
+  rd/n1342 (net)                                1        0.012               0.000      1.537 f
+  rd/U1271/A1 (SAEDRVT14_ND2_16)                                   0.012     0.000      1.537 f
+  rd/U1271/X (SAEDRVT14_ND2_16)                                    0.018     0.021      1.558 r
+  rd/n1362 (net)                                4        0.035               0.000      1.558 r
+  rd/U1179/A1 (SAEDRVT14_OR2_MM_3)                                 0.018     0.000      1.559 r
+  rd/U1179/X (SAEDRVT14_OR2_MM_3)                                  0.014     0.031      1.590 r
+  rd/n160 (net)                                 1        0.006               0.000      1.590 r
+  rd/U497/A1 (SAEDRVT14_AN2_8)                                     0.014     0.000      1.590 r
+  rd/U497/X (SAEDRVT14_AN2_8)                                      0.010     0.027      1.616 r
+  rd/n467 (net)                                 1        0.012               0.000      1.616 r
+  rd/U2742/A1 (SAEDRVT14_ND2_16)                                   0.010     0.000      1.617 r
+  rd/U2742/X (SAEDRVT14_ND2_16)                                    0.010     0.012      1.628 f
+  rd/n465 (net)                                 1        0.013               0.000      1.628 f
+  rd/U2741/A2 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      1.629 f
+  rd/U2741/X (SAEDRVT14_ND2_MM_16)                                 0.022     0.020      1.648 r
+  rd/n3771 (net)                                4        0.037               0.000      1.648 r
+  rd/U3254/A1 (SAEDRVT14_OAI21_V1_8)                               0.022     0.000      1.649 r
+  rd/U3254/X (SAEDRVT14_OAI21_V1_8)                                0.028     0.020      1.669 f
+  rd/n3829 (net)                                1        0.007               0.000      1.669 f
+  rd/U1276/A (SAEDRVT14_BUF_16)                                    0.028     0.000      1.669 f
+  rd/U1276/X (SAEDRVT14_BUF_16)                                    0.010     0.029      1.698 f
+  rd/n201 (net)                                 3        0.024               0.000      1.698 f
+  rd/U4397/A1 (SAEDRVT14_NR2_MM_4)                                 0.010     0.000      1.698 f
+  rd/U4397/X (SAEDRVT14_NR2_MM_4)                                  0.037     0.018      1.716 r
+  rd/n3802 (net)                                1        0.006               0.000      1.716 r
+  rd/U3204/A1 (SAEDRVT14_AN2_8)                                    0.037     0.000      1.716 r
+  rd/U3204/X (SAEDRVT14_AN2_8)                                     0.010     0.033      1.749 r
+  rd/n1192 (net)                                1        0.010               0.000      1.749 r
+  rd/U451/A2 (SAEDRVT14_NR2_MM_10)                                 0.010     0.000      1.749 r
+  rd/U451/X (SAEDRVT14_NR2_MM_10)                                  0.011     0.013      1.762 f
+  rd/n1191 (net)                                1        0.013               0.000      1.762 f
+  rd/U2924/A1 (SAEDRVT14_ND2_MM_16)                                0.011     0.000      1.762 f
+  rd/U2924/X (SAEDRVT14_ND2_MM_16)                                 0.022     0.023      1.785 r
+  rd/n1194 (net)                                4        0.048               0.000      1.785 r
+  rd/U433/A (SAEDRVT14_BUF_8)                                      0.022     0.000      1.785 r
+  rd/U433/X (SAEDRVT14_BUF_8)                                      0.028     0.040      1.825 r
+  rd/n884 (net)                                 5        0.040               0.000      1.825 r
+  rd/U1700/A1 (SAEDRVT14_NR2_MM_6)                                 0.028     0.000      1.826 r
+  rd/U1700/X (SAEDRVT14_NR2_MM_6)                                  0.014     0.019      1.845 f
+  rd/n598 (net)                                 1        0.007               0.000      1.845 f
+  rd/U416/A1 (SAEDRVT14_ND2_4)                                     0.014     0.000      1.845 f
+  rd/U416/X (SAEDRVT14_ND2_4)                                      0.016     0.018      1.863 r
+  rd/n342 (net)                                 1        0.007               0.000      1.863 r
+  rd/U1439/A1 (SAEDRVT14_ND2_4)                                    0.016     0.000      1.863 r
+  rd/U1439/X (SAEDRVT14_ND2_4)                                     0.018     0.019      1.882 f
+  rd/n340 (net)                                 1        0.007               0.000      1.882 f
+  rd/U1436/A1 (SAEDRVT14_ND2_5)                                    0.018     0.000      1.882 f
+  rd/U1436/X (SAEDRVT14_ND2_5)                                     0.014     0.019      1.900 r
+  rd/n451 (net)                                 1        0.008               0.000      1.900 r
+  rd/U1296/A1 (SAEDRVT14_AOI21_8)                                  0.014     0.000      1.901 r
+  rd/U1296/X (SAEDRVT14_AOI21_8)                                   0.026     0.025      1.926 f
+  rd/n454 (net)                                 2        0.013               0.000      1.926 f
+  rd/U382/A1 (SAEDRVT14_OR2_MM_8)                                  0.026     0.000      1.926 f
+  rd/U382/X (SAEDRVT14_OR2_MM_8)                                   0.012     0.034      1.959 f
+  rd/n306 (net)                                 1        0.015               0.000      1.959 f
+  rd/U1689/A (SAEDRVT14_INV_S_20)                                  0.012     0.000      1.960 f
+  rd/U1689/X (SAEDRVT14_INV_S_20)                                  0.016     0.018      1.978 r
+  rd/n226 (net)                                 5        0.057               0.000      1.978 r
+  rd/U2780/A (SAEDRVT14_INV_S_16)                                  0.016     0.000      1.978 r
+  rd/U2780/X (SAEDRVT14_INV_S_16)                                  0.008     0.011      1.989 f
+  rd/n1112 (net)                                2        0.016               0.000      1.989 f
+  rd/U1423/A2 (SAEDRVT14_ND2_6)                                    0.008     0.000      1.989 f
+  rd/U1423/X (SAEDRVT14_ND2_6)                                     0.017     0.012      2.001 r
+  rd/n499 (net)                                 1        0.008               0.000      2.001 r
+  rd/U355/A1 (SAEDRVT14_ND2_6)                                     0.017     0.000      2.001 r
+  rd/U355/X (SAEDRVT14_ND2_6)                                      0.019     0.018      2.019 f
+  rd/n497 (net)                                 1        0.009               0.000      2.019 f
+  rd/U347/A1 (SAEDRVT14_NR2_MM_10)                                 0.019     0.000      2.019 f
+  rd/U347/X (SAEDRVT14_NR2_MM_10)                                  0.015     0.018      2.038 r
+  rd/n496 (net)                                 1        0.012               0.000      2.038 r
+  rd/U2752/A1 (SAEDRVT14_ND2_16)                                   0.015     0.000      2.038 r
+  rd/U2752/X (SAEDRVT14_ND2_16)                                    0.010     0.013      2.051 f
+  rd/n494 (net)                                 1        0.012               0.000      2.051 f
+  rd/U2753/A1 (SAEDRVT14_NR2_MM_16)                                0.010     0.000      2.051 f
+  rd/U2753/X (SAEDRVT14_NR2_MM_16)                                 0.013     0.015      2.066 r
+  rd/n4047 (net)                                2        0.019               0.000      2.066 r
+  rd/U3264/A1 (SAEDRVT14_OR3_4)                                    0.013     0.000      2.066 r
+  rd/U3264/X (SAEDRVT14_OR3_4)                                     0.013     0.028      2.094 r
+  rd/n1345 (net)                                1        0.008               0.000      2.094 r
+  rd/U2784/B (SAEDRVT14_OAI21_V1_8)                                0.013     0.000      2.094 r
+  rd/U2784/X (SAEDRVT14_OAI21_V1_8)                                0.031     0.029      2.123 f
+  rd/n4214 (net)                                2        0.020               0.000      2.123 f
+  rd/U1331/A (SAEDRVT14_BUF_20)                                    0.031     0.000      2.124 f
+  rd/U1331/X (SAEDRVT14_BUF_20)                                    0.011     0.030      2.154 f
+  rd/n4384 (net)                                3        0.033               0.000      2.154 f
+  rd/U2734/A1 (SAEDRVT14_ND2_MM_16)                                0.011     0.000      2.154 f
+  rd/U2734/X (SAEDRVT14_ND2_MM_16)                                 0.015     0.013      2.167 r
+  rd/n446 (net)                                 2        0.018               0.000      2.167 r
+  rd/U258/A2 (SAEDRVT14_AN2_MM_3)                                  0.015     0.000      2.167 r
+  rd/U258/X (SAEDRVT14_AN2_MM_3)                                   0.017     0.034      2.201 r
+  rd/n559 (net)                                 1        0.008               0.000      2.201 r
+  rd/U253/A1 (SAEDRVT14_ND2_6)                                     0.017     0.000      2.201 r
+  rd/U253/X (SAEDRVT14_ND2_6)                                      0.021     0.024      2.225 f
+  rd/n1114 (net)                                2        0.016               0.000      2.225 f
+  rd/U230/A2 (SAEDRVT14_ND2_6)                                     0.021     0.000      2.226 f
+  rd/U230/X (SAEDRVT14_ND2_6)                                      0.019     0.023      2.249 r
+  rd/n4372 (net)                                2        0.014               0.000      2.249 r
+  rd/U1410/A (SAEDRVT14_INV_S_2)                                   0.019     0.000      2.249 r
+  rd/U1410/X (SAEDRVT14_INV_S_2)                                   0.016     0.021      2.270 f
+  rd/n4375 (net)                                1        0.006               0.000      2.270 f
+  rd/U1217/A1 (SAEDRVT14_NR2_MM_3)                                 0.016     0.000      2.270 f
+  rd/U1217/X (SAEDRVT14_NR2_MM_3)                                  0.030     0.025      2.295 r
+  rd/n4381 (net)                                1        0.006               0.000      2.295 r
+  rd/U1216/A1 (SAEDRVT14_AOI21_3)                                  0.030     0.000      2.295 r
+  rd/U1216/X (SAEDRVT14_AOI21_3)                                   0.032     0.034      2.329 f
+  rd/n4383 (net)                                1        0.005               0.000      2.329 f
+  rd/U1676/A1 (SAEDRVT14_OR2_MM_4)                                 0.032     0.000      2.329 f
+  rd/U1676/X (SAEDRVT14_OR2_MM_4)                                  0.017     0.039      2.367 f
+  rd/n4460 (net)                                2        0.011               0.000      2.367 f
+  rd/U1406/A1 (SAEDRVT14_OR2_MM_2)                                 0.017     0.000      2.368 f
+  rd/U1406/X (SAEDRVT14_OR2_MM_2)                                  0.017     0.036      2.403 f
+  rd/n554 (net)                                 1        0.006               0.000      2.403 f
+  rd/U1402/A1 (SAEDRVT14_NR2_MM_3)                                 0.017     0.000      2.403 f
+  rd/U1402/X (SAEDRVT14_NR2_MM_3)                                  0.027     0.028      2.431 r
+  rd/n4409 (net)                                1        0.007               0.000      2.431 r
+  rd/U1398/A1 (SAEDRVT14_ND2_MM_4)                                 0.027     0.000      2.431 r
+  rd/U1398/X (SAEDRVT14_ND2_MM_4)                                  0.028     0.032      2.463 f
+  rd/n4410 (net)                                2        0.016               0.000      2.463 f
+  rd/U1671/A1 (SAEDRVT14_NR2_MM_10)                                0.028     0.000      2.464 f
+  rd/U1671/X (SAEDRVT14_NR2_MM_10)                                 0.031     0.035      2.498 r
+  rd/n5911 (net)                                4        0.031               0.000      2.498 r
+  rd/U5382/B (SAEDRVT14_OAI21_V1_4)                                0.031     0.000      2.499 r
+  rd/U5382/X (SAEDRVT14_OAI21_V1_4)                                0.039     0.028      2.527 f
+  rd/n5913 (net)                                1        0.006               0.000      2.527 f
+  rd/U2153/A2 (SAEDRVT14_ND2_1)                                    0.039     0.000      2.527 f
+  rd/U2153/X (SAEDRVT14_ND2_1)                                     0.030     0.034      2.561 r
+  rd/n5915 (net)                                1        0.006               0.000      2.561 r
+  rd/U1394/B (SAEDRVT14_AOI21_V1_4)                                0.030     0.000      2.561 r
+  rd/U1394/X (SAEDRVT14_AOI21_V1_4)                                0.031     0.033      2.594 f
+  rd/n5919 (net)                                1        0.007               0.000      2.594 f
+  rd/U1391/A1 (SAEDRVT14_ND2_4)                                    0.031     0.000      2.594 f
+  rd/U1391/X (SAEDRVT14_ND2_4)                                     0.019     0.026      2.620 r
+  rd/n5920 (net)                                1        0.008               0.000      2.620 r
+  rd/U36/A1 (SAEDRVT14_ND2_6)                                      0.019     0.000      2.620 r
+  rd/U36/X (SAEDRVT14_ND2_6)                                       0.014     0.018      2.637 f
+  rd/n5921 (net)                                1        0.008               0.000      2.637 f
+  rd/U3282/B (SAEDRVT14_OAI21_V1_8)                                0.014     0.000      2.638 f
+  rd/U3282/X (SAEDRVT14_OAI21_V1_8)                                0.014     0.014      2.652 r
+  rd/formatInfo[2] (net)                        1        0.005               0.000      2.652 r
+  rd/formatInfo[2] (mkQRReaderS)                                             0.000      2.652 r
+  rd_formatInfo[2] (net)                                 0.005               0.000      2.652 r
+  U45565/A1 (SAEDRVT14_AO21_4)                                     0.014     0.000      2.652 r
+  U45565/X (SAEDRVT14_AO21_4)                                      0.011     0.029      2.681 r
+  n49019 (net)                                  1        0.005               0.000      2.681 r
+  maskR_reg_2_/D (SAEDRVT14_FDP_V2_0P5)                            0.011     0.000      2.681 r
+  data arrival time                                                                     2.681
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  maskR_reg_2_/CK (SAEDRVT14_FDP_V2_0P5)                                     0.000      2.700 r
+  library setup time                                                        -0.018      2.682
+  data required time                                                                    2.682
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.682
+  data arrival time                                                                    -2.681
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rs_cp_reg_1_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: bb_mem_rdReg_reg_2_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rs_cp_reg_1_/CK (SAEDRVT14_FDP_V2_4)                             0.000     0.000 #    0.000 r
+  rs_cp_reg_1_/Q (SAEDRVT14_FDP_V2_4)                              0.037     0.084      0.084 f
+  rs_cp[1] (net)                                4        0.030               0.000      0.084 f
+  U45560/A1 (SAEDRVT14_ND2_5)                                      0.037     0.000      0.084 f
+  U45560/X (SAEDRVT14_ND2_5)                                       0.042     0.048      0.132 r
+  n26131 (net)                                  4        0.030               0.000      0.132 r
+  U37102/A1 (SAEDRVT14_NR2_MM_6)                                   0.042     0.000      0.133 r
+  U37102/X (SAEDRVT14_NR2_MM_6)                                    0.032     0.039      0.171 f
+  n25839 (net)                                  3        0.023               0.000      0.171 f
+  U45561/B (SAEDRVT14_AOI21_1P5)                                   0.032     0.000      0.172 f
+  U45561/X (SAEDRVT14_AOI21_1P5)                                   0.066     0.064      0.236 r
+  n26128 (net)                                  2        0.012               0.000      0.236 r
+  U45774/B (SAEDRVT14_ADDF_V2_2)                                   0.066     0.000      0.236 r
+  U45774/S (SAEDRVT14_ADDF_V2_2)                                   0.032     0.122      0.357 f
+  n26117 (net)                                  2        0.012               0.000      0.357 f
+  U37084/A (SAEDRVT14_INV_S_2)                                     0.032     0.000      0.358 f
+  U37084/X (SAEDRVT14_INV_S_2)                                     0.020     0.026      0.383 r
+  intadd_4/B_1_ (net)                           1        0.006               0.000      0.383 r
+  U44362/CI (SAEDRVT14_ADDF_V1_2)                                  0.020     0.000      0.383 r
+  U44362/S (SAEDRVT14_ADDF_V1_2)                                   0.032     0.105      0.488 f
+  intadd_4/SUM_1_ (net)                         2        0.011               0.000      0.488 f
+  U50539/D1 (SAEDRVT14_MUXI2_1)                                    0.032     0.000      0.488 f
+  U50539/X (SAEDRVT14_MUXI2_1)                                     0.093     0.112      0.601 r
+  n34674 (net)                                  3        0.020               0.000      0.601 r
+  U50540/A2 (SAEDRVT14_NR2_1P5)                                    0.093     0.000      0.601 r
+  U50540/X (SAEDRVT14_NR2_1P5)                                     0.127     0.139      0.740 f
+  n34747 (net)                                  4        0.027               0.000      0.740 f
+  U50552/A1 (SAEDRVT14_ND2_CDC_2)                                  0.127     0.000      0.740 f
+  U50552/X (SAEDRVT14_ND2_CDC_2)                                   0.097     0.115      0.855 r
+  n34777 (net)                                  4        0.028               0.000      0.855 r
+  U50554/A (SAEDRVT14_ND2B_1P5)                                    0.097     0.000      0.856 r
+  U50554/X (SAEDRVT14_ND2B_1P5)                                    0.115     0.140      0.995 r
+  n34876 (net)                                  3        0.020               0.000      0.995 r
+  U50555/B (SAEDRVT14_OA21_4)                                      0.115     0.000      0.996 r
+  U50555/X (SAEDRVT14_OA21_4)                                      0.022     0.068      1.064 r
+  n34670 (net)                                  2        0.011               0.000      1.064 r
+  U50558/A1 (SAEDRVT14_AO32_2)                                     0.022     0.000      1.064 r
+  U50558/X (SAEDRVT14_AO32_2)                                      0.033     0.061      1.125 r
+  n34682 (net)                                  2        0.011               0.000      1.125 r
+  U50568/A2 (SAEDRVT14_AN3_2)                                      0.033     0.000      1.125 r
+  U50568/X (SAEDRVT14_AN3_2)                                       0.053     0.075      1.200 r
+  n34789 (net)                                  3        0.020               0.000      1.200 r
+  U50569/A3 (SAEDRVT14_AN4_8)                                      0.053     0.000      1.200 r
+  U50569/X (SAEDRVT14_AN4_8)                                       0.032     0.070      1.269 r
+  n34794 (net)                                  5        0.038               0.000      1.269 r
+  U28364/A2 (SAEDRVT14_ND2_CDC_4)                                  0.032     0.000      1.270 r
+  U28364/X (SAEDRVT14_ND2_CDC_4)                                   0.062     0.046      1.316 f
+  n34841 (net)                                  3        0.020               0.000      1.316 f
+  U50682/A2 (SAEDRVT14_NR2_1P5)                                    0.062     0.000      1.316 f
+  U50682/X (SAEDRVT14_NR2_1P5)                                     0.490     0.401      1.717 r
+  n35641 (net)                                  9        0.089               0.000      1.717 r
+  U50683/A (SAEDRVT14_BUF_S_2)                                     0.490     0.000      1.717 r
+  U50683/X (SAEDRVT14_BUF_S_2)                                     0.180     0.225      1.942 r
+  n35341 (net)                                  8        0.075               0.000      1.942 r
+  U50986/A2 (SAEDRVT14_ND2_CDC_2)                                  0.180     0.000      1.942 r
+  U50986/X (SAEDRVT14_ND2_CDC_2)                                   0.308     0.303      2.245 f
+  n40457 (net)                                  8        0.073               0.000      2.245 f
+  U27560/B2 (SAEDRVT14_OAI22_1)                                    0.308     0.000      2.245 f
+  U27560/X (SAEDRVT14_OAI22_1)                                     0.100     0.130      2.375 r
+  n40459 (net)                                  1        0.005               0.000      2.375 r
+  U42457/A4 (SAEDRVT14_OR4_1)                                      0.100     0.000      2.375 r
+  U42457/X (SAEDRVT14_OR4_1)                                       0.027     0.079      2.454 r
+  n40463 (net)                                  1        0.005               0.000      2.454 r
+  U39597/A4 (SAEDRVT14_OR4_1)                                      0.027     0.000      2.454 r
+  U39597/X (SAEDRVT14_OR4_1)                                       0.026     0.048      2.503 r
+  n40467 (net)                                  1        0.005               0.000      2.503 r
+  U31579/A4 (SAEDRVT14_OR4_1)                                      0.026     0.000      2.503 r
+  U31579/X (SAEDRVT14_OR4_1)                                       0.027     0.048      2.551 r
+  n40940 (net)                                  1        0.005               0.000      2.551 r
+  U53191/A1 (SAEDRVT14_OR4_2)                                      0.027     0.000      2.551 r
+  U53191/X (SAEDRVT14_OR4_2)                                       0.015     0.039      2.590 r
+  n40941 (net)                                  1        0.005               0.000      2.590 r
+  U53192/A4 (SAEDRVT14_OR4_2)                                      0.015     0.000      2.590 r
+  U53192/X (SAEDRVT14_OR4_2)                                       0.015     0.037      2.627 r
+  n41510 (net)                                  1        0.005               0.000      2.627 r
+  U53294/B1 (SAEDRVT14_OA22_2)                                     0.015     0.000      2.627 r
+  U53294/X (SAEDRVT14_OA22_2)                                      0.025     0.046      2.673 r
+  n3987 (net)                                   1        0.005               0.000      2.673 r
+  bb_mem_rdReg_reg_2_/D (SAEDRVT14_FDP_V2LP_0P5)                   0.025     0.000      2.673 r
+  data arrival time                                                                     2.673
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  bb_mem_rdReg_reg_2_/CK (SAEDRVT14_FDP_V2LP_0P5)                            0.000      2.700 r
+  library setup time                                                        -0.027      2.673
+  data required time                                                                    2.673
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.673
+  data arrival time                                                                    -2.673
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rd/r_fmtW1_reg_10_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: maskR_reg_1_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtW1_reg_10_/CK (SAEDRVT14_FDP_V2_4)                       0.000     0.000 #    0.000 r
+  rd/r_fmtW1_reg_10_/Q (SAEDRVT14_FDP_V2_4)                        0.019     0.072      0.072 f
+  rd/y__h40694_0_ (net)                         2        0.014               0.000      0.072 f
+  rd/U934/A (SAEDRVT14_BUF_12)                                     0.019     0.000      0.072 f
+  rd/U934/X (SAEDRVT14_BUF_12)                                     0.021     0.034      0.106 f
+  rd/n3940 (net)                                6        0.049               0.000      0.106 f
+  rd/U2751/A3 (SAEDRVT14_EN3_3)                                    0.021     0.000      0.107 f
+  rd/U2751/X (SAEDRVT14_EN3_3)                                     0.013     0.072      0.179 f
+  rd/n4086 (net)                                1        0.007               0.000      0.179 f
+  rd/U1223/A (SAEDRVT14_BUF_16)                                    0.013     0.000      0.179 f
+  rd/U1223/X (SAEDRVT14_BUF_16)                                    0.009     0.023      0.201 f
+  rd/n192 (net)                                 3        0.022               0.000      0.201 f
+  rd/U917/A (SAEDRVT14_BUF_12)                                     0.009     0.000      0.202 f
+  rd/U917/X (SAEDRVT14_BUF_12)                                     0.008     0.019      0.221 f
+  rd/n518 (net)                                 2        0.013               0.000      0.221 f
+  rd/U1644/A1 (SAEDRVT14_OR2_MM_6)                                 0.008     0.000      0.221 f
+  rd/U1644/X (SAEDRVT14_OR2_MM_6)                                  0.011     0.025      0.246 f
+  rd/n487 (net)                                 1        0.010               0.000      0.246 f
+  rd/U1635/A (SAEDRVT14_INV_S_10)                                  0.011     0.000      0.246 f
+  rd/U1635/X (SAEDRVT14_INV_S_10)                                  0.011     0.013      0.259 r
+  rd/n3142 (net)                                2        0.018               0.000      0.259 r
+  rd/U895/A1 (SAEDRVT14_NR2_MM_8)                                  0.011     0.000      0.260 r
+  rd/U895/X (SAEDRVT14_NR2_MM_8)                                   0.012     0.011      0.271 f
+  rd/n308 (net)                                 1        0.008               0.000      0.271 f
+  rd/U1838/A (SAEDRVT14_INV_6)                                     0.012     0.000      0.271 f
+  rd/U1838/X (SAEDRVT14_INV_6)                                     0.010     0.012      0.283 r
+  rd/n307 (net)                                 1        0.009               0.000      0.283 r
+  rd/U1604/A1 (SAEDRVT14_NR2_MM_10)                                0.010     0.000      0.283 r
+  rd/U1604/X (SAEDRVT14_NR2_MM_10)                                 0.011     0.012      0.295 f
+  rd/n3149 (net)                                2        0.013               0.000      0.295 f
+  rd/U2637/A2 (SAEDRVT14_EN3_3)                                    0.011     0.000      0.295 f
+  rd/U2637/X (SAEDRVT14_EN3_3)                                     0.013     0.067      0.362 r
+  rd/n979 (net)                                 1        0.007               0.000      0.362 r
+  rd/U853/A (SAEDRVT14_BUF_16)                                     0.013     0.000      0.362 r
+  rd/U853/X (SAEDRVT14_BUF_16)                                     0.011     0.024      0.386 r
+  rd/n213 (net)                                 3        0.027               0.000      0.386 r
+  rd/U839/A2 (SAEDRVT14_ND2_5)                                     0.011     0.000      0.387 r
+  rd/U839/X (SAEDRVT14_ND2_5)                                      0.041     0.020      0.406 f
+  rd/n1121 (net)                                1        0.012               0.000      0.406 f
+  rd/U2908/A2 (SAEDRVT14_ND2_16)                                   0.041     0.000      0.406 f
+  rd/U2908/X (SAEDRVT14_ND2_16)                                    0.020     0.028      0.434 r
+  rd/n3166 (net)                                3        0.025               0.000      0.434 r
+  rd/U1791/A2 (SAEDRVT14_ND2_4)                                    0.020     0.000      0.434 r
+  rd/U1791/X (SAEDRVT14_ND2_4)                                     0.014     0.019      0.453 f
+  rd/n3167 (net)                                1        0.006               0.000      0.453 f
+  rd/U3033/A1 (SAEDRVT14_EN2_4)                                    0.014     0.000      0.453 f
+  rd/U3033/X (SAEDRVT14_EN2_4)                                     0.027     0.054      0.507 r
+  rd/n3218 (net)                                2        0.019               0.000      0.507 r
+  rd/U2745/B (SAEDRVT14_AOI21_8)                                   0.027     0.000      0.507 r
+  rd/U2745/X (SAEDRVT14_AOI21_8)                                   0.018     0.023      0.530 f
+  rd/n472 (net)                                 1        0.008               0.000      0.530 f
+  rd/U2739/A1 (SAEDRVT14_OAI21_V1_8)                               0.018     0.000      0.530 f
+  rd/U2739/X (SAEDRVT14_OAI21_V1_8)                                0.015     0.019      0.549 r
+  rd/n462 (net)                                 1        0.008               0.000      0.549 r
+  rd/U1368/A (SAEDRVT14_BUF_20)                                    0.015     0.000      0.549 r
+  rd/U1368/X (SAEDRVT14_BUF_20)                                    0.011     0.025      0.574 r
+  rd/n220 (net)                                 3        0.031               0.000      0.574 r
+  rd/U2737/A1 (SAEDRVT14_ND2_MM_10)                                0.011     0.000      0.574 r
+  rd/U2737/X (SAEDRVT14_ND2_MM_10)                                 0.011     0.012      0.586 f
+  rd/n477 (net)                                 1        0.010               0.000      0.586 f
+  rd/U2746/A1 (SAEDRVT14_ND2_MM_10)                                0.011     0.000      0.587 f
+  rd/U2746/X (SAEDRVT14_ND2_MM_10)                                 0.010     0.012      0.599 r
+  rd/n1128 (net)                                1        0.011               0.000      0.599 r
+  rd/U3087/A2 (SAEDRVT14_NR2_MM_12)                                0.010     0.000      0.599 r
+  rd/U3087/X (SAEDRVT14_NR2_MM_12)                                 0.009     0.012      0.611 f
+  rd/n949 (net)                                 1        0.012               0.000      0.611 f
+  rd/U2952/A1 (SAEDRVT14_NR2_MM_16)                                0.009     0.000      0.611 f
+  rd/U2952/X (SAEDRVT14_NR2_MM_16)                                 0.018     0.018      0.629 r
+  rd/n1104 (net)                                3        0.027               0.000      0.629 r
+  rd/U3085/S (SAEDRVT14_MUX2_MM_4)                                 0.018     0.000      0.629 r
+  rd/U3085/X (SAEDRVT14_MUX2_MM_4)                                 0.020     0.052      0.682 f
+  rd/n3264 (net)                                2        0.015               0.000      0.682 f
+  rd/U761/A1 (SAEDRVT14_NR2_MM_6)                                  0.020     0.000      0.682 f
+  rd/U761/X (SAEDRVT14_NR2_MM_6)                                   0.023     0.025      0.707 r
+  rd/n878 (net)                                 1        0.012               0.000      0.707 r
+  rd/U1345/A1 (SAEDRVT14_NR2_MM_16)                                0.023     0.000      0.707 r
+  rd/U1345/X (SAEDRVT14_NR2_MM_16)                                 0.023     0.025      0.732 f
+  rd/n1318 (net)                                4        0.041               0.000      0.732 f
+  rd/U743/A (SAEDRVT14_INV_S_10)                                   0.023     0.000      0.732 f
+  rd/U743/X (SAEDRVT14_INV_S_10)                                   0.012     0.016      0.748 r
+  rd/n3318 (net)                                2        0.016               0.000      0.748 r
+  rd/U1500/A2 (SAEDRVT14_NR2_MM_8)                                 0.012     0.000      0.749 r
+  rd/U1500/X (SAEDRVT14_NR2_MM_8)                                  0.009     0.012      0.761 f
+  rd/n534 (net)                                 1        0.007               0.000      0.761 f
+  rd/U2769/A1 (SAEDRVT14_ND2_4)                                    0.009     0.000      0.761 f
+  rd/U2769/X (SAEDRVT14_ND2_4)                                     0.021     0.022      0.783 r
+  rd/n533 (net)                                 1        0.012               0.000      0.783 r
+  rd/U2768/A2 (SAEDRVT14_ND2_16)                                   0.021     0.000      0.783 r
+  rd/U2768/X (SAEDRVT14_ND2_16)                                    0.015     0.019      0.802 f
+  rd/n1025 (net)                                2        0.020               0.000      0.802 f
+  rd/U3125/A2 (SAEDRVT14_ND2_16)                                   0.015     0.000      0.802 f
+  rd/U3125/X (SAEDRVT14_ND2_16)                                    0.010     0.014      0.816 r
+  rd/n1037 (net)                                1        0.013               0.000      0.816 r
+  rd/U2906/A1 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      0.816 r
+  rd/U2906/X (SAEDRVT14_ND2_MM_16)                                 0.030     0.026      0.842 f
+  rd/n3405 (net)                                5        0.059               0.000      0.842 f
+  rd/U2905/A (SAEDRVT14_INV_S_20)                                  0.030     0.000      0.843 f
+  rd/U2905/X (SAEDRVT14_INV_S_20)                                  0.012     0.016      0.859 r
+  rd/n4451 (net)                                3        0.028               0.000      0.859 r
+  rd/U4186/A1 (SAEDRVT14_NR2_MM_10)                                0.012     0.000      0.859 r
+  rd/U4186/X (SAEDRVT14_NR2_MM_10)                                 0.012     0.010      0.869 f
+  rd/n3366 (net)                                1        0.006               0.000      0.869 f
+  rd/U2942/A1 (SAEDRVT14_OR2_MM_8)                                 0.012     0.000      0.869 f
+  rd/U2942/X (SAEDRVT14_OR2_MM_8)                                  0.011     0.027      0.896 f
+  rd/n1364 (net)                                1        0.013               0.000      0.896 f
+  rd/U3131/A2 (SAEDRVT14_NR2_MM_16)                                0.011     0.000      0.896 f
+  rd/U3131/X (SAEDRVT14_NR2_MM_16)                                 0.015     0.017      0.914 r
+  rd/n1347 (net)                                2        0.022               0.000      0.914 r
+  rd/U3248/A (SAEDRVT14_INV_S_20)                                  0.015     0.000      0.914 r
+  rd/U3248/X (SAEDRVT14_INV_S_20)                                  0.018     0.021      0.935 f
+  rd/n3491 (net)                                7        0.071               0.000      0.935 f
+  rd/U4211/A1 (SAEDRVT14_OR3_4)                                    0.018     0.000      0.935 f
+  rd/U4211/X (SAEDRVT14_OR3_4)                                     0.014     0.033      0.969 f
+  rd/n3413 (net)                                1        0.008               0.000      0.969 f
+  rd/U4214/A1 (SAEDRVT14_OAI21_V1_8)                               0.014     0.000      0.969 f
+  rd/U4214/X (SAEDRVT14_OAI21_V1_8)                                0.018     0.020      0.988 r
+  rd/n3418 (net)                                1        0.010               0.000      0.988 r
+  rd/U2951/A1 (SAEDRVT14_ND2_MM_10)                                0.018     0.000      0.989 r
+  rd/U2951/X (SAEDRVT14_ND2_MM_10)                                 0.014     0.017      1.005 f
+  rd/n712 (net)                                 1        0.013               0.000      1.005 f
+  rd/U2885/A1 (SAEDRVT14_ND2_MM_16)                                0.014     0.000      1.005 f
+  rd/U2885/X (SAEDRVT14_ND2_MM_16)                                 0.013     0.016      1.022 r
+  rd/n3464 (net)                                2        0.025               0.000      1.022 r
+  rd/U2884/A (SAEDRVT14_INV_S_20)                                  0.013     0.000      1.022 r
+  rd/U2884/X (SAEDRVT14_INV_S_20)                                  0.013     0.015      1.037 f
+  rd/n4455 (net)                                4        0.047               0.000      1.037 f
+  rd/U3000/A1 (SAEDRVT14_NR2_MM_12)                                0.013     0.000      1.038 f
+  rd/U3000/X (SAEDRVT14_NR2_MM_12)                                 0.025     0.017      1.054 r
+  rd/n751 (net)                                 2        0.016               0.000      1.054 r
+  rd/U654/A (SAEDRVT14_INV_4)                                      0.025     0.000      1.055 r
+  rd/U654/X (SAEDRVT14_INV_4)                                      0.012     0.017      1.072 f
+  rd/n808 (net)                                 1        0.006               0.000      1.072 f
+  rd/U649/A1 (SAEDRVT14_ND2_3)                                     0.012     0.000      1.072 f
+  rd/U649/X (SAEDRVT14_ND2_3)                                      0.014     0.017      1.088 r
+  rd/n3511 (net)                                1        0.006               0.000      1.088 r
+  rd/U4262/A (SAEDRVT14_INV_S_2)                                   0.014     0.000      1.089 r
+  rd/U4262/X (SAEDRVT14_INV_S_2)                                   0.015     0.018      1.106 f
+  rd/n3512 (net)                                1        0.006               0.000      1.106 f
+  rd/U3206/D1 (SAEDRVT14_MUX2_MM_4)                                0.015     0.000      1.106 f
+  rd/U3206/X (SAEDRVT14_MUX2_MM_4)                                 0.011     0.033      1.139 f
+  rd/n1196 (net)                                1        0.006               0.000      1.139 f
+  rd/U2882/D0 (SAEDRVT14_MUX2_MM_4)                                0.011     0.000      1.139 f
+  rd/U2882/X (SAEDRVT14_MUX2_MM_4)                                 0.023     0.041      1.180 f
+  rd/n3555 (net)                                2        0.017               0.000      1.180 f
+  rd/U1370/A1 (SAEDRVT14_NR2_MM_12)                                0.023     0.000      1.180 f
+  rd/U1370/X (SAEDRVT14_NR2_MM_12)                                 0.018     0.015      1.195 r
+  rd/n715 (net)                                 1        0.008               0.000      1.195 r
+  rd/U2927/A1 (SAEDRVT14_AOI21_8)                                  0.018     0.000      1.195 r
+  rd/U2927/X (SAEDRVT14_AOI21_8)                                   0.017     0.021      1.216 f
+  rd/n1366 (net)                                1        0.007               0.000      1.216 f
+  rd/U3236/A1 (SAEDRVT14_OR2_MM_20)                                0.017     0.000      1.216 f
+  rd/U3236/X (SAEDRVT14_OR2_MM_20)                                 0.023     0.044      1.260 f
+  rd/n3576 (net)                                7        0.078               0.000      1.260 f
+  rd/U2793/A1 (SAEDRVT14_NR2_MM_12)                                0.023     0.000      1.261 f
+  rd/U2793/X (SAEDRVT14_NR2_MM_12)                                 0.016     0.015      1.275 r
+  rd/n566 (net)                                 1        0.008               0.000      1.275 r
+  rd/U2792/B (SAEDRVT14_AOI21_8)                                   0.016     0.000      1.275 r
+  rd/U2792/X (SAEDRVT14_AOI21_8)                                   0.028     0.024      1.300 f
+  rd/n1278 (net)                                2        0.016               0.000      1.300 f
+  rd/U597/A (SAEDRVT14_BUF_S_2)                                    0.028     0.000      1.300 f
+  rd/U597/X (SAEDRVT14_BUF_S_2)                                    0.015     0.030      1.330 f
+  rd/n3581 (net)                                1        0.006               0.000      1.330 f
+  rd/U593/A (SAEDRVT14_INV_S_2)                                    0.015     0.000      1.330 f
+  rd/U593/X (SAEDRVT14_INV_S_2)                                    0.018     0.021      1.351 r
+  rd/n972 (net)                                 1        0.007               0.000      1.351 r
+  rd/U2988/A2 (SAEDRVT14_OR2_MM_12)                                0.018     0.000      1.351 r
+  rd/U2988/X (SAEDRVT14_OR2_MM_12)                                 0.008     0.026      1.377 r
+  rd/n736 (net)                                 1        0.013               0.000      1.377 r
+  rd/U2987/A1 (SAEDRVT14_ND2_MM_16)                                0.008     0.000      1.377 r
+  rd/U2987/X (SAEDRVT14_ND2_MM_16)                                 0.018     0.016      1.393 f
+  rd/n3625 (net)                                3        0.029               0.000      1.393 f
+  rd/U1476/A1 (SAEDRVT14_ND2_MM_12)                                0.018     0.000      1.393 f
+  rd/U1476/X (SAEDRVT14_ND2_MM_12)                                 0.019     0.013      1.406 r
+  rd/n969 (net)                                 1        0.009               0.000      1.406 r
+  rd/U566/A1 (SAEDRVT14_ND2_MM_8)                                  0.019     0.000      1.407 r
+  rd/U566/X (SAEDRVT14_ND2_MM_8)                                   0.012     0.015      1.422 f
+  rd/n968 (net)                                 1        0.008               0.000      1.422 f
+  rd/U3094/A1 (SAEDRVT14_OAI21_V1_8)                               0.012     0.000      1.422 f
+  rd/U3094/X (SAEDRVT14_OAI21_V1_8)                                0.022     0.024      1.446 r
+  rd/n970 (net)                                 1        0.015               0.000      1.446 r
+  rd/U2960/A (SAEDRVT14_INV_S_20)                                  0.022     0.000      1.446 r
+  rd/U2960/X (SAEDRVT14_INV_S_20)                                  0.014     0.019      1.465 f
+  rd/n3630 (net)                                5        0.046               0.000      1.465 f
+  rd/U3127/A1 (SAEDRVT14_OAI21_V1_8)                               0.014     0.000      1.465 f
+  rd/U3127/X (SAEDRVT14_OAI21_V1_8)                                0.041     0.022      1.487 r
+  rd/n1027 (net)                                1        0.012               0.000      1.487 r
+  rd/U1332/A1 (SAEDRVT14_NR2_MM_16)                                0.041     0.000      1.487 r
+  rd/U1332/X (SAEDRVT14_NR2_MM_16)                                 0.014     0.022      1.509 f
+  rd/n1260 (net)                                2        0.016               0.000      1.509 f
+  rd/U1272/A1 (SAEDRVT14_OR2_MM_8)                                 0.014     0.000      1.509 f
+  rd/U1272/X (SAEDRVT14_OR2_MM_8)                                  0.012     0.028      1.537 f
+  rd/n1342 (net)                                1        0.012               0.000      1.537 f
+  rd/U1271/A1 (SAEDRVT14_ND2_16)                                   0.012     0.000      1.537 f
+  rd/U1271/X (SAEDRVT14_ND2_16)                                    0.018     0.021      1.558 r
+  rd/n1362 (net)                                4        0.035               0.000      1.558 r
+  rd/U1179/A1 (SAEDRVT14_OR2_MM_3)                                 0.018     0.000      1.559 r
+  rd/U1179/X (SAEDRVT14_OR2_MM_3)                                  0.014     0.031      1.590 r
+  rd/n160 (net)                                 1        0.006               0.000      1.590 r
+  rd/U497/A1 (SAEDRVT14_AN2_8)                                     0.014     0.000      1.590 r
+  rd/U497/X (SAEDRVT14_AN2_8)                                      0.010     0.027      1.616 r
+  rd/n467 (net)                                 1        0.012               0.000      1.616 r
+  rd/U2742/A1 (SAEDRVT14_ND2_16)                                   0.010     0.000      1.617 r
+  rd/U2742/X (SAEDRVT14_ND2_16)                                    0.010     0.012      1.628 f
+  rd/n465 (net)                                 1        0.013               0.000      1.628 f
+  rd/U2741/A2 (SAEDRVT14_ND2_MM_16)                                0.010     0.000      1.629 f
+  rd/U2741/X (SAEDRVT14_ND2_MM_16)                                 0.022     0.020      1.648 r
+  rd/n3771 (net)                                4        0.037               0.000      1.648 r
+  rd/U3254/A1 (SAEDRVT14_OAI21_V1_8)                               0.022     0.000      1.649 r
+  rd/U3254/X (SAEDRVT14_OAI21_V1_8)                                0.028     0.020      1.669 f
+  rd/n3829 (net)                                1        0.007               0.000      1.669 f
+  rd/U1276/A (SAEDRVT14_BUF_16)                                    0.028     0.000      1.669 f
+  rd/U1276/X (SAEDRVT14_BUF_16)                                    0.010     0.029      1.698 f
+  rd/n201 (net)                                 3        0.024               0.000      1.698 f
+  rd/U4397/A1 (SAEDRVT14_NR2_MM_4)                                 0.010     0.000      1.698 f
+  rd/U4397/X (SAEDRVT14_NR2_MM_4)                                  0.037     0.018      1.716 r
+  rd/n3802 (net)                                1        0.006               0.000      1.716 r
+  rd/U3204/A1 (SAEDRVT14_AN2_8)                                    0.037     0.000      1.716 r
+  rd/U3204/X (SAEDRVT14_AN2_8)                                     0.010     0.033      1.749 r
+  rd/n1192 (net)                                1        0.010               0.000      1.749 r
+  rd/U451/A2 (SAEDRVT14_NR2_MM_10)                                 0.010     0.000      1.749 r
+  rd/U451/X (SAEDRVT14_NR2_MM_10)                                  0.011     0.013      1.762 f
+  rd/n1191 (net)                                1        0.013               0.000      1.762 f
+  rd/U2924/A1 (SAEDRVT14_ND2_MM_16)                                0.011     0.000      1.762 f
+  rd/U2924/X (SAEDRVT14_ND2_MM_16)                                 0.022     0.023      1.785 r
+  rd/n1194 (net)                                4        0.048               0.000      1.785 r
+  rd/U433/A (SAEDRVT14_BUF_8)                                      0.022     0.000      1.785 r
+  rd/U433/X (SAEDRVT14_BUF_8)                                      0.028     0.040      1.825 r
+  rd/n884 (net)                                 5        0.040               0.000      1.825 r
+  rd/U1700/A1 (SAEDRVT14_NR2_MM_6)                                 0.028     0.000      1.826 r
+  rd/U1700/X (SAEDRVT14_NR2_MM_6)                                  0.014     0.019      1.845 f
+  rd/n598 (net)                                 1        0.007               0.000      1.845 f
+  rd/U416/A1 (SAEDRVT14_ND2_4)                                     0.014     0.000      1.845 f
+  rd/U416/X (SAEDRVT14_ND2_4)                                      0.016     0.018      1.863 r
+  rd/n342 (net)                                 1        0.007               0.000      1.863 r
+  rd/U1439/A1 (SAEDRVT14_ND2_4)                                    0.016     0.000      1.863 r
+  rd/U1439/X (SAEDRVT14_ND2_4)                                     0.018     0.019      1.882 f
+  rd/n340 (net)                                 1        0.007               0.000      1.882 f
+  rd/U1436/A1 (SAEDRVT14_ND2_5)                                    0.018     0.000      1.882 f
+  rd/U1436/X (SAEDRVT14_ND2_5)                                     0.014     0.019      1.900 r
+  rd/n451 (net)                                 1        0.008               0.000      1.900 r
+  rd/U1296/A1 (SAEDRVT14_AOI21_8)                                  0.014     0.000      1.901 r
+  rd/U1296/X (SAEDRVT14_AOI21_8)                                   0.026     0.025      1.926 f
+  rd/n454 (net)                                 2        0.013               0.000      1.926 f
+  rd/U382/A1 (SAEDRVT14_OR2_MM_8)                                  0.026     0.000      1.926 f
+  rd/U382/X (SAEDRVT14_OR2_MM_8)                                   0.012     0.034      1.959 f
+  rd/n306 (net)                                 1        0.015               0.000      1.959 f
+  rd/U1689/A (SAEDRVT14_INV_S_20)                                  0.012     0.000      1.960 f
+  rd/U1689/X (SAEDRVT14_INV_S_20)                                  0.016     0.018      1.978 r
+  rd/n226 (net)                                 5        0.057               0.000      1.978 r
+  rd/U2780/A (SAEDRVT14_INV_S_16)                                  0.016     0.000      1.978 r
+  rd/U2780/X (SAEDRVT14_INV_S_16)                                  0.008     0.011      1.989 f
+  rd/n1112 (net)                                2        0.016               0.000      1.989 f
+  rd/U1423/A2 (SAEDRVT14_ND2_6)                                    0.008     0.000      1.989 f
+  rd/U1423/X (SAEDRVT14_ND2_6)                                     0.017     0.012      2.001 r
+  rd/n499 (net)                                 1        0.008               0.000      2.001 r
+  rd/U355/A1 (SAEDRVT14_ND2_6)                                     0.017     0.000      2.001 r
+  rd/U355/X (SAEDRVT14_ND2_6)                                      0.019     0.018      2.019 f
+  rd/n497 (net)                                 1        0.009               0.000      2.019 f
+  rd/U347/A1 (SAEDRVT14_NR2_MM_10)                                 0.019     0.000      2.019 f
+  rd/U347/X (SAEDRVT14_NR2_MM_10)                                  0.015     0.018      2.038 r
+  rd/n496 (net)                                 1        0.012               0.000      2.038 r
+  rd/U2752/A1 (SAEDRVT14_ND2_16)                                   0.015     0.000      2.038 r
+  rd/U2752/X (SAEDRVT14_ND2_16)                                    0.010     0.013      2.051 f
+  rd/n494 (net)                                 1        0.012               0.000      2.051 f
+  rd/U2753/A1 (SAEDRVT14_NR2_MM_16)                                0.010     0.000      2.051 f
+  rd/U2753/X (SAEDRVT14_NR2_MM_16)                                 0.013     0.015      2.066 r
+  rd/n4047 (net)                                2        0.019               0.000      2.066 r
+  rd/U3264/A1 (SAEDRVT14_OR3_4)                                    0.013     0.000      2.066 r
+  rd/U3264/X (SAEDRVT14_OR3_4)                                     0.013     0.028      2.094 r
+  rd/n1345 (net)                                1        0.008               0.000      2.094 r
+  rd/U2784/B (SAEDRVT14_OAI21_V1_8)                                0.013     0.000      2.094 r
+  rd/U2784/X (SAEDRVT14_OAI21_V1_8)                                0.031     0.029      2.123 f
+  rd/n4214 (net)                                2        0.020               0.000      2.123 f
+  rd/U1331/A (SAEDRVT14_BUF_20)                                    0.031     0.000      2.124 f
+  rd/U1331/X (SAEDRVT14_BUF_20)                                    0.011     0.030      2.154 f
+  rd/n4384 (net)                                3        0.033               0.000      2.154 f
+  rd/U2734/A1 (SAEDRVT14_ND2_MM_16)                                0.011     0.000      2.154 f
+  rd/U2734/X (SAEDRVT14_ND2_MM_16)                                 0.015     0.013      2.167 r
+  rd/n446 (net)                                 2        0.018               0.000      2.167 r
+  rd/U2733/A2 (SAEDRVT14_ND2_16)                                   0.015     0.000      2.167 r
+  rd/U2733/X (SAEDRVT14_ND2_16)                                    0.012     0.014      2.181 f
+  rd/n4254 (net)                                1        0.012               0.000      2.181 f
+  rd/U1064/A1 (SAEDRVT14_NR2_MM_16)                                0.012     0.000      2.181 f
+  rd/U1064/X (SAEDRVT14_NR2_MM_16)                                 0.010     0.012      2.193 r
+  rd/n1069 (net)                                1        0.012               0.000      2.193 r
+  rd/U2815/A1 (SAEDRVT14_NR2_MM_16)                                0.010     0.000      2.194 r
+  rd/U2815/X (SAEDRVT14_NR2_MM_16)                                 0.009     0.011      2.204 f
+  rd/n1068 (net)                                1        0.015               0.000      2.204 f
+  rd/U3150/A (SAEDRVT14_INV_S_20)                                  0.009     0.000      2.204 f
+  rd/U3150/X (SAEDRVT14_INV_S_20)                                  0.018     0.019      2.223 r
+  rd/n4321 (net)                                6        0.066               0.000      2.223 r
+  rd/U227/A1 (SAEDRVT14_AN2_MM_8)                                  0.018     0.000      2.223 r
+  rd/U227/X (SAEDRVT14_AN2_MM_8)                                   0.018     0.036      2.259 r
+  rd/n4479 (net)                                3        0.023               0.000      2.259 r
+  rd/U219/A (SAEDRVT14_INV_4)                                      0.018     0.000      2.260 r
+  rd/U219/X (SAEDRVT14_INV_4)                                      0.017     0.022      2.282 f
+  rd/n4304 (net)                                2        0.013               0.000      2.282 f
+  rd/U209/A2 (SAEDRVT14_AN2_4)                                     0.017     0.000      2.282 f
+  rd/U209/X (SAEDRVT14_AN2_4)                                      0.015     0.027      2.308 f
+  rd/n941 (net)                                 1        0.008               0.000      2.308 f
+  rd/U3081/A1 (SAEDRVT14_OAI21_V1_8)                               0.015     0.000      2.309 f
+  rd/U3081/X (SAEDRVT14_OAI21_V1_8)                                0.027     0.028      2.337 r
+  rd/n1369 (net)                                2        0.018               0.000      2.337 r
+  rd/U191/A1 (SAEDRVT14_AN2_MM_8)                                  0.027     0.000      2.337 r
+  rd/U191/X (SAEDRVT14_AN2_MM_8)                                   0.011     0.031      2.368 r
+  rd/n1368 (net)                                1        0.008               0.000      2.368 r
+  rd/U179/A1 (SAEDRVT14_AOI21_V1_8)                                0.011     0.000      2.368 r
+  rd/U179/X (SAEDRVT14_AOI21_V1_8)                                 0.027     0.025      2.393 f
+  rd/n678 (net)                                 1        0.013               0.000      2.393 f
+  rd/U1321/A2 (SAEDRVT14_ND2_MM_16)                                0.027     0.000      2.393 f
+  rd/U1321/X (SAEDRVT14_ND2_MM_16)                                 0.017     0.024      2.418 r
+  rd/n4484 (net)                                3        0.029               0.000      2.418 r
+  rd/U1320/A1 (SAEDRVT14_ND2_MM_16)                                0.017     0.000      2.418 r
+  rd/U1320/X (SAEDRVT14_ND2_MM_16)                                 0.021     0.013      2.432 f
+  rd/n1217 (net)                                1        0.013               0.000      2.432 f
+  rd/U3176/A1 (SAEDRVT14_ND2_MM_16)                                0.021     0.000      2.432 f
+  rd/U3176/X (SAEDRVT14_ND2_MM_16)                                 0.016     0.022      2.454 r
+  rd/n1250 (net)                                3        0.033               0.000      2.454 r
+  rd/U1291/A1 (SAEDRVT14_ND2_MM_16)                                0.016     0.000      2.455 r
+  rd/U1291/X (SAEDRVT14_ND2_MM_16)                                 0.022     0.013      2.467 f
+  rd/n1216 (net)                                1        0.012               0.000      2.467 f
+  rd/U1241/A1 (SAEDRVT14_ND2_16)                                   0.022     0.000      2.468 f
+  rd/U1241/X (SAEDRVT14_ND2_16)                                    0.024     0.014      2.481 r
+  rd/n1215 (net)                                1        0.008               0.000      2.481 r
+  rd/U1372/A1 (SAEDRVT14_AOI21_8)                                  0.024     0.000      2.482 r
+  rd/U1372/X (SAEDRVT14_AOI21_8)                                   0.051     0.025      2.506 f
+  rd/n4551 (net)                                1        0.009               0.000      2.506 f
+  rd/U1868/A2 (SAEDRVT14_ND2_8)                                    0.051     0.000      2.506 f
+  rd/U1868/X (SAEDRVT14_ND2_8)                                     0.017     0.024      2.531 r
+  rd/n4552 (net)                                1        0.008               0.000      2.531 r
+  rd/U4710/B (SAEDRVT14_OAI21_V1_8)                                0.017     0.000      2.531 r
+  rd/U4710/X (SAEDRVT14_OAI21_V1_8)                                0.021     0.025      2.555 f
+  rd/n4616 (net)                                1        0.012               0.000      2.555 f
+  rd/U4743/A1 (SAEDRVT14_ND2_16)                                   0.021     0.000      2.556 f
+  rd/U4743/X (SAEDRVT14_ND2_16)                                    0.018     0.024      2.580 r
+  rd/n4647 (net)                                3        0.030               0.000      2.580 r
+  rd/U4755/S (SAEDRVT14_MUX2_MM_4)                                 0.018     0.000      2.580 r
+  rd/U4755/X (SAEDRVT14_MUX2_MM_4)                                 0.025     0.055      2.635 f
+  rd/n5421 (net)                                2        0.019               0.000      2.635 f
+  rd/U2898/A2 (SAEDRVT14_ND2_8)                                    0.025     0.000      2.635 f
+  rd/U2898/X (SAEDRVT14_ND2_8)                                     0.013     0.019      2.654 r
+  rd/formatInfo[1] (net)                        1        0.010               0.000      2.654 r
+  rd/formatInfo[1] (mkQRReaderS)                                             0.000      2.654 r
+  rd_formatInfo[1] (net)                                 0.010               0.000      2.654 r
+  U45212/A1 (SAEDRVT14_ND2_MM_10)                                  0.013     0.000      2.654 r
+  U45212/X (SAEDRVT14_ND2_MM_10)                                   0.017     0.012      2.666 f
+  n24134 (net)                                  1        0.009               0.000      2.666 f
+  U29024/A2 (SAEDRVT14_ND2_8)                                      0.017     0.000      2.666 f
+  U29024/X (SAEDRVT14_ND2_8)                                       0.013     0.013      2.679 r
+  n49017 (net)                                  1        0.005               0.000      2.679 r
+  maskR_reg_1_/D (SAEDRVT14_FDP_V2_0P5)                            0.013     0.000      2.679 r
+  data arrival time                                                                     2.679
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  maskR_reg_1_/CK (SAEDRVT14_FDP_V2_0P5)                                     0.000      2.700 r
+  library setup time                                                        -0.020      2.680
+  data required time                                                                    2.680
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.680
+  data arrival time                                                                    -2.679
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: pl_remCnt_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: pl_grp_reg_6_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  pl_remCnt_reg_2_/CK (SAEDRVT14_FDP_V2_4)                         0.000     0.000 #    0.000 r
+  pl_remCnt_reg_2_/Q (SAEDRVT14_FDP_V2_4)                          0.026     0.076      0.076 f
+  pl_remCnt[2] (net)                            3        0.020               0.000      0.076 f
+  U45476/A2 (SAEDRVT14_OR2_4)                                      0.026     0.000      0.077 f
+  U45476/X (SAEDRVT14_OR2_4)                                       0.011     0.030      0.107 f
+  n25005 (net)                                  1        0.006               0.000      0.107 f
+  U45477/A2 (SAEDRVT14_NR2_MM_4)                                   0.011     0.000      0.107 f
+  U45477/X (SAEDRVT14_NR2_MM_4)                                    0.017     0.019      0.125 r
+  n25008 (net)                                  1        0.006               0.000      0.125 r
+  U40757/A1 (SAEDRVT14_ND2_3)                                      0.017     0.000      0.125 r
+  U40757/X (SAEDRVT14_ND2_3)                                       0.020     0.022      0.147 f
+  n25009 (net)                                  1        0.008               0.000      0.147 f
+  U40746/A2 (SAEDRVT14_NR2_MM_6)                                   0.020     0.000      0.147 f
+  U40746/X (SAEDRVT14_NR2_MM_6)                                    0.027     0.031      0.179 r
+  n25611 (net)                                  2        0.018               0.000      0.179 r
+  U37088/A1 (SAEDRVT14_ND2_8)                                      0.027     0.000      0.179 r
+  U37088/X (SAEDRVT14_ND2_8)                                       0.035     0.037      0.216 f
+  n25017 (net)                                  4        0.033               0.000      0.216 f
+  U32057/A (SAEDRVT14_BUF_16)                                      0.035     0.000      0.216 f
+  U32057/X (SAEDRVT14_BUF_16)                                      0.034     0.049      0.265 f
+  n25807 (net)                                 10        0.110               0.000      0.265 f
+  U30048/S (SAEDRVT14_MUX2_MM_4)                                   0.034     0.000      0.265 f
+  U30048/X (SAEDRVT14_MUX2_MM_4)                                   0.017     0.052      0.317 r
+  n25012 (net)                                  1        0.009               0.000      0.317 r
+  U30047/A1 (SAEDRVT14_NR2_MM_10)                                  0.017     0.000      0.318 r
+  U30047/X (SAEDRVT14_NR2_MM_10)                                   0.035     0.032      0.349 f
+  n30441 (net)                                  6        0.051               0.000      0.349 f
+  U45479/A1 (SAEDRVT14_NR2_MM_4)                                   0.035     0.000      0.350 f
+  U45479/X (SAEDRVT14_NR2_MM_4)                                    0.034     0.039      0.388 r
+  n25024 (net)                                  2        0.013               0.000      0.388 r
+  U45485/A (SAEDRVT14_INV_4)                                       0.034     0.000      0.388 r
+  U45485/X (SAEDRVT14_INV_4)                                       0.027     0.035      0.423 f
+  n25031 (net)                                  2        0.020               0.000      0.423 f
+  U40629/A (SAEDRVT14_INV_S_8)                                     0.027     0.000      0.423 f
+  U40629/X (SAEDRVT14_INV_S_8)                                     0.050     0.050      0.473 r
+  n25278 (net)                                  8        0.077               0.000      0.473 r
+  U37034/A (SAEDRVT14_INV_6)                                       0.050     0.000      0.474 r
+  U37034/X (SAEDRVT14_INV_6)                                       0.030     0.041      0.515 f
+  n25060 (net)                                  4        0.028               0.000      0.515 f
+  U28984/B1 (SAEDRVT14_OAI22_1)                                    0.030     0.000      0.515 f
+  U28984/X (SAEDRVT14_OAI22_1)                                     0.071     0.058      0.573 r
+  n25063 (net)                                  1        0.006               0.000      0.573 r
+  U40567/A1 (SAEDRVT14_NR2_MM_3)                                   0.071     0.000      0.573 r
+  U40567/X (SAEDRVT14_NR2_MM_3)                                    0.054     0.064      0.637 f
+  n25119 (net)                                  2        0.012               0.000      0.637 f
+  U29062/B1 (SAEDRVT14_OAI22_1)                                    0.054     0.000      0.637 f
+  U29062/X (SAEDRVT14_OAI22_1)                                     0.060     0.067      0.704 r
+  n25064 (net)                                  1        0.006               0.000      0.704 r
+  U36952/A2 (SAEDRVT14_OAI21_2)                                    0.060     0.000      0.705 r
+  U36952/X (SAEDRVT14_OAI21_2)                                     0.048     0.055      0.760 f
+  n25071 (net)                                  1        0.007               0.000      0.760 f
+  U31958/A1 (SAEDRVT14_ND2_CDC_4)                                  0.048     0.000      0.760 f
+  U31958/X (SAEDRVT14_ND2_CDC_4)                                   0.028     0.035      0.795 r
+  n25262 (net)                                  2        0.013               0.000      0.795 r
+  U43728/A2 (SAEDRVT14_OR2_MM_6)                                   0.028     0.000      0.795 r
+  U43728/X (SAEDRVT14_OR2_MM_6)                                    0.032     0.051      0.846 r
+  n25409 (net)                                  5        0.038               0.000      0.846 r
+  U43699/B (SAEDRVT14_ADDH_2)                                      0.032     0.000      0.846 r
+  U43699/CO (SAEDRVT14_ADDH_2)                                     0.017     0.039      0.885 r
+  n25149 (net)                                  1        0.006               0.000      0.885 r
+  U43628/B (SAEDRVT14_ADDH_2)                                      0.017     0.000      0.885 r
+  U43628/CO (SAEDRVT14_ADDH_2)                                     0.019     0.035      0.920 r
+  n25118 (net)                                  1        0.007               0.000      0.920 r
+  U43567/A (SAEDRVT14_INV_4)                                       0.019     0.000      0.921 r
+  U43567/X (SAEDRVT14_INV_4)                                       0.017     0.023      0.943 f
+  n25145 (net)                                  2        0.013               0.000      0.943 f
+  U36760/A1 (SAEDRVT14_ND2_CDC_4)                                  0.017     0.000      0.943 f
+  U36760/X (SAEDRVT14_ND2_CDC_4)                                   0.017     0.016      0.960 r
+  n25130 (net)                                  1        0.006               0.000      0.960 r
+  U43235/A1 (SAEDRVT14_AN2_MM_12)                                  0.017     0.000      0.960 r
+  U43235/X (SAEDRVT14_AN2_MM_12)                                   0.039     0.053      1.013 r
+  n29244 (net)                                  9        0.088               0.000      1.013 r
+  U45520/S (SAEDRVT14_MUX2_MM_4)                                   0.039     0.000      1.013 r
+  U45520/X (SAEDRVT14_MUX2_MM_4)                                   0.028     0.052      1.065 r
+  n25157 (net)                                  3        0.020               0.000      1.065 r
+  U39722/A (SAEDRVT14_INV_4)                                       0.028     0.000      1.066 r
+  U39722/X (SAEDRVT14_INV_4)                                       0.019     0.026      1.091 f
+  n25155 (net)                                  2        0.013               0.000      1.091 f
+  U31682/A2 (SAEDRVT14_ND2_3)                                      0.019     0.000      1.092 f
+  U31682/X (SAEDRVT14_ND2_3)                                       0.020     0.019      1.111 r
+  n25148 (net)                                  1        0.006               0.000      1.111 r
+  U45522/B (SAEDRVT14_ADDH_2)                                      0.020     0.000      1.111 r
+  U45522/CO (SAEDRVT14_ADDH_2)                                     0.020     0.037      1.148 r
+  n25175 (net)                                  1        0.007               0.000      1.148 r
+  U45529/B (SAEDRVT14_ADDH_4)                                      0.020     0.000      1.148 r
+  U45529/CO (SAEDRVT14_ADDH_4)                                     0.026     0.041      1.189 r
+  n25179 (net)                                  3        0.019               0.000      1.189 r
+  U39415/A1 (SAEDRVT14_OR2_4)                                      0.026     0.000      1.189 r
+  U39415/X (SAEDRVT14_OR2_4)                                       0.018     0.034      1.223 r
+  n25183 (net)                                  2        0.013               0.000      1.223 r
+  U41734/A2 (SAEDRVT14_AN2_4)                                      0.018     0.000      1.223 r
+  U41734/X (SAEDRVT14_AN2_4)                                       0.011     0.027      1.250 r
+  n25152 (net)                                  1        0.006               0.000      1.250 r
+  U44528/A1 (SAEDRVT14_OR2_MM_8)                                   0.011     0.000      1.250 r
+  U44528/X (SAEDRVT14_OR2_MM_8)                                    0.046     0.051      1.301 r
+  n29246 (net)                                  8        0.074               0.000      1.301 r
+  U44527/S (SAEDRVT14_MUX2_MM_4)                                   0.046     0.000      1.302 r
+  U44527/X (SAEDRVT14_MUX2_MM_4)                                   0.027     0.067      1.368 f
+  n25193 (net)                                  3        0.020               0.000      1.368 f
+  U36472/A2 (SAEDRVT14_ND2_3)                                      0.027     0.000      1.369 f
+  U36472/X (SAEDRVT14_ND2_3)                                       0.030     0.022      1.390 r
+  n25190 (net)                                  1        0.006               0.000      1.390 r
+  U45530/B (SAEDRVT14_ADDH_2)                                      0.030     0.000      1.391 r
+  U45530/CO (SAEDRVT14_ADDH_2)                                     0.019     0.040      1.431 r
+  n25174 (net)                                  1        0.007               0.000      1.431 r
+  U45528/B (SAEDRVT14_ADDH_4)                                      0.019     0.000      1.431 r
+  U45528/CO (SAEDRVT14_ADDH_4)                                     0.026     0.041      1.472 r
+  n25214 (net)                                  3        0.019               0.000      1.472 r
+  U39360/A1 (SAEDRVT14_OR2_4)                                      0.026     0.000      1.472 r
+  U39360/X (SAEDRVT14_OR2_4)                                       0.018     0.034      1.506 r
+  n25218 (net)                                  2        0.012               0.000      1.506 r
+  U41659/A1 (SAEDRVT14_AN2_4)                                      0.018     0.000      1.506 r
+  U41659/X (SAEDRVT14_AN2_4)                                       0.012     0.026      1.532 r
+  n25187 (net)                                  1        0.005               0.000      1.532 r
+  U41537/A1 (SAEDRVT14_OR2_MM_6)                                   0.012     0.000      1.532 r
+  U41537/X (SAEDRVT14_OR2_MM_6)                                    0.026     0.037      1.569 r
+  n25210 (net)                                  4        0.030               0.000      1.569 r
+  U44526/S (SAEDRVT14_MUX2_MM_4)                                   0.026     0.000      1.569 r
+  U44526/X (SAEDRVT14_MUX2_MM_4)                                   0.027     0.060      1.629 f
+  n25231 (net)                                  3        0.020               0.000      1.629 f
+  U37927/A1 (SAEDRVT14_ND2_CDC_4)                                  0.027     0.000      1.629 f
+  U37927/X (SAEDRVT14_ND2_CDC_4)                                   0.027     0.019      1.648 r
+  n25228 (net)                                  1        0.006               0.000      1.648 r
+  U41102/B (SAEDRVT14_ADDH_2)                                      0.027     0.000      1.648 r
+  U41102/CO (SAEDRVT14_ADDH_2)                                     0.019     0.039      1.687 r
+  n25225 (net)                                  1        0.007               0.000      1.687 r
+  U45535/B (SAEDRVT14_ADDH_4)                                      0.019     0.000      1.688 r
+  U45535/CO (SAEDRVT14_ADDH_4)                                     0.026     0.041      1.728 r
+  n25211 (net)                                  3        0.019               0.000      1.728 r
+  U37159/A1 (SAEDRVT14_OR2_4)                                      0.026     0.000      1.728 r
+  U37159/X (SAEDRVT14_OR2_4)                                       0.017     0.034      1.762 r
+  n25255 (net)                                  2        0.012               0.000      1.762 r
+  U40849/A1 (SAEDRVT14_AN2_4)                                      0.017     0.000      1.763 r
+  U40849/X (SAEDRVT14_AN2_4)                                       0.012     0.027      1.790 r
+  n25222 (net)                                  1        0.007               0.000      1.790 r
+  U44525/A1 (SAEDRVT14_OR2_MM_20)                                  0.012     0.000      1.790 r
+  U44525/X (SAEDRVT14_OR2_MM_20)                                   0.043     0.052      1.842 r
+  n29249 (net)                                 13        0.167               0.000      1.842 r
+  U44524/S (SAEDRVT14_MUX2_MM_4)                                   0.043     0.001      1.843 r
+  U44524/X (SAEDRVT14_MUX2_MM_4)                                   0.027     0.066      1.908 f
+  n25296 (net)                                  3        0.020               0.000      1.908 f
+  U32142/A2 (SAEDRVT14_ND2_3)                                      0.027     0.000      1.908 f
+  U32142/X (SAEDRVT14_ND2_3)                                       0.031     0.022      1.930 r
+  n25299 (net)                                  1        0.006               0.000      1.930 r
+  U45552/B (SAEDRVT14_ADDH_2)                                      0.031     0.000      1.931 r
+  U45552/CO (SAEDRVT14_ADDH_2)                                     0.017     0.039      1.969 r
+  n25305 (net)                                  1        0.006               0.000      1.969 r
+  U40829/B (SAEDRVT14_ADDH_2)                                      0.017     0.000      1.969 r
+  U40829/CO (SAEDRVT14_ADDH_2)                                     0.016     0.032      2.002 r
+  n25253 (net)                                  1        0.005               0.000      2.002 r
+  U32131/A1 (SAEDRVT14_OR2_MM_3)                                   0.016     0.000      2.002 r
+  U32131/X (SAEDRVT14_OR2_MM_3)                                    0.012     0.029      2.031 r
+  n25308 (net)                                  1        0.006               0.000      2.031 r
+  U45555/B (SAEDRVT14_ADDH_2)                                      0.012     0.000      2.031 r
+  U45555/CO (SAEDRVT14_ADDH_2)                                     0.020     0.034      2.065 r
+  n25259 (net)                                  1        0.007               0.000      2.065 r
+  U45542/A1 (SAEDRVT14_OR2_MM_20)                                  0.020     0.000      2.065 r
+  U45542/X (SAEDRVT14_OR2_MM_20)                                   0.034     0.050      2.115 r
+  n29253 (net)                                 11        0.125               0.000      2.115 r
+  U40815/A1 (SAEDRVT14_NR2_MM_6)                                   0.034     0.001      2.115 r
+  U40815/X (SAEDRVT14_NR2_MM_6)                                    0.020     0.026      2.141 f
+  n28884 (net)                                  2        0.011               0.000      2.141 f
+  U29126/A1 (SAEDRVT14_OA21_1)                                     0.020     0.000      2.142 f
+  U29126/X (SAEDRVT14_OA21_1)                                      0.029     0.045      2.186 f
+  n24060 (net)                                  1        0.006               0.000      2.186 f
+  U37126/A1 (SAEDRVT14_NR2_MM_3)                                   0.029     0.000      2.186 f
+  U37126/X (SAEDRVT14_NR2_MM_3)                                    0.035     0.028      2.215 r
+  n25269 (net)                                  1        0.005               0.000      2.215 r
+  U40800/A1 (SAEDRVT14_OR2_4)                                      0.035     0.000      2.215 r
+  U40800/X (SAEDRVT14_OR2_4)                                       0.037     0.053      2.268 r
+  U4/RSOP_3431/C1/Z_2 (net)                     4        0.030               0.000      2.268 r
+  U37122/A (SAEDRVT14_INV_S_2)                                     0.037     0.000      2.268 r
+  U37122/X (SAEDRVT14_INV_S_2)                                     0.021     0.029      2.297 f
+  n25318 (net)                                  1        0.006               0.000      2.297 f
+  U40795/A1 (SAEDRVT14_NR2_MM_4)                                   0.021     0.000      2.298 f
+  U40795/X (SAEDRVT14_NR2_MM_4)                                    0.020     0.021      2.319 r
+  DP_OP_3421J1_136_1807/n6 (net)                1        0.006               0.000      2.319 r
+  DP_OP_3421J1_136_1807/U6/B (SAEDRVT14_ADDF_V1_2)                 0.020     0.000      2.319 r
+  DP_OP_3421J1_136_1807/U6/CO (SAEDRVT14_ADDF_V1_2)                0.023     0.053      2.373 r
+  DP_OP_3421J1_136_1807/n5 (net)                1        0.006               0.000      2.373 r
+  DP_OP_3421J1_136_1807/U5/B (SAEDRVT14_ADDF_V1_2)                 0.023     0.000      2.373 r
+  DP_OP_3421J1_136_1807/U5/CO (SAEDRVT14_ADDF_V1_2)                0.037     0.068      2.440 r
+  DP_OP_3421J1_136_1807/n4 (net)                2        0.012               0.000      2.440 r
+  U40789/A2 (SAEDRVT14_AN2_4)                                      0.037     0.000      2.440 r
+  U40789/X (SAEDRVT14_AN2_4)                                       0.020     0.040      2.480 r
+  DP_OP_3421J1_136_1807/n3 (net)                2        0.013               0.000      2.480 r
+  DP_OP_3421J1_136_1807/U3/B (SAEDRVT14_ADDF_V1_2)                 0.020     0.000      2.480 r
+  DP_OP_3421J1_136_1807/U3/CO (SAEDRVT14_ADDF_V1_2)                0.023     0.054      2.534 r
+  DP_OP_3421J1_136_1807/n2 (net)                1        0.006               0.000      2.534 r
+  DP_OP_3421J1_136_1807/U2/B (SAEDRVT14_ADDF_V1_2)                 0.023     0.000      2.534 r
+  DP_OP_3421J1_136_1807/U2/CO (SAEDRVT14_ADDF_V1_2)                0.022     0.054      2.588 r
+  C2376/DATA3_6 (net)                           1        0.006               0.000      2.588 r
+  U26488/A2 (SAEDRVT14_AOI21_1P5)                                  0.022     0.000      2.588 r
+  U26488/X (SAEDRVT14_AOI21_1P5)                                   0.039     0.035      2.623 f
+  n24017 (net)                                  1        0.005               0.000      2.623 f
+  U26031/A1 (SAEDRVT14_OAI21_2)                                    0.039     0.000      2.623 f
+  U26031/X (SAEDRVT14_OAI21_2)                                     0.050     0.041      2.664 r
+  n2799 (net)                                   1        0.005               0.000      2.664 r
+  pl_grp_reg_6_/D (SAEDRVT14_FDP_V2_0P5)                           0.050     0.000      2.664 r
+  data arrival time                                                                     2.664
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  pl_grp_reg_6_/CK (SAEDRVT14_FDP_V2_0P5)                                    0.000      2.700 r
+  library setup time                                                        -0.035      2.665
+  data required time                                                                    2.665
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.665
+  data arrival time                                                                    -2.664
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group i2f
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Fri Nov  6 19:08:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: EN_start (input port clocked by CLK)
+  Endpoint: bb_mem_store_674_reg_1_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       1.080      1.080 f
+  EN_start (in)                                                    0.000     0.000      1.080 f
+  EN_start (net)                                4        0.034               0.000      1.080 f
+  U45207/A1 (SAEDRVT14_NR2_MM_16)                                  0.000     0.000      1.080 f
+  U45207/X (SAEDRVT14_NR2_MM_16)                                   0.027     0.020      1.100 r
+  n29403 (net)                                  5        0.043               0.000      1.100 r
+  U28465/A2 (SAEDRVT14_ND2_16)                                     0.027     0.000      1.101 r
+  U28465/X (SAEDRVT14_ND2_16)                                      0.024     0.029      1.130 f
+  n26146 (net)                                  4        0.039               0.000      1.130 f
+  U45995/A (SAEDRVT14_INV_S_20)                                    0.024     0.000      1.131 f
+  U45995/X (SAEDRVT14_INV_S_20)                                    0.023     0.028      1.159 r
+  n29978 (net)                                  8        0.079               0.000      1.159 r
+  U46804/A1 (SAEDRVT14_NR2_MM_16)                                  0.023     0.001      1.159 r
+  U46804/X (SAEDRVT14_NR2_MM_16)                                   0.015     0.022      1.182 f
+  n27222 (net)                                  3        0.031               0.000      1.182 f
+  U46809/A (SAEDRVT14_INV_S_20)                                    0.015     0.000      1.182 f
+  U46809/X (SAEDRVT14_INV_S_20)                                    0.088     0.072      1.254 r
+  n27379 (net)                                 19        0.350               0.000      1.254 r
+  U46817/B1 (SAEDRVT14_OAI22_4)                                    0.088     0.001      1.256 r
+  U46817/X (SAEDRVT14_OAI22_4)                                     0.092     0.104      1.359 f
+  n27395 (net)                                  4        0.034               0.000      1.359 f
+  U27815/A2 (SAEDRVT14_NR2_MM_8)                                   0.092     0.000      1.359 f
+  U27815/X (SAEDRVT14_NR2_MM_8)                                    0.049     0.063      1.422 r
+  n27427 (net)                                  4        0.032               0.000      1.422 r
+  U29208/A2 (SAEDRVT14_ND2_CDC_0P5)                                0.049     0.000      1.422 r
+  U29208/X (SAEDRVT14_ND2_CDC_0P5)                                 0.320     0.246      1.668 f
+  n31732 (net)                                  5        0.039               0.000      1.668 f
+  U27267/A (SAEDRVT14_BUF_3)                                       0.320     0.000      1.668 f
+  U27267/X (SAEDRVT14_BUF_3)                                       0.092     0.137      1.805 f
+  n31437 (net)                                  7        0.059               0.000      1.805 f
+  U27192/A (SAEDRVT14_ND2B_U_0P5)                                  0.092     0.000      1.806 f
+  U27192/X (SAEDRVT14_ND2B_U_0P5)                                  0.096     0.103      1.909 f
+  n27430 (net)                                  1        0.006               0.000      1.909 f
+  U27003/A (SAEDRVT14_BUF_6)                                       0.096     0.000      1.909 f
+  U27003/X (SAEDRVT14_BUF_6)                                       0.209     0.177      2.086 f
+  n28700 (net)                                 16        0.270               0.000      2.086 f
+  U41635/A2 (SAEDRVT14_NR2_MM_4)                                   0.209     0.001      2.087 f
+  U41635/X (SAEDRVT14_NR2_MM_4)                                    0.197     0.230      2.317 r
+  n28083 (net)                                  9        0.086               0.000      2.317 r
+  U26058/A (SAEDRVT14_INV_3)                                       0.197     0.000      2.317 r
+  U26058/X (SAEDRVT14_INV_3)                                       0.155     0.211      2.528 f
+  n28437 (net)                                  8        0.071               0.000      2.528 f
+  U31439/B1 (SAEDRVT14_OAI22_0P75)                                 0.155     0.000      2.528 f
+  U31439/X (SAEDRVT14_OAI22_0P75)                                  0.134     0.114      2.642 r
+  n2179 (net)                                   1        0.005               0.000      2.642 r
+  bb_mem_store_674_reg_1_/D (SAEDRVT14_FDP_V2LP_0P5)               0.134     0.000      2.642 r
+  data arrival time                                                                     2.642
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  bb_mem_store_674_reg_1_/CK (SAEDRVT14_FDP_V2LP_0P5)                        0.000      2.700 r
+  library setup time                                                        -0.057      2.643
+  data required time                                                                    2.643
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.643
+  data arrival time                                                                    -2.642
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: EN_start (input port clocked by CLK)
+  Endpoint: rs_bpoly_4_reg_1_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       1.080      1.080 r
+  EN_start (in)                                                    0.000     0.000      1.080 r
+  EN_start (net)                                4        0.034               0.000      1.080 r
+  U45207/A1 (SAEDRVT14_NR2_MM_16)                                  0.000     0.000      1.080 r
+  U45207/X (SAEDRVT14_NR2_MM_16)                                   0.021     0.013      1.093 f
+  n29403 (net)                                  5        0.043               0.000      1.093 f
+  U28465/A2 (SAEDRVT14_ND2_16)                                     0.021     0.000      1.093 f
+  U28465/X (SAEDRVT14_ND2_16)                                      0.020     0.026      1.119 r
+  n26146 (net)                                  4        0.039               0.000      1.119 r
+  U45465/A (SAEDRVT14_BUF_16)                                      0.020     0.000      1.119 r
+  U45465/X (SAEDRVT14_BUF_16)                                      0.073     0.075      1.194 r
+  n34625 (net)                                 16        0.239               0.000      1.194 r
+  U37018/A1 (SAEDRVT14_OR2_4)                                      0.073     0.001      1.195 r
+  U37018/X (SAEDRVT14_OR2_4)                                       0.085     0.102      1.297 r
+  n30473 (net)                                  8        0.071               0.000      1.297 r
+  U29966/A1 (SAEDRVT14_AN2_MM_1)                                   0.085     0.000      1.297 r
+  U29966/X (SAEDRVT14_AN2_MM_1)                                    0.472     0.395      1.692 r
+  n26230 (net)                                 10        0.103               0.000      1.692 r
+  U26931/A (SAEDRVT14_BUF_12)                                      0.472     0.000      1.692 r
+  U26931/X (SAEDRVT14_BUF_12)                                      0.301     0.323      2.015 r
+  n34589 (net)                                 30        0.760               0.000      2.015 r
+  U47170/A (SAEDRVT14_BUF_6)                                       0.301     0.003      2.018 r
+  U47170/X (SAEDRVT14_BUF_6)                                       0.213     0.228      2.246 r
+  n34602 (net)                                 16        0.238               0.000      2.246 r
+  U44025/A (SAEDRVT14_BUF_3)                                       0.213     0.001      2.247 r
+  U44025/X (SAEDRVT14_BUF_3)                                       0.252     0.256      2.502 r
+  n34594 (net)                                 13        0.161               0.000      2.502 r
+  U43898/A1 (SAEDRVT14_OAI22_0P75)                                 0.252     0.001      2.503 r
+  U43898/X (SAEDRVT14_OAI22_0P75)                                  0.107     0.151      2.653 f
+  n1223 (net)                                   1        0.005               0.000      2.653 f
+  rs_bpoly_4_reg_1_/D (SAEDRVT14_FDP_V2_0P5)                       0.107     0.000      2.654 f
+  data arrival time                                                                     2.654
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  rs_bpoly_4_reg_1_/CK (SAEDRVT14_FDP_V2_0P5)                                0.000      2.700 r
+  library setup time                                                        -0.045      2.655
+  data required time                                                                    2.655
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.655
+  data arrival time                                                                    -2.654
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: RST_N (input port clocked by CLK)
+  Endpoint: rd/r_shiftReg_reg_1_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       1.080      1.080 r
+  RST_N (in)                                                       0.000     0.000      1.080 r
+  RST_N (net)                                  54        1.693               0.000      1.080 r
+  U28382/A (SAEDRVT14_INV_4)                                       0.000     0.004      1.084 r
+  U28382/X (SAEDRVT14_INV_4)                                       0.027     0.018      1.103 f
+  n25910 (net)                                  3        0.022               0.000      1.103 f
+  U29283/A (SAEDRVT14_INV_6)                                       0.027     0.000      1.103 f
+  U29283/X (SAEDRVT14_INV_6)                                       0.192     0.156      1.259 r
+  n49011 (net)                                 16        0.243               0.000      1.259 r
+  rd/RST_N (mkQRReaderS)                                                     0.000      1.259 r
+  rd/RST_N (net)                                         0.243               0.000      1.259 r
+  rd/U129/A (SAEDRVT14_BUF_S_2)                                    0.192     0.001      1.260 r
+  rd/U129/X (SAEDRVT14_BUF_S_2)                                    0.171     0.184      1.444 r
+  rd/n5931 (net)                                8        0.072               0.000      1.444 r
+  rd/U120/CK (SAEDRVT14_CLKSPLT_1)                                 0.171     0.000      1.444 r
+  rd/U120/CKOUT (SAEDRVT14_CLKSPLT_1)                              0.246     0.224      1.668 r
+  rd/n5718 (net)                               10        0.105               0.000      1.668 r
+  rd/U2082/A2 (SAEDRVT14_AN2_MM_6)                                 0.246     0.000      1.669 r
+  rd/U2082/X (SAEDRVT14_AN2_MM_6)                                  0.069     0.131      1.800 r
+  rd/n5834 (net)                                8        0.080               0.000      1.800 r
+  rd/U4775/A (SAEDRVT14_INV_S_16)                                  0.069     0.001      1.801 r
+  rd/U4775/X (SAEDRVT14_INV_S_16)                                  0.145     0.135      1.935 f
+  rd/n5835 (net)                               23        0.498               0.000      1.935 f
+  rd/U54/A1 (SAEDRVT14_ND2_1P5)                                    0.145     0.002      1.938 f
+  rd/U54/X (SAEDRVT14_ND2_1P5)                                     0.170     0.199      2.137 r
+  rd/n5929 (net)                                7        0.060               0.000      2.137 r
+  rd/U2021/A1 (SAEDRVT14_AOI21_V1_4)                               0.170     0.000      2.137 r
+  rd/U2021/X (SAEDRVT14_AOI21_V1_4)                                0.226     0.243      2.380 f
+  rd/n5613 (net)                                8        0.073               0.000      2.380 f
+  rd/U2326/A2 (SAEDRVT14_ND2_3)                                    0.226     0.000      2.380 f
+  rd/U2326/X (SAEDRVT14_ND2_3)                                     0.135     0.184      2.564 r
+  rd/n5612 (net)                                7        0.059               0.000      2.564 r
+  rd/U1554/B2 (SAEDRVT14_OAI22_1)                                  0.135     0.000      2.564 r
+  rd/U1554/X (SAEDRVT14_OAI22_1)                                   0.084     0.093      2.658 f
+  rd/n13 (net)                                  1        0.005               0.000      2.658 f
+  rd/r_shiftReg_reg_1_/D (SAEDRVT14_FDP_V2_0P5)                    0.084     0.000      2.658 f
+  data arrival time                                                                     2.658
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  rd/r_shiftReg_reg_1_/CK (SAEDRVT14_FDP_V2_0P5)                             0.000      2.700 r
+  library setup time                                                        -0.041      2.659
+  data required time                                                                    2.659
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.659
+  data arrival time                                                                    -2.658
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.002
+
+
+  Startpoint: RST_N (input port clocked by CLK)
+  Endpoint: rd/r_shiftReg_reg_2_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       1.080      1.080 r
+  RST_N (in)                                                       0.000     0.000      1.080 r
+  RST_N (net)                                  54        1.693               0.000      1.080 r
+  U28382/A (SAEDRVT14_INV_4)                                       0.000     0.004      1.084 r
+  U28382/X (SAEDRVT14_INV_4)                                       0.027     0.018      1.103 f
+  n25910 (net)                                  3        0.022               0.000      1.103 f
+  U29283/A (SAEDRVT14_INV_6)                                       0.027     0.000      1.103 f
+  U29283/X (SAEDRVT14_INV_6)                                       0.192     0.156      1.259 r
+  n49011 (net)                                 16        0.243               0.000      1.259 r
+  rd/RST_N (mkQRReaderS)                                                     0.000      1.259 r
+  rd/RST_N (net)                                         0.243               0.000      1.259 r
+  rd/U129/A (SAEDRVT14_BUF_S_2)                                    0.192     0.001      1.260 r
+  rd/U129/X (SAEDRVT14_BUF_S_2)                                    0.171     0.184      1.444 r
+  rd/n5931 (net)                                8        0.072               0.000      1.444 r
+  rd/U120/CK (SAEDRVT14_CLKSPLT_1)                                 0.171     0.000      1.444 r
+  rd/U120/CKOUT (SAEDRVT14_CLKSPLT_1)                              0.246     0.224      1.668 r
+  rd/n5718 (net)                               10        0.105               0.000      1.668 r
+  rd/U2082/A2 (SAEDRVT14_AN2_MM_6)                                 0.246     0.000      1.669 r
+  rd/U2082/X (SAEDRVT14_AN2_MM_6)                                  0.069     0.131      1.800 r
+  rd/n5834 (net)                                8        0.080               0.000      1.800 r
+  rd/U4775/A (SAEDRVT14_INV_S_16)                                  0.069     0.001      1.801 r
+  rd/U4775/X (SAEDRVT14_INV_S_16)                                  0.145     0.135      1.935 f
+  rd/n5835 (net)                               23        0.498               0.000      1.935 f
+  rd/U54/A1 (SAEDRVT14_ND2_1P5)                                    0.145     0.002      1.938 f
+  rd/U54/X (SAEDRVT14_ND2_1P5)                                     0.170     0.199      2.137 r
+  rd/n5929 (net)                                7        0.060               0.000      2.137 r
+  rd/U2021/A1 (SAEDRVT14_AOI21_V1_4)                               0.170     0.000      2.137 r
+  rd/U2021/X (SAEDRVT14_AOI21_V1_4)                                0.226     0.243      2.380 f
+  rd/n5613 (net)                                8        0.073               0.000      2.380 f
+  rd/U2326/A2 (SAEDRVT14_ND2_3)                                    0.226     0.000      2.380 f
+  rd/U2326/X (SAEDRVT14_ND2_3)                                     0.135     0.184      2.564 r
+  rd/n5612 (net)                                7        0.059               0.000      2.564 r
+  rd/U1553/B2 (SAEDRVT14_OAI22_1)                                  0.135     0.000      2.564 r
+  rd/U1553/X (SAEDRVT14_OAI22_1)                                   0.084     0.093      2.658 f
+  rd/n12 (net)                                  1        0.005               0.000      2.658 f
+  rd/r_shiftReg_reg_2_/D (SAEDRVT14_FDP_V2_0P5)                    0.084     0.000      2.658 f
+  data arrival time                                                                     2.658
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  rd/r_shiftReg_reg_2_/CK (SAEDRVT14_FDP_V2_0P5)                             0.000      2.700 r
+  library setup time                                                        -0.041      2.659
+  data required time                                                                    2.659
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.659
+  data arrival time                                                                    -2.658
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.002
+
+
+  Startpoint: RST_N (input port clocked by CLK)
+  Endpoint: rd/r_shiftReg_reg_3_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       1.080      1.080 r
+  RST_N (in)                                                       0.000     0.000      1.080 r
+  RST_N (net)                                  54        1.693               0.000      1.080 r
+  U28382/A (SAEDRVT14_INV_4)                                       0.000     0.004      1.084 r
+  U28382/X (SAEDRVT14_INV_4)                                       0.027     0.018      1.103 f
+  n25910 (net)                                  3        0.022               0.000      1.103 f
+  U29283/A (SAEDRVT14_INV_6)                                       0.027     0.000      1.103 f
+  U29283/X (SAEDRVT14_INV_6)                                       0.192     0.156      1.259 r
+  n49011 (net)                                 16        0.243               0.000      1.259 r
+  rd/RST_N (mkQRReaderS)                                                     0.000      1.259 r
+  rd/RST_N (net)                                         0.243               0.000      1.259 r
+  rd/U129/A (SAEDRVT14_BUF_S_2)                                    0.192     0.001      1.260 r
+  rd/U129/X (SAEDRVT14_BUF_S_2)                                    0.171     0.184      1.444 r
+  rd/n5931 (net)                                8        0.072               0.000      1.444 r
+  rd/U120/CK (SAEDRVT14_CLKSPLT_1)                                 0.171     0.000      1.444 r
+  rd/U120/CKOUT (SAEDRVT14_CLKSPLT_1)                              0.246     0.224      1.668 r
+  rd/n5718 (net)                               10        0.105               0.000      1.668 r
+  rd/U2082/A2 (SAEDRVT14_AN2_MM_6)                                 0.246     0.000      1.669 r
+  rd/U2082/X (SAEDRVT14_AN2_MM_6)                                  0.069     0.131      1.800 r
+  rd/n5834 (net)                                8        0.080               0.000      1.800 r
+  rd/U4775/A (SAEDRVT14_INV_S_16)                                  0.069     0.001      1.801 r
+  rd/U4775/X (SAEDRVT14_INV_S_16)                                  0.145     0.135      1.935 f
+  rd/n5835 (net)                               23        0.498               0.000      1.935 f
+  rd/U54/A1 (SAEDRVT14_ND2_1P5)                                    0.145     0.002      1.938 f
+  rd/U54/X (SAEDRVT14_ND2_1P5)                                     0.170     0.199      2.137 r
+  rd/n5929 (net)                                7        0.060               0.000      2.137 r
+  rd/U2021/A1 (SAEDRVT14_AOI21_V1_4)                               0.170     0.000      2.137 r
+  rd/U2021/X (SAEDRVT14_AOI21_V1_4)                                0.226     0.243      2.380 f
+  rd/n5613 (net)                                8        0.073               0.000      2.380 f
+  rd/U2326/A2 (SAEDRVT14_ND2_3)                                    0.226     0.000      2.380 f
+  rd/U2326/X (SAEDRVT14_ND2_3)                                     0.135     0.184      2.564 r
+  rd/n5612 (net)                                7        0.059               0.000      2.564 r
+  rd/U1552/B2 (SAEDRVT14_OAI22_1)                                  0.135     0.000      2.564 r
+  rd/U1552/X (SAEDRVT14_OAI22_1)                                   0.084     0.093      2.658 f
+  rd/n11 (net)                                  1        0.005               0.000      2.658 f
+  rd/r_shiftReg_reg_3_/D (SAEDRVT14_FDP_V2_0P5)                    0.084     0.000      2.658 f
+  data arrival time                                                                     2.658
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  rd/r_shiftReg_reg_3_/CK (SAEDRVT14_FDP_V2_0P5)                             0.000      2.700 r
+  library setup time                                                        -0.041      2.659
+  data required time                                                                    2.659
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    2.659
+  data arrival time                                                                    -2.658
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.002
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2o
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Fri Nov  6 19:08:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[8] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2_2)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/Q (SAEDRVT14_FDP_V2_2)                     0.099     0.117      0.117 f
+  rd/r_pendIdx_D_IN[2] (net)                    5        0.042               0.000      0.117 f
+  rd/U1161/A2 (SAEDRVT14_ND2_CDC_0P5)                              0.099     0.000      0.117 f
+  rd/U1161/X (SAEDRVT14_ND2_CDC_0P5)                               0.173     0.183      0.300 r
+  rd/n5623 (net)                                4        0.028               0.000      0.300 r
+  rd/U2608/A1 (SAEDRVT14_NR2_5)                                    0.173     0.000      0.301 r
+  rd/U2608/X (SAEDRVT14_NR2_5)                                     0.022     0.081      0.381 f
+  rd/n5624 (net)                                3        0.020               0.000      0.381 f
+  rd/U196/A2 (SAEDRVT14_ND2_CDC_2)                                 0.022     0.000      0.381 f
+  rd/U196/X (SAEDRVT14_ND2_CDC_2)                                  0.089     0.063      0.444 r
+  rd/n5428 (net)                                3        0.021               0.000      0.444 r
+  rd/U188/A2 (SAEDRVT14_ND2_CDC_2)                                 0.089     0.000      0.444 r
+  rd/U188/X (SAEDRVT14_ND2_CDC_2)                                  0.105     0.082      0.526 f
+  rd/n5431 (net)                                2        0.013               0.000      0.526 f
+  rd/U178/A2 (SAEDRVT14_ND2_CDC_4)                                 0.105     0.000      0.526 f
+  rd/U178/X (SAEDRVT14_ND2_CDC_4)                                  0.066     0.077      0.603 r
+  rd/n5426 (net)                                3        0.023               0.000      0.603 r
+  rd/U166/A2 (SAEDRVT14_NR2_MM_6)                                  0.066     0.000      0.603 r
+  rd/U166/X (SAEDRVT14_NR2_MM_6)                                   0.059     0.054      0.658 f
+  rd/n5425 (net)                                3        0.026               0.000      0.658 f
+  rd/U146/A2 (SAEDRVT14_ND2_MM_12)                                 0.059     0.000      0.658 f
+  rd/U146/X (SAEDRVT14_ND2_MM_12)                                  0.025     0.028      0.686 r
+  rd/n5424 (net)                                2        0.012               0.000      0.686 r
+  rd/U5138/A2 (SAEDRVT14_AO21B_1)                                  0.025     0.000      0.686 r
+  rd/U5138/X (SAEDRVT14_AO21B_1)                                   0.278     0.246      0.933 r
+  rd/DP_OP_3335J2_148_5855/n8 (net)             4        0.030               0.000      0.933 r
+  rd/U91/A2 (SAEDRVT14_ND2_CDC_0P5)                                0.278     0.000      0.933 r
+  rd/U91/X (SAEDRVT14_ND2_CDC_0P5)                                 0.242     0.303      1.236 f
+  rd/n5692 (net)                                4        0.027               0.000      1.236 f
+  rd/U76/A2 (SAEDRVT14_NR2_1P5)                                    0.242     0.000      1.236 f
+  rd/U76/X (SAEDRVT14_NR2_1P5)                                     0.109     0.141      1.378 r
+  rd/n5700 (net)                                2        0.012               0.000      1.378 r
+  rd/U2011/B (SAEDRVT14_AOI21_1P5)                                 0.109     0.000      1.378 r
+  rd/U2011/X (SAEDRVT14_AOI21_1P5)                                 0.070     0.075      1.453 f
+  rd/n5695 (net)                                1        0.006               0.000      1.453 f
+  rd/U1789/A1 (SAEDRVT14_OAI22_3)                                  0.070     0.000      1.453 f
+  rd/U1789/X (SAEDRVT14_OAI22_3)                                   0.063     0.044      1.497 r
+  rd/n5696 (net)                                1        0.005               0.000      1.497 r
+  rd/U24/A2 (SAEDRVT14_NR2_MM_1)                                   0.063     0.000      1.497 r
+  rd/U24/X (SAEDRVT14_NR2_MM_1)                                    0.056     0.057      1.554 f
+  rd/n5697 (net)                                1        0.005               0.000      1.554 f
+  rd/U1983/B (SAEDRVT14_OAI21_0P5)                                 0.056     0.000      1.554 f
+  rd/U1983/X (SAEDRVT14_OAI21_0P5)                                 0.053     0.065      1.619 r
+  rd/mem_req[8] (net)                           1        0.005               0.000      1.619 r
+  rd/mem_req[8] (mkQRReaderS)                                                0.000      1.619 r
+  mem_req[8] (net)                                       0.005               0.000      1.619 r
+  mem_req[8] (out)                                                 0.053     0.000      1.619 r
+  data arrival time                                                                     1.619
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  output external delay                                                     -1.080      1.620
+  data required time                                                                    1.620
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    1.620
+  data arrival time                                                                    -1.619
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[7] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2_2)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/Q (SAEDRVT14_FDP_V2_2)                     0.100     0.121      0.121 r
+  rd/r_pendIdx_D_IN[2] (net)                    5        0.042               0.000      0.121 r
+  rd/U1161/A2 (SAEDRVT14_ND2_CDC_0P5)                              0.100     0.000      0.121 r
+  rd/U1161/X (SAEDRVT14_ND2_CDC_0P5)                               0.227     0.210      0.331 f
+  rd/n5623 (net)                                4        0.028               0.000      0.331 f
+  rd/U2608/A1 (SAEDRVT14_NR2_5)                                    0.227     0.000      0.331 f
+  rd/U2608/X (SAEDRVT14_NR2_5)                                     0.024     0.074      0.405 r
+  rd/n5624 (net)                                3        0.020               0.000      0.405 r
+  rd/U196/A2 (SAEDRVT14_ND2_CDC_2)                                 0.024     0.000      0.406 r
+  rd/U196/X (SAEDRVT14_ND2_CDC_2)                                  0.108     0.075      0.480 f
+  rd/n5428 (net)                                3        0.021               0.000      0.480 f
+  rd/U188/A2 (SAEDRVT14_ND2_CDC_2)                                 0.108     0.000      0.480 f
+  rd/U188/X (SAEDRVT14_ND2_CDC_2)                                  0.102     0.082      0.563 r
+  rd/n5431 (net)                                2        0.013               0.000      0.563 r
+  rd/U178/A2 (SAEDRVT14_ND2_CDC_4)                                 0.102     0.000      0.563 r
+  rd/U178/X (SAEDRVT14_ND2_CDC_4)                                  0.073     0.082      0.644 f
+  rd/n5426 (net)                                3        0.023               0.000      0.644 f
+  rd/U166/A2 (SAEDRVT14_NR2_MM_6)                                  0.073     0.000      0.645 f
+  rd/U166/X (SAEDRVT14_NR2_MM_6)                                   0.073     0.060      0.704 r
+  rd/n5425 (net)                                3        0.026               0.000      0.704 r
+  rd/U153/B (SAEDRVT14_AOI21_1P5)                                  0.073     0.000      0.705 r
+  rd/U153/X (SAEDRVT14_AOI21_1P5)                                  0.154     0.129      0.834 f
+  rd/n5707 (net)                                4        0.028               0.000      0.834 f
+  rd/U147/A (SAEDRVT14_INV_S_1)                                    0.154     0.000      0.834 f
+  rd/U147/X (SAEDRVT14_INV_S_1)                                    0.117     0.153      0.986 r
+  rd/DP_OP_3335J2_148_5855/n10 (net)            3        0.020               0.000      0.986 r
+  rd/DP_OP_3335J2_148_5855/U10/A (SAEDRVT14_ADDF_V1_1)             0.117     0.000      0.987 r
+  rd/DP_OP_3335J2_148_5855/U10/CO (SAEDRVT14_ADDF_V1_1)            0.045     0.100      1.086 r
+  rd/DP_OP_3335J2_148_5855/n6 (net)             1        0.006               0.000      1.086 r
+  rd/DP_OP_3335J2_148_5855/U9/B (SAEDRVT14_ADDF_V1_1)              0.045     0.000      1.086 r
+  rd/DP_OP_3335J2_148_5855/U9/CO (SAEDRVT14_ADDF_V1_1)             0.040     0.073      1.159 r
+  rd/DP_OP_3335J2_148_5855/n5 (net)             1        0.006               0.000      1.159 r
+  rd/DP_OP_3335J2_148_5855/U8/B (SAEDRVT14_ADDF_V1_1)              0.040     0.000      1.160 r
+  rd/DP_OP_3335J2_148_5855/U8/CO (SAEDRVT14_ADDF_V1_1)             0.047     0.067      1.227 r
+  rd/DP_OP_3335J2_148_5855/n4 (net)             1        0.005               0.000      1.227 r
+  rd/U114/A2 (SAEDRVT14_OA21_MM_2)                                 0.047     0.000      1.227 r
+  rd/U114/X (SAEDRVT14_OA21_MM_2)                                  0.038     0.068      1.295 r
+  rd/n5469 (net)                                2        0.014               0.000      1.295 r
+  rd/U99/A2 (SAEDRVT14_NR2_MM_6)                                   0.038     0.000      1.295 r
+  rd/U99/X (SAEDRVT14_NR2_MM_6)                                    0.085     0.039      1.334 f
+  rd/n5667 (net)                                3        0.023               0.000      1.334 f
+  rd/U89/A1 (SAEDRVT14_ND2_MM_10)                                  0.085     0.000      1.334 f
+  rd/U89/X (SAEDRVT14_ND2_MM_10)                                   0.065     0.044      1.378 r
+  rd/n5666 (net)                                3        0.019               0.000      1.378 r
+  rd/U1778/A2 (SAEDRVT14_NR2_5)                                    0.065     0.000      1.378 r
+  rd/U1778/X (SAEDRVT14_NR2_5)                                     0.024     0.066      1.444 f
+  rd/n5479 (net)                                3        0.022               0.000      1.444 f
+  rd/U1771/A2 (SAEDRVT14_OAI21_V1_4)                               0.024     0.000      1.444 f
+  rd/U1771/X (SAEDRVT14_OAI21_V1_4)                                0.083     0.031      1.475 r
+  rd/n5437 (net)                                1        0.007               0.000      1.475 r
+  rd/U1972/B (SAEDRVT14_AOI21_6)                                   0.083     0.000      1.476 r
+  rd/U1972/X (SAEDRVT14_AOI21_6)                                   0.067     0.045      1.521 f
+  rd/n5438 (net)                                1        0.007               0.000      1.521 f
+  rd/U16/B (SAEDRVT14_AOI21_V1_6)                                  0.067     0.000      1.521 f
+  rd/U16/X (SAEDRVT14_AOI21_V1_6)                                  0.052     0.032      1.553 r
+  rd/n5439 (net)                                1        0.005               0.000      1.553 r
+  rd/U2279/B (SAEDRVT14_OAI21_0P5)                                 0.052     0.000      1.553 r
+  rd/U2279/X (SAEDRVT14_OAI21_0P5)                                 0.060     0.066      1.619 f
+  rd/mem_req[7] (net)                           1        0.005               0.000      1.619 f
+  rd/mem_req[7] (mkQRReaderS)                                                0.000      1.619 f
+  mem_req[7] (net)                                       0.005               0.000      1.619 f
+  mem_req[7] (out)                                                 0.060     0.000      1.619 f
+  data arrival time                                                                     1.619
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  output external delay                                                     -1.080      1.620
+  data required time                                                                    1.620
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    1.620
+  data arrival time                                                                    -1.619
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[0] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2_2)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/Q (SAEDRVT14_FDP_V2_2)                     0.099     0.117      0.117 f
+  rd/r_pendIdx_D_IN[2] (net)                    5        0.042               0.000      0.117 f
+  rd/U1161/A2 (SAEDRVT14_ND2_CDC_0P5)                              0.099     0.000      0.117 f
+  rd/U1161/X (SAEDRVT14_ND2_CDC_0P5)                               0.173     0.183      0.300 r
+  rd/n5623 (net)                                4        0.028               0.000      0.300 r
+  rd/U2608/A1 (SAEDRVT14_NR2_5)                                    0.173     0.000      0.301 r
+  rd/U2608/X (SAEDRVT14_NR2_5)                                     0.022     0.081      0.381 f
+  rd/n5624 (net)                                3        0.020               0.000      0.381 f
+  rd/U196/A2 (SAEDRVT14_ND2_CDC_2)                                 0.022     0.000      0.381 f
+  rd/U196/X (SAEDRVT14_ND2_CDC_2)                                  0.089     0.063      0.444 r
+  rd/n5428 (net)                                3        0.021               0.000      0.444 r
+  rd/U188/A2 (SAEDRVT14_ND2_CDC_2)                                 0.089     0.000      0.444 r
+  rd/U188/X (SAEDRVT14_ND2_CDC_2)                                  0.105     0.082      0.526 f
+  rd/n5431 (net)                                2        0.013               0.000      0.526 f
+  rd/U178/A2 (SAEDRVT14_ND2_CDC_4)                                 0.105     0.000      0.526 f
+  rd/U178/X (SAEDRVT14_ND2_CDC_4)                                  0.066     0.077      0.603 r
+  rd/n5426 (net)                                3        0.023               0.000      0.603 r
+  rd/U166/A2 (SAEDRVT14_NR2_MM_6)                                  0.066     0.000      0.603 r
+  rd/U166/X (SAEDRVT14_NR2_MM_6)                                   0.059     0.054      0.658 f
+  rd/n5425 (net)                                3        0.026               0.000      0.658 f
+  rd/U146/A2 (SAEDRVT14_ND2_MM_12)                                 0.059     0.000      0.658 f
+  rd/U146/X (SAEDRVT14_ND2_MM_12)                                  0.025     0.028      0.686 r
+  rd/n5424 (net)                                2        0.012               0.000      0.686 r
+  rd/U5138/A2 (SAEDRVT14_AO21B_1)                                  0.025     0.000      0.686 r
+  rd/U5138/X (SAEDRVT14_AO21B_1)                                   0.278     0.246      0.933 r
+  rd/DP_OP_3335J2_148_5855/n8 (net)             4        0.030               0.000      0.933 r
+  rd/U121/A (SAEDRVT14_INV_6)                                      0.278     0.000      0.933 r
+  rd/U121/X (SAEDRVT14_INV_6)                                      0.089     0.133      1.066 f
+  rd/n5509 (net)                                6        0.049               0.000      1.066 f
+  rd/U100/A2 (SAEDRVT14_NR2_MM_6)                                  0.089     0.000      1.066 f
+  rd/U100/X (SAEDRVT14_NR2_MM_6)                                   0.044     0.057      1.123 r
+  rd/n5429 (net)                                3        0.020               0.000      1.123 r
+  rd/U1175/A1 (SAEDRVT14_ND2_CDC_0P5)                              0.044     0.000      1.124 r
+  rd/U1175/X (SAEDRVT14_ND2_CDC_0P5)                               0.163     0.129      1.253 f
+  rd/n5874 (net)                                3        0.019               0.000      1.253 f
+  rd/U1158/B2 (SAEDRVT14_OAI22_1)                                  0.163     0.000      1.253 f
+  rd/U1158/X (SAEDRVT14_OAI22_1)                                   0.103     0.098      1.351 r
+  rd/n5876 (net)                                1        0.005               0.000      1.351 r
+  rd/U1159/B (SAEDRVT14_AOI21_0P5)                                 0.103     0.000      1.351 r
+  rd/U1159/X (SAEDRVT14_AOI21_0P5)                                 0.132     0.092      1.443 f
+  rd/n5879 (net)                                1        0.005               0.000      1.443 f
+  rd/U44/A1 (SAEDRVT14_ND2_1)                                      0.132     0.000      1.443 f
+  rd/U44/X (SAEDRVT14_ND2_1)                                       0.051     0.070      1.513 r
+  rd/n5880 (net)                                1        0.005               0.000      1.513 r
+  rd/U29/B (SAEDRVT14_AOI21_1P5)                                   0.051     0.000      1.513 r
+  rd/U29/X (SAEDRVT14_AOI21_1P5)                                   0.043     0.046      1.559 f
+  rd/n5882 (net)                                1        0.005               0.000      1.559 f
+  rd/U5375/B (SAEDRVT14_OAI21_0P5)                                 0.043     0.000      1.560 f
+  rd/U5375/X (SAEDRVT14_OAI21_0P5)                                 0.086     0.058      1.618 r
+  rd/mem_req[0] (net)                           1        0.005               0.000      1.618 r
+  rd/mem_req[0] (mkQRReaderS)                                                0.000      1.618 r
+  mem_req[0] (net)                                       0.005               0.000      1.618 r
+  mem_req[0] (out)                                                 0.086     0.000      1.618 r
+  data arrival time                                                                     1.618
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  output external delay                                                     -1.080      1.620
+  data required time                                                                    1.620
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    1.620
+  data arrival time                                                                    -1.618
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.002
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[9] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2_2)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/Q (SAEDRVT14_FDP_V2_2)                     0.099     0.117      0.117 f
+  rd/r_pendIdx_D_IN[2] (net)                    5        0.042               0.000      0.117 f
+  rd/U1161/A2 (SAEDRVT14_ND2_CDC_0P5)                              0.099     0.000      0.117 f
+  rd/U1161/X (SAEDRVT14_ND2_CDC_0P5)                               0.173     0.183      0.300 r
+  rd/n5623 (net)                                4        0.028               0.000      0.300 r
+  rd/U2608/A1 (SAEDRVT14_NR2_5)                                    0.173     0.000      0.301 r
+  rd/U2608/X (SAEDRVT14_NR2_5)                                     0.022     0.081      0.381 f
+  rd/n5624 (net)                                3        0.020               0.000      0.381 f
+  rd/U196/A2 (SAEDRVT14_ND2_CDC_2)                                 0.022     0.000      0.381 f
+  rd/U196/X (SAEDRVT14_ND2_CDC_2)                                  0.089     0.063      0.444 r
+  rd/n5428 (net)                                3        0.021               0.000      0.444 r
+  rd/U188/A2 (SAEDRVT14_ND2_CDC_2)                                 0.089     0.000      0.444 r
+  rd/U188/X (SAEDRVT14_ND2_CDC_2)                                  0.105     0.082      0.526 f
+  rd/n5431 (net)                                2        0.013               0.000      0.526 f
+  rd/U178/A2 (SAEDRVT14_ND2_CDC_4)                                 0.105     0.000      0.526 f
+  rd/U178/X (SAEDRVT14_ND2_CDC_4)                                  0.066     0.077      0.603 r
+  rd/n5426 (net)                                3        0.023               0.000      0.603 r
+  rd/U166/A2 (SAEDRVT14_NR2_MM_6)                                  0.066     0.000      0.603 r
+  rd/U166/X (SAEDRVT14_NR2_MM_6)                                   0.059     0.054      0.658 f
+  rd/n5425 (net)                                3        0.026               0.000      0.658 f
+  rd/U146/A2 (SAEDRVT14_ND2_MM_12)                                 0.059     0.000      0.658 f
+  rd/U146/X (SAEDRVT14_ND2_MM_12)                                  0.025     0.028      0.686 r
+  rd/n5424 (net)                                2        0.012               0.000      0.686 r
+  rd/U5138/A2 (SAEDRVT14_AO21B_1)                                  0.025     0.000      0.686 r
+  rd/U5138/X (SAEDRVT14_AO21B_1)                                   0.278     0.246      0.933 r
+  rd/DP_OP_3335J2_148_5855/n8 (net)             4        0.030               0.000      0.933 r
+  rd/U91/A2 (SAEDRVT14_ND2_CDC_0P5)                                0.278     0.000      0.933 r
+  rd/U91/X (SAEDRVT14_ND2_CDC_0P5)                                 0.242     0.303      1.236 f
+  rd/n5692 (net)                                4        0.027               0.000      1.236 f
+  rd/U76/A2 (SAEDRVT14_NR2_1P5)                                    0.242     0.000      1.236 f
+  rd/U76/X (SAEDRVT14_NR2_1P5)                                     0.109     0.141      1.378 r
+  rd/n5700 (net)                                2        0.012               0.000      1.378 r
+  rd/U59/A (SAEDRVT14_INV_S_1P5)                                   0.109     0.000      1.378 r
+  rd/U59/X (SAEDRVT14_INV_S_1P5)                                   0.054     0.080      1.457 f
+  rd/n5710 (net)                                2        0.012               0.000      1.457 f
+  rd/U41/A2 (SAEDRVT14_OAI22_2)                                    0.054     0.000      1.458 f
+  rd/U41/X (SAEDRVT14_OAI22_2)                                     0.074     0.052      1.510 r
+  rd/n5711 (net)                                1        0.005               0.000      1.510 r
+  rd/U22/B (SAEDRVT14_AOI21_1P5)                                   0.074     0.000      1.510 r
+  rd/U22/X (SAEDRVT14_AOI21_1P5)                                   0.048     0.058      1.568 f
+  rd/n5716 (net)                                1        0.005               0.000      1.568 f
+  rd/U1548/A1 (SAEDRVT14_ND2_CDC_0P5)                              0.048     0.000      1.568 f
+  rd/U1548/X (SAEDRVT14_ND2_CDC_0P5)                               0.056     0.049      1.617 r
+  rd/mem_req[9] (net)                           1        0.005               0.000      1.617 r
+  rd/mem_req[9] (mkQRReaderS)                                                0.000      1.617 r
+  mem_req[9] (net)                                       0.005               0.000      1.617 r
+  mem_req[9] (out)                                                 0.056     0.000      1.617 r
+  data arrival time                                                                     1.617
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  output external delay                                                     -1.080      1.620
+  data required time                                                                    1.620
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    1.620
+  data arrival time                                                                    -1.617
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.003
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[15]
+            (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2_2)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/Q (SAEDRVT14_FDP_V2_2)                     0.100     0.121      0.121 r
+  rd/r_pendIdx_D_IN[2] (net)                    5        0.042               0.000      0.121 r
+  rd/U1161/A2 (SAEDRVT14_ND2_CDC_0P5)                              0.100     0.000      0.121 r
+  rd/U1161/X (SAEDRVT14_ND2_CDC_0P5)                               0.227     0.210      0.331 f
+  rd/n5623 (net)                                4        0.028               0.000      0.331 f
+  rd/U2608/A1 (SAEDRVT14_NR2_5)                                    0.227     0.000      0.331 f
+  rd/U2608/X (SAEDRVT14_NR2_5)                                     0.024     0.074      0.405 r
+  rd/n5624 (net)                                3        0.020               0.000      0.405 r
+  rd/U196/A2 (SAEDRVT14_ND2_CDC_2)                                 0.024     0.000      0.406 r
+  rd/U196/X (SAEDRVT14_ND2_CDC_2)                                  0.108     0.075      0.480 f
+  rd/n5428 (net)                                3        0.021               0.000      0.480 f
+  rd/U188/A2 (SAEDRVT14_ND2_CDC_2)                                 0.108     0.000      0.480 f
+  rd/U188/X (SAEDRVT14_ND2_CDC_2)                                  0.102     0.082      0.563 r
+  rd/n5431 (net)                                2        0.013               0.000      0.563 r
+  rd/U178/A2 (SAEDRVT14_ND2_CDC_4)                                 0.102     0.000      0.563 r
+  rd/U178/X (SAEDRVT14_ND2_CDC_4)                                  0.073     0.082      0.644 f
+  rd/n5426 (net)                                3        0.023               0.000      0.644 f
+  rd/U152/B (SAEDRVT14_OAI21_V1_4)                                 0.073     0.000      0.645 f
+  rd/U152/X (SAEDRVT14_OAI21_V1_4)                                 0.283     0.164      0.808 r
+  rd/n5423 (net)                               10        0.104               0.000      0.808 r
+  rd/U122/A1 (SAEDRVT14_ND2_CDC_0P5)                               0.283     0.000      0.809 r
+  rd/U122/X (SAEDRVT14_ND2_CDC_0P5)                                0.141     0.197      1.006 f
+  rd/n5706 (net)                                2        0.013               0.000      1.006 f
+  rd/U115/CI (SAEDRVT14_ADDF_V1_1)                                 0.141     0.000      1.006 f
+  rd/U115/CO (SAEDRVT14_ADDF_V1_1)                                 0.037     0.102      1.109 f
+  rd/n5698 (net)                                1        0.006               0.000      1.109 f
+  rd/U101/CI (SAEDRVT14_ADDF_V1_1)                                 0.037     0.000      1.109 f
+  rd/U101/CO (SAEDRVT14_ADDF_V1_1)                                 0.063     0.090      1.199 f
+  rd/n5507 (net)                                2        0.013               0.000      1.199 f
+  rd/U88/A2 (SAEDRVT14_NR2_MM_4)                                   0.063     0.000      1.199 f
+  rd/U88/X (SAEDRVT14_NR2_MM_4)                                    0.167     0.077      1.276 r
+  rd/n5683 (net)                                4        0.029               0.000      1.276 r
+  rd/U72/A2 (SAEDRVT14_ND2_1P5)                                    0.167     0.000      1.276 r
+  rd/U72/X (SAEDRVT14_ND2_1P5)                                     0.085     0.111      1.387 f
+  rd/n5486 (net)                                3        0.019               0.000      1.387 f
+  rd/U60/A (SAEDRVT14_INV_S_1)                                     0.085     0.000      1.387 f
+  rd/U60/X (SAEDRVT14_INV_S_1)                                     0.043     0.060      1.447 r
+  rd/n5473 (net)                                1        0.005               0.000      1.447 r
+  rd/U2313/A2 (SAEDRVT14_OAI22_1)                                  0.043     0.000      1.447 r
+  rd/U2313/X (SAEDRVT14_OAI22_1)                                   0.122     0.066      1.514 f
+  rd/n5474 (net)                                1        0.006               0.000      1.514 f
+  rd/U19/B2 (SAEDRVT14_OAI22_3)                                    0.122     0.000      1.514 f
+  rd/U19/X (SAEDRVT14_OAI22_3)                                     0.042     0.057      1.572 r
+  rd/n5475 (net)                                1        0.005               0.000      1.572 r
+  rd/U2293/B (SAEDRVT14_AO21_1)                                    0.042     0.000      1.572 r
+  rd/U2293/X (SAEDRVT14_AO21_1)                                    0.029     0.044      1.616 r
+  rd/mem_req[15] (net)                          1        0.005               0.000      1.616 r
+  rd/mem_req[15] (mkQRReaderS)                                               0.000      1.616 r
+  mem_req[15] (net)                                      0.005               0.000      1.616 r
+  mem_req[15] (out)                                                0.029     0.000      1.616 r
+  data arrival time                                                                     1.616
+
+  clock CLK (rise edge)                                                      2.700      2.700
+  clock network delay (ideal)                                                0.000      2.700
+  output external delay                                                     -1.080      1.620
+  data required time                                                                    1.620
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    1.620
+  data arrival time                                                                    -1.616
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.004
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group i2o
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Fri Nov  6 19:08:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+No paths.
+
+1

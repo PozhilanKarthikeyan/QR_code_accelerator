@@ -1,0 +1,55 @@
+###################################################################
+
+# Created by write_sdc on Fri Nov  6 21:32:34 2026
+
+###################################################################
+set sdc_version 2.1
+
+set_units -time ns -resistance kOhm -capacitance pF -voltage V -current uA
+set_max_area 0
+create_clock [get_ports CLK]  -period 2.1  -waveform {0 1.05}
+set_input_delay -clock CLK  0.84  [get_ports RST_N]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[7]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[6]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[5]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[4]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[3]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[2]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[1]}]
+set_input_delay -clock CLK  0.84  [get_ports {start_size[0]}]
+set_input_delay -clock CLK  0.84  [get_ports EN_start]
+set_input_delay -clock CLK  0.84  [get_ports EN_getByte]
+set_input_delay -clock CLK  0.84  [get_ports EN_mem_req]
+set_input_delay -clock CLK  0.84  [get_ports mem_resp_b]
+set_output_delay -clock CLK  0.84  [get_ports RDY_start]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[8]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[7]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[6]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[5]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[4]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[3]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[2]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[1]}]
+set_output_delay -clock CLK  0.84  [get_ports {getByte[0]}]
+set_output_delay -clock CLK  0.84  [get_ports RDY_getByte]
+set_output_delay -clock CLK  0.84  [get_ports failed]
+set_output_delay -clock CLK  0.84  [get_ports RDY_failed]
+set_output_delay -clock CLK  0.84  [get_ports done]
+set_output_delay -clock CLK  0.84  [get_ports RDY_done]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[15]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[14]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[13]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[12]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[11]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[10]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[9]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[8]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[7]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[6]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[5]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[4]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[3]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[2]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[1]}]
+set_output_delay -clock CLK  0.84  [get_ports {mem_req[0]}]
+set_output_delay -clock CLK  0.84  [get_ports RDY_mem_req]
