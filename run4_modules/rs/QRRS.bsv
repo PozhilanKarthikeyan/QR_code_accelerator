@@ -71,6 +71,9 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
    Reg#(UInt#(8))  cp     <- mkReg(0);        // Chien position p
    Reg#(UInt#(5))  roots  <- mkReg(0);
    Reg#(UInt#(8))  reqIdx <- mkReg(0);        // read index (syndrome pass and output)
+   Reg#(UInt#(12)) rdAddr <- mkReg(0);        // buffer address of the next read/write, kept in a register
+                                              //   (= baseR + reqIdx in the syndrome and output passes, the
+                                              //   byte under test in the Chien pass): no adder before the read decode
    Reg#(Bool)      pendRd <- mkReg(False);    // a read was issued last cycle
    Reg#(Bool)      verify <- mkReg(False);    // second syndrome pass, after the corrections
    Reg#(Bool)      swap   <- mkReg(False);
@@ -136,7 +139,7 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
       if (startW.wget matches tagged Valid {.ec, .d}) begin
          ecR <= ec;  baseR <= d.base;  mR <= d.len;  dR <= d.dataLen;
          for (Integer j = 0; j < 32; j = j + 1) syn[j] <= 0;
-         reqIdx <= 0;  pendRd <= False;  verify <= False;
+         reqIdx <= 0;  pendRd <= False;  verify <= False;  rdAddr <= d.base;
          clearOut = True;
          st <= Syn;
       end
@@ -146,8 +149,9 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
             Syn: begin
                Bool issue = (reqIdx < mR);
                if (issue) begin
-                  bb.readReq(baseR + zeroExtend(reqIdx));
+                  bb.readReq(rdAddr);
                   reqIdx <= reqIdx + 1;
+                  rdAddr <= rdAddr + 1;
                end
                pendRd <= issue;
                if (pendRd)                                  // the byte asked for last cycle
@@ -277,20 +281,19 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
             end
             ChVal: begin
                valR <= prod;
+               rdAddr <= baseR + zeroExtend(mR - 1 - cp);     // byte m-1-p; cp is stable until ChStep
                st   <= ChRd;
             end
             ChRd: begin
                if (valR == 0) st <= Fail;
                else begin
-                  UInt#(8) pos8 = mR - 1 - cp;
-                  bb.readReq(baseR + zeroExtend(pos8));
+                  bb.readReq(rdAddr);
                   st <= ChWait;
                end
             end
             ChWait: st <= ChWr;
             ChWr: begin
-               UInt#(8) pos8w = mR - 1 - cp;
-               bb.writeByte(baseR + zeroExtend(pos8w), bb.readData ^ valR);
+               bb.writeByte(rdAddr, bb.readData ^ valR);
                st <= ChStep;
             end
             ChStep: begin                                    // x = alpha^-p  ->  alpha^-(p+1)
@@ -306,14 +309,14 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
                if (roots != cL) st <= Fail;
                else begin                                    // 5. verify: syndromes of the fixed block
                   for (Integer j = 0; j < 32; j = j + 1) syn[j] <= 0;
-                  reqIdx <= 0;  pendRd <= False;  verify <= True;
+                  reqIdx <= 0;  pendRd <= False;  verify <= True;  rdAddr <= baseR;
                   st <= Syn;
                end
             end
 
             // ------------------------------------------------------------ 6. output
             OutPrep: begin
-               reqIdx <= 0;
+               reqIdx <= 0;  rdAddr <= baseR;
                st <= OutReq;
             end
             OutReq: begin
@@ -321,8 +324,9 @@ module mkQRRS#(QRBlockBuf#(cap) bb)(QRRS);
                   if (!outValid) st <= Done;
                end
                else if (!outValid) begin
-                  bb.readReq(baseR + zeroExtend(reqIdx));
+                  bb.readReq(rdAddr);
                   reqIdx <= reqIdx + 1;
+                  rdAddr <= rdAddr + 1;
                   st <= OutGet;
                end
             end
