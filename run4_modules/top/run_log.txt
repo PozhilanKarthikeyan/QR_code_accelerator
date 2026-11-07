@@ -1,0 +1,65 @@
+nohup: ignoring input
+[1/4] 10:20:00 elaborating mkQRDecoder to Verilog (first time: several minutes)
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+compiling ../../src/QRTypes.bsv
+compiling ../../src/QRTables.bsv
+compiling ../format/QRFormat.bsv
+compiling ../blocks/QRBlocks.bsv
+compiling ../payload/QRPayload.bsv
+compiling ../walker/QRWalker.bsv
+compiling ../reader/QRReader.bsv
+compiling ../gf/QRGF.bsv
+compiling ../rs/QRRS.bsv
+compiling QRDecoder.bsv
+code generation for mkQRReaderS starts
+Verilog file created: build/cap300/v/mkQRReaderS.v
+code generation for mkQRDecoder starts
+Verilog file created: build/cap300/v/mkQRDecoder.v
+All packages are up to date.
+[2/4] 10:20:20 compiling the test bench and the decoder for Bluesim
+Warning: Command line: (S0073)
+  Duplicate directories were found in the path specified with the -p flag.
+  Only the first occurrence will be used. The duplicates are:
+    /home/shakti/finalproj/QR_code_accelerator/modules/top
+  Note that when the -bdir flag is used, that directory is automatically added
+  to the head of the path.
+checking package dependencies
+Warning: Unknown position: (S0089)
+  Multiple copies of a file were found in the path. Using:
+    ./QRDecoder.bsv
+  Ignoring:
+    ../../src/QRDecoder.bsv
+compiling ../../src/QRTypes.bsv
+compiling ../../src/QRTables.bsv
+compiling ../format/QRFormat.bsv
+compiling ../blocks/QRBlocks.bsv
+compiling ../payload/QRPayload.bsv
+compiling ../walker/QRWalker.bsv
+compiling ../reader/QRReader.bsv
+compiling ../gf/QRGF.bsv
+compiling ../rs/QRRS.bsv
+compiling ./QRDecoder.bsv
+code generation for mkQRReaderS starts
+Elaborated module file created: build/cap300/sim/mkQRReaderS.ba
+code generation for mkQRDecoder starts
+Elaborated module file created: build/cap300/sim/mkQRDecoder.ba
+compiling TbTop.bsv
+code generation for mkTbTop starts
+Elaborated module file created: build/cap300/sim/mkTbTop.ba
+All packages are up to date.
+[3/4] 10:20:38 linking the simulator
+Bluesim object created: build/cap300/sim/mkTbTop.{h,o}
+Bluesim object created: build/cap300/sim/mkQRDecoder.{h,o}
+Bluesim object created: build/cap300/sim/mkQRReaderS.{h,o}
+Bluesim object created: build/cap300/sim/model_mkTbTop.{h,o}
+Simulation shared library created: build/cap300/sim/TbTop.so
+Simulation executable created: build/cap300/sim/TbTop
+[4/4] 10:20:49 simulating (STEP=8)
+latency (cases run without back-pressure): 36 cases, max 31375 cycles, mean 10082; slowest: 31375 'format 2+3 bad v40'; 31304 'format 0+3 bad v40'; 31276 'format 3+1 bad v40'
+top: 202 cases (146 decode, 56 must fail), 0 mismatches -> PASS

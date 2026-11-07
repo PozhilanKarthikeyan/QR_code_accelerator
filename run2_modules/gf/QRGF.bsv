@@ -8,8 +8,6 @@
 // Everything here is a pure combinational function.
 package QRGF;
 
-import Vector :: *;
-
 // a * alpha
 function Bit#(8) gfXtime(Bit#(8) a);
    Bit#(8) s = a << 1;
@@ -32,7 +30,7 @@ endfunction
 //   a^254 = a^2 * a^4 * a^8 * ... * a^128
 // This is the big, fully parallel version (13 multipliers).  Fine as a first design;
 // a table or a serial version is a later area optimisation.
-function Bit#(8) gfInvChain(Bit#(8) a);
+function Bit#(8) gfInv(Bit#(8) a);
    Bit#(8) s = gfMul(a, a);               // a^2
    Bit#(8) r = s;
    for (Integer i = 2; i <= 7; i = i + 1) begin
@@ -40,15 +38,6 @@ function Bit#(8) gfInvChain(Bit#(8) a);
       r = gfMul(r, s);
    end
    return r;
-endfunction
-
-// 1/a as a 256-entry table, built at compile time from gfInvChain above (so it is the same
-// function by construction, gfInv(0) = 0 included).  Synthesis turns it into a shallow ROM
-// instead of six multipliers in series.  This is the name the Reed-Solomon stage uses.
-function Bit#(8) gfInv(Bit#(8) a);
-   function Bit#(8) f(Integer i) = gfInvChain(fromInteger(i));
-   Vector#(256, Bit#(8)) tbl = genWith(f);
-   return tbl[a];
 endfunction
 
 // alpha^k as a compile-time constant, for k >= 0.  Used to build the constant
