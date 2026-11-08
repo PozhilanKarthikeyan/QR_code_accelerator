@@ -81,12 +81,12 @@ delay on every port except the clock.
 
 The four designs, each differing from the previous in one BSV file:
 
-| Design | Change | Period | Cell area (um^2) |
-|---|---|---|---|
-| 1 | baseline | 2.7 ns | 21,310.8 |
-| 2 | `QRFormat`: 32 independent "within 3 bits" tests instead of a compare-and-select chain | 2.1 ns | 20,381.8 |
-| 3 | `QRGF`: GF inverse as a 256-entry table | 1.0 ns | 26,896.4 |
-| 4 | `QRRS`: registered buffer address | 1.0 ns | 24,828.2 |
+| Design | Change | Period |
+|---|---|---|
+| 1 | baseline | 2.7 ns |
+| 2 | `QRFormat`: 32 independent "within 3 bits" tests instead of a compare-and-select chain | 2.1 ns |
+| 3 | `QRGF`: GF inverse as a 256-entry table | 1.0 ns |
+| 4 | `QRRS`: registered buffer address | 1.0 ns |
 
 Design 4 is the best design. After `place_opt` it still meets 1.00 ns (f2f slack 0.00), with cell area
 19,724 um^2 and 14.710 mW. `pd_report.pdf` has the full Table 5 and Table 6, the comparison of designs at equal
