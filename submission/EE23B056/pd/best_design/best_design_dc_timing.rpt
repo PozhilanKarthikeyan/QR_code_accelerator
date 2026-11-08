@@ -1,0 +1,1141 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2f
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Sat Nov  7 22:52:36 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: rs_rdAddr_reg_10_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: bb_mem_rdReg_reg_6_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rs_rdAddr_reg_10_/CK (SAEDRVT14_FDP_V2_4)                        0.000     0.000 #    0.000 r
+  rs_rdAddr_reg_10_/Q (SAEDRVT14_FDP_V2_4)                         0.025     0.076      0.076 f
+  bb_fixW_wget[18] (net)                        3        0.019               0.000      0.076 f
+  U37179/A3 (SAEDRVT14_NR3_3)                                      0.025     0.000      0.076 f
+  U37179/X (SAEDRVT14_NR3_3)                                       0.048     0.073      0.149 r
+  n26479 (net)                                  4        0.030               0.000      0.149 r
+  U27693/A2 (SAEDRVT14_ND2_1P5)                                    0.048     0.000      0.149 r
+  U27693/X (SAEDRVT14_ND2_1P5)                                     0.069     0.071      0.220 f
+  n26641 (net)                                  3        0.022               0.000      0.220 f
+  U37488/A2 (SAEDRVT14_NR2_MM_4)                                   0.069     0.000      0.220 f
+  U37488/X (SAEDRVT14_NR2_MM_4)                                    0.105     0.099      0.319 r
+  n27286 (net)                                  5        0.041               0.000      0.319 r
+  U27414/A (SAEDRVT14_BUF_10)                                      0.105     0.000      0.319 r
+  U27414/X (SAEDRVT14_BUF_10)                                      0.056     0.090      0.409 r
+  n27227 (net)                                 10        0.113               0.000      0.409 r
+  U37970/A (SAEDRVT14_BUF_6)                                       0.056     0.000      0.410 r
+  U37970/X (SAEDRVT14_BUF_6)                                       0.062     0.076      0.486 r
+  n27263 (net)                                  7        0.067               0.000      0.486 r
+  U33827/A1 (SAEDRVT14_ND2_3)                                      0.062     0.000      0.486 r
+  U33827/X (SAEDRVT14_ND2_3)                                       0.152     0.135      0.622 f
+  n34015 (net)                                  8        0.072               0.000      0.622 f
+  U26590/B1 (SAEDRVT14_OAI22_0P75)                                 0.152     0.000      0.622 f
+  U26590/X (SAEDRVT14_OAI22_0P75)                                  0.091     0.115      0.737 r
+  n29773 (net)                                  1        0.005               0.000      0.737 r
+  U39394/A4 (SAEDRVT14_OR4_2)                                      0.091     0.000      0.737 r
+  U39394/X (SAEDRVT14_OR4_2)                                       0.017     0.074      0.811 r
+  n29792 (net)                                  1        0.005               0.000      0.811 r
+  U39399/A1 (SAEDRVT14_OR4_2)                                      0.017     0.000      0.811 r
+  U39399/X (SAEDRVT14_OR4_2)                                       0.015     0.035      0.845 r
+  n29835 (net)                                  1        0.005               0.000      0.845 r
+  U39413/A2 (SAEDRVT14_OR4_2)                                      0.015     0.000      0.845 r
+  U39413/X (SAEDRVT14_OR4_2)                                       0.015     0.035      0.880 r
+  n30092 (net)                                  1        0.005               0.000      0.880 r
+  U39499/A1 (SAEDRVT14_OR4_2)                                      0.015     0.000      0.880 r
+  U39499/X (SAEDRVT14_OR4_2)                                       0.018     0.036      0.916 r
+  n30093 (net)                                  1        0.006               0.000      0.916 r
+  U35250/A2 (SAEDRVT14_OAI21_V1_4)                                 0.018     0.000      0.916 r
+  U35250/X (SAEDRVT14_OAI21_V1_4)                                  0.029     0.025      0.941 f
+  n30097 (net)                                  1        0.006               0.000      0.941 f
+  U39500/B (SAEDRVT14_OAI21_V1_4)                                  0.029     0.000      0.941 f
+  U39500/X (SAEDRVT14_OAI21_V1_4)                                  0.048     0.024      0.965 r
+  n8850 (net)                                   1        0.005               0.000      0.965 r
+  bb_mem_rdReg_reg_6_/D (SAEDRVT14_FDP_V2LP_0P5)                   0.048     0.000      0.965 r
+  data arrival time                                                                     0.965
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_rdReg_reg_6_/CK (SAEDRVT14_FDP_V2LP_0P5)                            0.000      1.000 r
+  library setup time                                                        -0.035      0.965
+  data required time                                                                    0.965
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.965
+  data arrival time                                                                    -0.965
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rs_cn_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: rs_st_reg_3_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rs_cn_reg_2_/CK (SAEDRVT14_FDP_V2_4)                             0.000     0.000 #    0.000 r
+  rs_cn_reg_2_/Q (SAEDRVT14_FDP_V2_4)                              0.036     0.079      0.079 r
+  rs_cn[2] (net)                                4        0.029               0.000      0.079 r
+  U27714/A (SAEDRVT14_BUF_8)                                       0.036     0.000      0.079 r
+  U27714/X (SAEDRVT14_BUF_8)                                       0.035     0.050      0.129 r
+  n37135 (net)                                  6        0.049               0.000      0.129 r
+  U27603/A1 (SAEDRVT14_ND2_1)                                      0.035     0.000      0.129 r
+  U27603/X (SAEDRVT14_ND2_1)                                       0.067     0.061      0.190 f
+  n37150 (net)                                  2        0.015               0.000      0.190 f
+  U34101/A2 (SAEDRVT14_NR2_MM_6)                                   0.067     0.000      0.190 f
+  U34101/X (SAEDRVT14_NR2_MM_6)                                    0.052     0.053      0.244 r
+  n37145 (net)                                  3        0.022               0.000      0.244 r
+  U41352/A2 (SAEDRVT14_ND2_CDC_4)                                  0.052     0.000      0.244 r
+  U41352/X (SAEDRVT14_ND2_CDC_4)                                   0.080     0.081      0.325 f
+  n35039 (net)                                  5        0.037               0.000      0.325 f
+  U34063/A2 (SAEDRVT14_ND2_1)                                      0.080     0.000      0.325 f
+  U34063/X (SAEDRVT14_ND2_1)                                       0.037     0.051      0.376 r
+  n34991 (net)                                  1        0.006               0.000      0.376 r
+  U41353/A2 (SAEDRVT14_NR2_MM_4)                                   0.037     0.000      0.376 r
+  U41353/X (SAEDRVT14_NR2_MM_4)                                    0.047     0.051      0.427 f
+  n36518 (net)                                  4        0.028               0.000      0.427 f
+  U41362/A1 (SAEDRVT14_NR2_1P5)                                    0.047     0.000      0.427 f
+  U41362/X (SAEDRVT14_NR2_1P5)                                     0.086     0.045      0.471 r
+  n35000 (net)                                  1        0.005               0.000      0.471 r
+  U28702/A1 (SAEDRVT14_ND2_CDC_0P5)                                0.086     0.000      0.472 r
+  U28702/X (SAEDRVT14_ND2_CDC_0P5)                                 0.052     0.070      0.542 f
+  n35001 (net)                                  1        0.005               0.000      0.542 f
+  U41363/B (SAEDRVT14_OAI21_1)                                     0.052     0.000      0.542 f
+  U41363/X (SAEDRVT14_OAI21_1)                                     0.062     0.070      0.612 r
+  n35004 (net)                                  1        0.005               0.000      0.612 r
+  U26274/A2 (SAEDRVT14_ND2_CDC_2)                                  0.062     0.000      0.612 r
+  U26274/X (SAEDRVT14_ND2_CDC_2)                                   0.059     0.065      0.677 f
+  n35366 (net)                                  2        0.011               0.000      0.677 f
+  U25895/A1 (SAEDRVT14_ND2_CDC_0P5)                                0.059     0.000      0.677 f
+  U25895/X (SAEDRVT14_ND2_CDC_0P5)                                 0.076     0.088      0.765 r
+  n35966 (net)                                  2        0.011               0.000      0.765 r
+  U42049/A2 (SAEDRVT14_AN4_1)                                      0.076     0.000      0.765 r
+  U42049/X (SAEDRVT14_AN4_1)                                       0.061     0.096      0.861 r
+  n36211 (net)                                  2        0.012               0.000      0.861 r
+  U42249/A1 (SAEDRVT14_AOI21_1)                                    0.061     0.000      0.861 r
+  U42249/X (SAEDRVT14_AOI21_1)                                     0.059     0.070      0.931 f
+  n36212 (net)                                  1        0.005               0.000      0.931 f
+  U28857/B (SAEDRVT14_AO21_1)                                      0.059     0.000      0.931 f
+  U28857/X (SAEDRVT14_AO21_1)                                      0.026     0.052      0.983 f
+  n10340 (net)                                  1        0.005               0.000      0.983 f
+  rs_st_reg_3_/D (SAEDRVT14_FDP_V2_2)                              0.026     0.000      0.984 f
+  data arrival time                                                                     0.984
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  rs_st_reg_3_/CK (SAEDRVT14_FDP_V2_2)                                       0.000      1.000 r
+  library setup time                                                        -0.016      0.984
+  data required time                                                                    0.984
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.984
+  data arrival time                                                                    -0.984
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rs_rdAddr_reg_10_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: bb_mem_rdReg_reg_4_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rs_rdAddr_reg_10_/CK (SAEDRVT14_FDP_V2_4)                        0.000     0.000 #    0.000 r
+  rs_rdAddr_reg_10_/Q (SAEDRVT14_FDP_V2_4)                         0.025     0.076      0.076 f
+  bb_fixW_wget[18] (net)                        3        0.019               0.000      0.076 f
+  U37176/A2 (SAEDRVT14_OR2_4)                                      0.025     0.000      0.076 f
+  U37176/X (SAEDRVT14_OR2_4)                                       0.020     0.037      0.114 f
+  n28012 (net)                                  2        0.015               0.000      0.114 f
+  U27753/A1 (SAEDRVT14_NR2_MM_8)                                   0.020     0.000      0.114 f
+  U27753/X (SAEDRVT14_NR2_MM_8)                                    0.024     0.022      0.136 r
+  n26490 (net)                                  2        0.013               0.000      0.136 r
+  U30250/A2 (SAEDRVT14_ND2_1)                                      0.024     0.000      0.136 r
+  U30250/X (SAEDRVT14_ND2_1)                                       0.122     0.095      0.231 f
+  n26484 (net)                                  4        0.029               0.000      0.231 f
+  U37177/A2 (SAEDRVT14_NR2_5)                                      0.122     0.000      0.231 f
+  U37177/X (SAEDRVT14_NR2_5)                                       0.107     0.139      0.370 r
+  n26967 (net)                                 10        0.111               0.000      0.370 r
+  U37184/A (SAEDRVT14_BUF_4)                                       0.107     0.000      0.370 r
+  U37184/X (SAEDRVT14_BUF_4)                                       0.031     0.062      0.432 r
+  n26506 (net)                                  3        0.021               0.000      0.432 r
+  U37280/A (SAEDRVT14_BUF_6)                                       0.031     0.000      0.432 r
+  U37280/X (SAEDRVT14_BUF_6)                                       0.062     0.068      0.499 r
+  n27104 (net)                                  7        0.068               0.000      0.499 r
+  U37281/A1 (SAEDRVT14_ND2_CDC_4)                                  0.062     0.000      0.500 r
+  U37281/X (SAEDRVT14_ND2_CDC_4)                                   0.152     0.134      0.633 f
+  n33184 (net)                                  8        0.072               0.000      0.633 f
+  U26300/B1 (SAEDRVT14_OAI22_0P5)                                  0.152     0.000      0.634 f
+  U26300/X (SAEDRVT14_OAI22_0P5)                                   0.113     0.142      0.776 r
+  n29238 (net)                                  1        0.005               0.000      0.776 r
+  U25991/A4 (SAEDRVT14_OR4_1)                                      0.113     0.000      0.776 r
+  U25991/X (SAEDRVT14_OR4_1)                                       0.027     0.083      0.859 r
+  n29252 (net)                                  1        0.005               0.000      0.859 r
+  U39207/A2 (SAEDRVT14_OR4_2)                                      0.027     0.000      0.859 r
+  U39207/X (SAEDRVT14_OR4_2)                                       0.016     0.041      0.900 r
+  n29412 (net)                                  1        0.005               0.000      0.900 r
+  U39256/A2 (SAEDRVT14_OR4_2)                                      0.016     0.000      0.900 r
+  U39256/X (SAEDRVT14_OR4_2)                                       0.023     0.041      0.941 r
+  n29414 (net)                                  1        0.008               0.000      0.941 r
+  U28483/A1 (SAEDRVT14_OAI21_V1_8)                                 0.023     0.000      0.941 r
+  U28483/X (SAEDRVT14_OAI21_V1_8)                                  0.022     0.020      0.961 f
+  n23881 (net)                                  1        0.007               0.000      0.961 f
+  U31640/A1 (SAEDRVT14_ND2_CDC_4)                                  0.022     0.000      0.961 f
+  U31640/X (SAEDRVT14_ND2_CDC_4)                                   0.015     0.016      0.977 r
+  n6798 (net)                                   1        0.005               0.000      0.977 r
+  bb_mem_rdReg_reg_4_/D (SAEDRVT14_FDP_V2LP_0P5)                   0.015     0.000      0.977 r
+  data arrival time                                                                     0.977
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_rdReg_reg_4_/CK (SAEDRVT14_FDP_V2LP_0P5)                            0.000      1.000 r
+  library setup time                                                        -0.023      0.977
+  data required time                                                                    0.977
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.977
+  data arrival time                                                                    -0.977
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: rd/r_fmtW2_reg_14_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: maskR_reg_0_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtW2_reg_14_/CK (SAEDRVT14_FDP_V2_4)                       0.000     0.000 #    0.000 r
+  rd/r_fmtW2_reg_14_/Q (SAEDRVT14_FDP_V2_4)                        0.049     0.088      0.088 r
+  rd/x__h69724_0_ (net)                         5        0.040               0.000      0.088 r
+  rd/U1250/A (SAEDRVT14_BUF_4)                                     0.049     0.000      0.088 r
+  rd/U1250/X (SAEDRVT14_BUF_4)                                     0.041     0.055      0.144 r
+  rd/n269 (net)                                 4        0.029               0.000      0.144 r
+  rd/U380/A (SAEDRVT14_AN2B_MM_1)                                  0.041     0.000      0.144 r
+  rd/U380/X (SAEDRVT14_AN2B_MM_1)                                  0.059     0.070      0.214 f
+  rd/n1390 (net)                                2        0.013               0.000      0.214 f
+  rd/U2344/A (SAEDRVT14_ADDF_V1_1)                                 0.059     0.000      0.214 f
+  rd/U2344/S (SAEDRVT14_ADDF_V1_1)                                 0.034     0.104      0.318 r
+  rd/n1327 (net)                                1        0.006               0.000      0.318 r
+  rd/U2347/A (SAEDRVT14_ADDF_V1_1)                                 0.034     0.000      0.318 r
+  rd/U2347/S (SAEDRVT14_ADDF_V1_1)                                 0.030     0.093      0.411 f
+  rd/n2160 (net)                                1        0.006               0.000      0.411 f
+  rd/U256/A (SAEDRVT14_BUF_6)                                      0.030     0.000      0.411 f
+  rd/U256/X (SAEDRVT14_BUF_6)                                      0.014     0.032      0.443 f
+  rd/n148 (net)                                 2        0.014               0.000      0.443 f
+  rd/U2590/A (SAEDRVT14_ADDF_V1_2)                                 0.014     0.000      0.443 f
+  rd/U2590/CO (SAEDRVT14_ADDF_V1_2)                                0.021     0.048      0.491 f
+  rd/n1380 (net)                                1        0.006               0.000      0.491 f
+  rd/U1252/B (SAEDRVT14_ADDF_V1_2)                                 0.021     0.000      0.492 f
+  rd/U1252/CO (SAEDRVT14_ADDF_V1_2)                                0.020     0.055      0.547 f
+  rd/n1378 (net)                                1        0.006               0.000      0.547 f
+  rd/U2363/A1 (SAEDRVT14_EN3_3)                                    0.020     0.000      0.547 f
+  rd/U2363/X (SAEDRVT14_EN3_3)                                     0.014     0.048      0.595 r
+  rd/n1383 (net)                                1        0.007               0.000      0.595 r
+  rd/U1818/A1 (SAEDRVT14_NR2_MM_6)                                 0.014     0.000      0.595 r
+  rd/U1818/X (SAEDRVT14_NR2_MM_6)                                  0.023     0.023      0.618 f
+  rd/n2162 (net)                                3        0.019               0.000      0.618 f
+  rd/U2591/A1 (SAEDRVT14_ND2_1)                                    0.023     0.000      0.618 f
+  rd/U2591/X (SAEDRVT14_ND2_1)                                     0.023     0.029      0.647 r
+  rd/n2163 (net)                                1        0.005               0.000      0.647 r
+  rd/U2592/A4 (SAEDRVT14_AN4_4)                                    0.023     0.000      0.647 r
+  rd/U2592/X (SAEDRVT14_AN4_4)                                     0.015     0.047      0.694 r
+  rd/n2167 (net)                                1        0.006               0.000      0.694 r
+  rd/U705/B (SAEDRVT14_OAI21_V1_4)                                 0.015     0.000      0.695 r
+  rd/U705/X (SAEDRVT14_OAI21_V1_4)                                 0.027     0.022      0.717 f
+  rd/n2170 (net)                                1        0.005               0.000      0.717 f
+  rd/U1215/B (SAEDRVT14_AOI21_1P5)                                 0.027     0.000      0.717 f
+  rd/U1215/X (SAEDRVT14_AOI21_1P5)                                 0.036     0.040      0.756 r
+  rd/n2178 (net)                                1        0.006               0.000      0.756 r
+  rd/U1460/A4 (SAEDRVT14_AN4_8)                                    0.036     0.000      0.757 r
+  rd/U1460/X (SAEDRVT14_AN4_8)                                     0.012     0.046      0.802 r
+  rd/n283 (net)                                 1        0.009               0.000      0.802 r
+  rd/U1626/A1 (SAEDRVT14_ND2_8)                                    0.012     0.000      0.803 r
+  rd/U1626/X (SAEDRVT14_ND2_8)                                     0.024     0.020      0.823 f
+  rd/n282 (net)                                 2        0.018               0.000      0.823 f
+  rd/U613/A2 (SAEDRVT14_AN2_8)                                     0.024     0.000      0.823 f
+  rd/U613/X (SAEDRVT14_AN2_8)                                      0.010     0.027      0.850 f
+  rd/n146 (net)                                 1        0.010               0.000      0.850 f
+  rd/U1167/A1 (SAEDRVT14_NR2_MM_12)                                0.010     0.000      0.850 f
+  rd/U1167/X (SAEDRVT14_NR2_MM_12)                                 0.012     0.013      0.863 r
+  rd/n194 (net)                                 1        0.012               0.000      0.863 r
+  rd/U572/A2 (SAEDRVT14_ND2_16)                                    0.012     0.000      0.863 r
+  rd/U572/X (SAEDRVT14_ND2_16)                                     0.013     0.015      0.879 f
+  rd/n173 (net)                                 2        0.020               0.000      0.879 f
+  rd/U571/A1 (SAEDRVT14_ND2_MM_16)                                 0.013     0.000      0.879 f
+  rd/U571/X (SAEDRVT14_ND2_MM_16)                                  0.020     0.022      0.902 r
+  rd/n3669 (net)                                5        0.044               0.000      0.902 r
+  rd/U1311/S (SAEDRVT14_MUX2_MM_4)                                 0.020     0.000      0.902 r
+  rd/U1311/X (SAEDRVT14_MUX2_MM_4)                                 0.015     0.048      0.950 f
+  rd/n222 (net)                                 1        0.010               0.000      0.950 f
+  rd/U597/A (SAEDRVT14_INV_S_10)                                   0.015     0.000      0.950 f
+  rd/U597/X (SAEDRVT14_INV_S_10)                                   0.009     0.011      0.961 r
+  rd/formatInfo[0] (net)                        1        0.011               0.000      0.961 r
+  rd/formatInfo[0] (mkQRReaderS)                                             0.000      0.961 r
+  rd_formatInfo[0] (net)                                 0.011               0.000      0.961 r
+  U25522/A1 (SAEDRVT14_ND2_MM_12)                                  0.009     0.000      0.962 r
+  U25522/X (SAEDRVT14_ND2_MM_12)                                   0.009     0.010      0.971 f
+  n23943 (net)                                  1        0.009               0.000      0.971 f
+  U28477/A2 (SAEDRVT14_ND2_8)                                      0.009     0.000      0.971 f
+  U28477/X (SAEDRVT14_ND2_8)                                       0.011     0.010      0.981 r
+  n10145 (net)                                  1        0.005               0.000      0.981 r
+  maskR_reg_0_/D (SAEDRVT14_FDP_V2_0P5)                            0.011     0.000      0.981 r
+  data arrival time                                                                     0.981
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  maskR_reg_0_/CK (SAEDRVT14_FDP_V2_0P5)                                     0.000      1.000 r
+  library setup time                                                        -0.019      0.981
+  data required time                                                                    0.981
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.981
+  data arrival time                                                                    -0.981
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: bb_g0R_reg_0_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: bb_mem_store_207_reg_0_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: f2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  bb_g0R_reg_0_/CK (SAEDRVT14_FDP_V2_0P5)                          0.000     0.000 #    0.000 r
+  bb_g0R_reg_0_/QN (SAEDRVT14_FDP_V2_0P5)                          0.106     0.117      0.117 r
+  n45566 (net)                                  2        0.011               0.000      0.117 r
+  U38531/A1 (SAEDRVT14_OR2_MM_0P5)                                 0.106     0.000      0.117 r
+  U38531/X (SAEDRVT14_OR2_MM_0P5)                                  0.050     0.082      0.200 r
+  n27982 (net)                                  1        0.005               0.000      0.200 r
+  U38533/A1 (SAEDRVT14_NR2_MM_1)                                   0.050     0.000      0.200 r
+  U38533/X (SAEDRVT14_NR2_MM_1)                                    0.039     0.051      0.251 f
+  n27985 (net)                                  1        0.005               0.000      0.251 f
+  U35556/A1 (SAEDRVT14_OAI21_2)                                    0.039     0.000      0.251 f
+  U35556/X (SAEDRVT14_OAI21_2)                                     0.040     0.042      0.292 r
+  n27988 (net)                                  1        0.005               0.000      0.292 r
+  U38538/A1 (SAEDRVT14_AOI21_0P5)                                  0.040     0.000      0.292 r
+  U38538/X (SAEDRVT14_AOI21_0P5)                                   0.068     0.067      0.360 f
+  n27991 (net)                                  1        0.006               0.000      0.360 f
+  U34060/A1 (SAEDRVT14_OAI21_V1_4)                                 0.068     0.000      0.360 f
+  U34060/X (SAEDRVT14_OAI21_V1_4)                                  0.031     0.039      0.399 r
+  n27994 (net)                                  1        0.005               0.000      0.399 r
+  U38542/A1 (SAEDRVT14_AOI21_1P5)                                  0.031     0.000      0.399 r
+  U38542/X (SAEDRVT14_AOI21_1P5)                                   0.038     0.041      0.440 f
+  n27997 (net)                                  1        0.006               0.000      0.440 f
+  U38543/A1 (SAEDRVT14_OAI21_V1_4)                                 0.038     0.000      0.440 f
+  U38543/X (SAEDRVT14_OAI21_V1_4)                                  0.048     0.045      0.485 r
+  n35233 (net)                                  2        0.012               0.000      0.485 r
+  U38547/A1 (SAEDRVT14_AN4_4)                                      0.048     0.000      0.485 r
+  U38547/X (SAEDRVT14_AN4_4)                                       0.016     0.051      0.536 r
+  n28011 (net)                                  1        0.007               0.000      0.536 r
+  U38548/A1 (SAEDRVT14_ND2_CDC_4)                                  0.016     0.000      0.536 r
+  U38548/X (SAEDRVT14_ND2_CDC_4)                                   0.018     0.021      0.558 f
+  n28016 (net)                                  1        0.007               0.000      0.558 f
+  U29897/A1 (SAEDRVT14_NR2_MM_6)                                   0.018     0.000      0.558 f
+  U29897/X (SAEDRVT14_NR2_MM_6)                                    0.016     0.019      0.577 r
+  n23766 (net)                                  1        0.008               0.000      0.577 r
+  U35303/A2 (SAEDRVT14_AOI21_8)                                    0.016     0.000      0.577 r
+  U35303/X (SAEDRVT14_AOI21_8)                                     0.040     0.038      0.615 f
+  n28091 (net)                                  2        0.025               0.000      0.615 f
+  U38580/A2 (SAEDRVT14_NR2_MM_12)                                  0.040     0.000      0.615 f
+  U38580/X (SAEDRVT14_NR2_MM_12)                                   0.032     0.038      0.654 r
+  n28094 (net)                                  3        0.036               0.000      0.654 r
+  U34421/A2 (SAEDRVT14_ND2_MM_12)                                  0.032     0.000      0.654 r
+  U34421/X (SAEDRVT14_ND2_MM_12)                                   0.025     0.031      0.685 f
+  n37533 (net)                                  3        0.033               0.000      0.685 f
+  U43121/A1 (SAEDRVT14_NR2_MM_10)                                  0.025     0.000      0.685 f
+  U43121/X (SAEDRVT14_NR2_MM_10)                                   0.020     0.023      0.708 r
+  n38995 (net)                                  2        0.016               0.000      0.708 r
+  U43122/A (SAEDRVT14_BUF_16)                                      0.020     0.000      0.708 r
+  U43122/X (SAEDRVT14_BUF_16)                                      0.014     0.030      0.739 r
+  n38780 (net)                                  4        0.039               0.000      0.739 r
+  U25897/A2 (SAEDRVT14_ND2_MM_6)                                   0.014     0.000      0.739 r
+  U25897/X (SAEDRVT14_ND2_MM_6)                                    0.024     0.021      0.760 f
+  n38789 (net)                                  2        0.015               0.000      0.760 f
+  U48629/A (SAEDRVT14_BUF_16)                                      0.024     0.000      0.761 f
+  U48629/X (SAEDRVT14_BUF_16)                                      0.028     0.041      0.802 f
+  n39157 (net)                                  8        0.090               0.000      0.802 f
+  U48934/A1 (SAEDRVT14_NR2_MM_6)                                   0.028     0.000      0.802 f
+  U48934/X (SAEDRVT14_NR2_MM_6)                                    0.111     0.093      0.896 r
+  n38866 (net)                                  8        0.073               0.000      0.896 r
+  U48935/S (SAEDRVT14_MUX2_MM_1)                                   0.111     0.000      0.896 r
+  U48935/X (SAEDRVT14_MUX2_MM_1)                                   0.030     0.076      0.972 r
+  n2492 (net)                                   1        0.005               0.000      0.972 r
+  bb_mem_store_207_reg_0_/D (SAEDRVT14_FDP_V2LP_0P5)               0.030     0.000      0.972 r
+  data arrival time                                                                     0.972
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_store_207_reg_0_/CK (SAEDRVT14_FDP_V2LP_0P5)                        0.000      1.000 r
+  library setup time                                                        -0.028      0.972
+  data required time                                                                    0.972
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.972
+  data arrival time                                                                    -0.972
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group i2f
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Sat Nov  7 22:52:37 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: EN_start (input port clocked by CLK)
+  Endpoint: bb_mem_store_949_reg_4_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       0.400      0.400 r
+  EN_start (in)                                                    0.000     0.000      0.400 r
+  EN_start (net)                                6        0.059               0.000      0.400 r
+  U35883/A1 (SAEDRVT14_NR2_MM_16)                                  0.000     0.000      0.400 r
+  U35883/X (SAEDRVT14_NR2_MM_16)                                   0.011     0.008      0.408 f
+  n24282 (net)                                  2        0.022               0.000      0.408 f
+  U35882/A (SAEDRVT14_INV_S_20)                                    0.011     0.000      0.408 f
+  U35882/X (SAEDRVT14_INV_S_20)                                    0.011     0.012      0.421 r
+  n24551 (net)                                  3        0.034               0.000      0.421 r
+  U30933/A1 (SAEDRVT14_ND2_MM_16)                                  0.011     0.000      0.421 r
+  U30933/X (SAEDRVT14_ND2_MM_16)                                   0.016     0.017      0.438 f
+  n28013 (net)                                  2        0.029               0.000      0.438 f
+  U38489/A (SAEDRVT14_INV_S_20)                                    0.016     0.000      0.438 f
+  U38489/X (SAEDRVT14_INV_S_20)                                    0.015     0.018      0.456 r
+  n28071 (net)                                  4        0.048               0.000      0.456 r
+  U27512/A (SAEDRVT14_INV_S_16)                                    0.015     0.000      0.456 r
+  U27512/X (SAEDRVT14_INV_S_16)                                    0.012     0.015      0.471 f
+  n28087 (net)                                  4        0.032               0.000      0.471 f
+  U30816/A (SAEDRVT14_BUF_20)                                      0.012     0.000      0.471 f
+  U30816/X (SAEDRVT14_BUF_20)                                      0.019     0.030      0.501 f
+  n37210 (net)                                  7        0.073               0.000      0.501 f
+  U26335/A1 (SAEDRVT14_AN2_MM_4)                                   0.019     0.000      0.501 f
+  U26335/X (SAEDRVT14_AN2_MM_4)                                    0.017     0.034      0.535 f
+  n37201 (net)                                  1        0.012               0.000      0.535 f
+  U30791/A1 (SAEDRVT14_NR2_MM_16)                                  0.017     0.000      0.536 f
+  U30791/X (SAEDRVT14_NR2_MM_16)                                   0.016     0.020      0.555 r
+  n37871 (net)                                  3        0.024               0.000      0.555 r
+  U25865/A (SAEDRVT14_BUF_16)                                      0.016     0.000      0.556 r
+  U25865/X (SAEDRVT14_BUF_16)                                      0.028     0.040      0.595 r
+  n37954 (net)                                  9        0.087               0.000      0.595 r
+  U25677/A (SAEDRVT14_BUF_6)                                       0.028     0.000      0.596 r
+  U25677/X (SAEDRVT14_BUF_6)                                       0.055     0.062      0.657 r
+  n22899 (net)                                  7        0.059               0.000      0.657 r
+  U28822/A (SAEDRVT14_BUF_S_2)                                     0.055     0.000      0.658 r
+  U28822/X (SAEDRVT14_BUF_S_2)                                     0.236     0.203      0.861 r
+  n39374 (net)                                 10        0.100               0.000      0.861 r
+  U45134/D1 (SAEDRVT14_MUX2_MM_1)                                  0.236     0.000      0.861 r
+  U45134/X (SAEDRVT14_MUX2_MM_1)                                   0.031     0.109      0.970 r
+  n6743 (net)                                   1        0.005               0.000      0.970 r
+  bb_mem_store_949_reg_4_/D (SAEDRVT14_FDP_V2_0P5)                 0.031     0.000      0.971 r
+  data arrival time                                                                     0.971
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_store_949_reg_4_/CK (SAEDRVT14_FDP_V2_0P5)                          0.000      1.000 r
+  library setup time                                                        -0.029      0.971
+  data required time                                                                    0.971
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.971
+  data arrival time                                                                    -0.971
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: RST_N (input port clocked by CLK)
+  Endpoint: bb_n1R_reg_4_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       0.400      0.400 r
+  RST_N (in)                                                       0.000     0.000      0.400 r
+  RST_N (net)                                  27        0.703               0.000      0.400 r
+  U39776/A1 (SAEDRVT14_ND2_CDC_2)                                  0.000     0.003      0.403 r
+  U39776/X (SAEDRVT14_ND2_CDC_2)                                   0.089     0.058      0.460 f
+  n35986 (net)                                  3        0.019               0.000      0.460 f
+  U26724/A1 (SAEDRVT14_NR2_MM_3)                                   0.089     0.000      0.460 f
+  U26724/X (SAEDRVT14_NR2_MM_3)                                    0.098     0.112      0.572 r
+  n35620 (net)                                  4        0.028               0.000      0.572 r
+  U26327/A1 (SAEDRVT14_AN2_MM_6)                                   0.098     0.000      0.572 r
+  U26327/X (SAEDRVT14_AN2_MM_6)                                    0.051     0.090      0.662 r
+  n40474 (net)                                  7        0.058               0.000      0.662 r
+  U40526/A2 (SAEDRVT14_ND2_CDC_0P5)                                0.051     0.000      0.662 r
+  U40526/X (SAEDRVT14_ND2_CDC_0P5)                                 0.049     0.057      0.719 f
+  n32372 (net)                                  1        0.005               0.000      0.719 f
+  U25923/A2 (SAEDRVT14_OAI22_1)                                    0.049     0.000      0.719 f
+  U25923/X (SAEDRVT14_OAI22_1)                                     0.070     0.058      0.778 r
+  n32373 (net)                                  1        0.005               0.000      0.778 r
+  U40528/B (SAEDRVT14_AOI21_0P5)                                   0.070     0.000      0.778 r
+  U40528/X (SAEDRVT14_AOI21_0P5)                                   0.074     0.075      0.853 f
+  n32387 (net)                                  1        0.005               0.000      0.853 f
+  U40554/A1 (SAEDRVT14_AN4_4)                                      0.074     0.000      0.853 f
+  U40554/X (SAEDRVT14_AN4_4)                                       0.013     0.057      0.909 f
+  n32388 (net)                                  1        0.005               0.000      0.909 f
+  U29934/B (SAEDRVT14_AOI21_0P5)                                   0.013     0.000      0.909 f
+  U29934/X (SAEDRVT14_AOI21_0P5)                                   0.060     0.052      0.961 r
+  n10134 (net)                                  1        0.005               0.000      0.961 r
+  bb_n1R_reg_4_/D (SAEDRVT14_FDP_V2_4)                             0.060     0.000      0.961 r
+  data arrival time                                                                     0.961
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_n1R_reg_4_/CK (SAEDRVT14_FDP_V2_4)                                      0.000      1.000 r
+  library setup time                                                        -0.039      0.961
+  data required time                                                                    0.961
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.961
+  data arrival time                                                                    -0.961
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.000
+
+
+  Startpoint: EN_start (input port clocked by CLK)
+  Endpoint: bb_mem_store_980_reg_4_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       0.400      0.400 r
+  EN_start (in)                                                    0.000     0.000      0.400 r
+  EN_start (net)                                6        0.059               0.000      0.400 r
+  U35883/A1 (SAEDRVT14_NR2_MM_16)                                  0.000     0.000      0.400 r
+  U35883/X (SAEDRVT14_NR2_MM_16)                                   0.011     0.008      0.408 f
+  n24282 (net)                                  2        0.022               0.000      0.408 f
+  U35882/A (SAEDRVT14_INV_S_20)                                    0.011     0.000      0.408 f
+  U35882/X (SAEDRVT14_INV_S_20)                                    0.011     0.012      0.421 r
+  n24551 (net)                                  3        0.034               0.000      0.421 r
+  U30933/A1 (SAEDRVT14_ND2_MM_16)                                  0.011     0.000      0.421 r
+  U30933/X (SAEDRVT14_ND2_MM_16)                                   0.016     0.017      0.438 f
+  n28013 (net)                                  2        0.029               0.000      0.438 f
+  U38489/A (SAEDRVT14_INV_S_20)                                    0.016     0.000      0.438 f
+  U38489/X (SAEDRVT14_INV_S_20)                                    0.015     0.018      0.456 r
+  n28071 (net)                                  4        0.048               0.000      0.456 r
+  U27512/A (SAEDRVT14_INV_S_16)                                    0.015     0.000      0.456 r
+  U27512/X (SAEDRVT14_INV_S_16)                                    0.012     0.015      0.471 f
+  n28087 (net)                                  4        0.032               0.000      0.471 f
+  U30816/A (SAEDRVT14_BUF_20)                                      0.012     0.000      0.471 f
+  U30816/X (SAEDRVT14_BUF_20)                                      0.019     0.030      0.501 f
+  n37210 (net)                                  7        0.073               0.000      0.501 f
+  U26335/A1 (SAEDRVT14_AN2_MM_4)                                   0.019     0.000      0.501 f
+  U26335/X (SAEDRVT14_AN2_MM_4)                                    0.017     0.034      0.535 f
+  n37201 (net)                                  1        0.012               0.000      0.535 f
+  U30791/A1 (SAEDRVT14_NR2_MM_16)                                  0.017     0.000      0.536 f
+  U30791/X (SAEDRVT14_NR2_MM_16)                                   0.016     0.020      0.555 r
+  n37871 (net)                                  3        0.024               0.000      0.555 r
+  U25888/A (SAEDRVT14_BUF_16)                                      0.016     0.000      0.556 r
+  U25888/X (SAEDRVT14_BUF_16)                                      0.024     0.037      0.592 r
+  n39456 (net)                                  8        0.073               0.000      0.592 r
+  U29030/A (SAEDRVT14_BUF_S_1)                                     0.024     0.000      0.593 r
+  U29030/X (SAEDRVT14_BUF_S_1)                                     0.140     0.121      0.714 r
+  n22886 (net)                                  4        0.030               0.000      0.714 r
+  U29801/A (SAEDRVT14_BUF_8)                                       0.140     0.000      0.714 r
+  U29801/X (SAEDRVT14_BUF_8)                                       0.158     0.163      0.877 r
+  n22801 (net)                                 16        0.236               0.000      0.877 r
+  U48310/D1 (SAEDRVT14_MUX2_MM_1)                                  0.158     0.001      0.878 r
+  U48310/X (SAEDRVT14_MUX2_MM_1)                                   0.029     0.093      0.971 r
+  n5920 (net)                                   1        0.005               0.000      0.971 r
+  bb_mem_store_980_reg_4_/D (SAEDRVT14_FDP_V2_0P5)                 0.029     0.000      0.971 r
+  data arrival time                                                                     0.971
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_store_980_reg_4_/CK (SAEDRVT14_FDP_V2_0P5)                          0.000      1.000 r
+  library setup time                                                        -0.028      0.972
+  data required time                                                                    0.972
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.972
+  data arrival time                                                                    -0.971
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: EN_start (input port clocked by CLK)
+  Endpoint: bb_mem_store_992_reg_4_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       0.400      0.400 r
+  EN_start (in)                                                    0.000     0.000      0.400 r
+  EN_start (net)                                6        0.059               0.000      0.400 r
+  U35883/A1 (SAEDRVT14_NR2_MM_16)                                  0.000     0.000      0.400 r
+  U35883/X (SAEDRVT14_NR2_MM_16)                                   0.011     0.008      0.408 f
+  n24282 (net)                                  2        0.022               0.000      0.408 f
+  U35882/A (SAEDRVT14_INV_S_20)                                    0.011     0.000      0.408 f
+  U35882/X (SAEDRVT14_INV_S_20)                                    0.011     0.012      0.421 r
+  n24551 (net)                                  3        0.034               0.000      0.421 r
+  U30933/A1 (SAEDRVT14_ND2_MM_16)                                  0.011     0.000      0.421 r
+  U30933/X (SAEDRVT14_ND2_MM_16)                                   0.016     0.017      0.438 f
+  n28013 (net)                                  2        0.029               0.000      0.438 f
+  U38489/A (SAEDRVT14_INV_S_20)                                    0.016     0.000      0.438 f
+  U38489/X (SAEDRVT14_INV_S_20)                                    0.015     0.018      0.456 r
+  n28071 (net)                                  4        0.048               0.000      0.456 r
+  U27512/A (SAEDRVT14_INV_S_16)                                    0.015     0.000      0.456 r
+  U27512/X (SAEDRVT14_INV_S_16)                                    0.012     0.015      0.471 f
+  n28087 (net)                                  4        0.032               0.000      0.471 f
+  U30816/A (SAEDRVT14_BUF_20)                                      0.012     0.000      0.471 f
+  U30816/X (SAEDRVT14_BUF_20)                                      0.019     0.030      0.501 f
+  n37210 (net)                                  7        0.073               0.000      0.501 f
+  U26335/A1 (SAEDRVT14_AN2_MM_4)                                   0.019     0.000      0.501 f
+  U26335/X (SAEDRVT14_AN2_MM_4)                                    0.017     0.034      0.535 f
+  n37201 (net)                                  1        0.012               0.000      0.535 f
+  U30791/A1 (SAEDRVT14_NR2_MM_16)                                  0.017     0.000      0.536 f
+  U30791/X (SAEDRVT14_NR2_MM_16)                                   0.016     0.020      0.555 r
+  n37871 (net)                                  3        0.024               0.000      0.555 r
+  U25888/A (SAEDRVT14_BUF_16)                                      0.016     0.000      0.556 r
+  U25888/X (SAEDRVT14_BUF_16)                                      0.024     0.037      0.592 r
+  n39456 (net)                                  8        0.073               0.000      0.592 r
+  U29030/A (SAEDRVT14_BUF_S_1)                                     0.024     0.000      0.593 r
+  U29030/X (SAEDRVT14_BUF_S_1)                                     0.140     0.121      0.714 r
+  n22886 (net)                                  4        0.030               0.000      0.714 r
+  U29801/A (SAEDRVT14_BUF_8)                                       0.140     0.000      0.714 r
+  U29801/X (SAEDRVT14_BUF_8)                                       0.158     0.163      0.877 r
+  n22801 (net)                                 16        0.236               0.000      0.877 r
+  U48769/D1 (SAEDRVT14_MUX2_MM_1)                                  0.158     0.001      0.878 r
+  U48769/X (SAEDRVT14_MUX2_MM_1)                                   0.029     0.093      0.971 r
+  n5908 (net)                                   1        0.005               0.000      0.971 r
+  bb_mem_store_992_reg_4_/D (SAEDRVT14_FDP_V2_0P5)                 0.029     0.000      0.971 r
+  data arrival time                                                                     0.971
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  bb_mem_store_992_reg_4_/CK (SAEDRVT14_FDP_V2_0P5)                          0.000      1.000 r
+  library setup time                                                        -0.028      0.972
+  data required time                                                                    0.972
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.972
+  data arrival time                                                                    -0.971
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: RST_N (input port clocked by CLK)
+  Endpoint: rs_syn_25_reg_7_
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: i2f
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  input external delay                                                       0.400      0.400 r
+  RST_N (in)                                                       0.000     0.000      0.400 r
+  RST_N (net)                                  27        0.703               0.000      0.400 r
+  U27620/A (SAEDRVT14_INV_S_8)                                     0.000     0.003      0.403 r
+  U27620/X (SAEDRVT14_INV_S_8)                                     0.021     0.015      0.417 f
+  n35099 (net)                                  4        0.035               0.000      0.417 f
+  U27545/A (SAEDRVT14_INV_4)                                       0.021     0.000      0.418 f
+  U27545/X (SAEDRVT14_INV_4)                                       0.014     0.018      0.436 r
+  n24545 (net)                                  1        0.008               0.000      0.436 r
+  U27402/A1 (SAEDRVT14_ND2_MM_6)                                   0.014     0.000      0.436 r
+  U27402/X (SAEDRVT14_ND2_MM_6)                                    0.019     0.020      0.456 f
+  n24526 (net)                                  1        0.015               0.000      0.456 f
+  U30877/A (SAEDRVT14_INV_S_20)                                    0.019     0.000      0.456 f
+  U30877/X (SAEDRVT14_INV_S_20)                                    0.026     0.029      0.486 r
+  n24771 (net)                                  9        0.097               0.000      0.486 r
+  U40467/A2 (SAEDRVT14_ND2_8)                                      0.026     0.001      0.486 r
+  U40467/X (SAEDRVT14_ND2_8)                                       0.055     0.050      0.536 f
+  n36443 (net)                                  6        0.055               0.000      0.536 f
+  U36088/A2 (SAEDRVT14_NR2_MM_16)                                  0.055     0.000      0.537 f
+  U36088/X (SAEDRVT14_NR2_MM_16)                                   0.026     0.035      0.571 r
+  n35913 (net)                                  4        0.030               0.000      0.571 r
+  U25799/A2 (SAEDRVT14_ND2_CDC_0P5)                                0.026     0.000      0.572 r
+  U25799/X (SAEDRVT14_ND2_CDC_0P5)                                 0.230     0.170      0.741 f
+  n36441 (net)                                  4        0.028               0.000      0.741 f
+  U25681/A (SAEDRVT14_INV_S_1P5)                                   0.230     0.000      0.742 f
+  U25681/X (SAEDRVT14_INV_S_1P5)                                   0.064     0.079      0.820 r
+  n36442 (net)                                  1        0.005               0.000      0.820 r
+  U42418/B (SAEDRVT14_AOI21_0P5)                                   0.064     0.000      0.820 r
+  U42418/X (SAEDRVT14_AOI21_0P5)                                   0.074     0.072      0.893 f
+  n36449 (net)                                  1        0.005               0.000      0.893 f
+  U31660/A1 (SAEDRVT14_OAI22_2)                                    0.074     0.000      0.893 f
+  U31660/X (SAEDRVT14_OAI22_2)                                     0.087     0.059      0.952 r
+  n3269 (net)                                   1        0.005               0.000      0.952 r
+  rs_syn_25_reg_7_/D (SAEDRVT14_FDP_V2_0P5)                        0.087     0.000      0.952 r
+  data arrival time                                                                     0.952
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  rs_syn_25_reg_7_/CK (SAEDRVT14_FDP_V2_0P5)                                 0.000      1.000 r
+  library setup time                                                        -0.047      0.953
+  data required time                                                                    0.953
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.953
+  data arrival time                                                                    -0.952
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group f2o
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Sat Nov  7 22:52:37 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+
+  Startpoint: rd/r_fmtIssued_reg_3_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[5] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_3_/CK (SAEDRVT14_FDP_V2_4)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_3_/Q (SAEDRVT14_FDP_V2_4)                     0.073     0.107      0.107 f
+  rd/r_pendIdx_D_IN[3] (net)                    7        0.062               0.000      0.107 f
+  rd/U137/A1 (SAEDRVT14_ND2_1P5)                                   0.073     0.000      0.107 f
+  rd/U137/X (SAEDRVT14_ND2_1P5)                                    0.049     0.065      0.172 r
+  rd/n3352 (net)                                2        0.013               0.000      0.172 r
+  rd/U3065/A2 (SAEDRVT14_NR2_MM_4)                                 0.049     0.000      0.172 r
+  rd/U3065/X (SAEDRVT14_NR2_MM_4)                                  0.032     0.035      0.208 f
+  rd/n3353 (net)                                1        0.009               0.000      0.208 f
+  rd/U956/A2 (SAEDRVT14_NR2_MM_8)                                  0.032     0.000      0.208 f
+  rd/U956/X (SAEDRVT14_NR2_MM_8)                                   0.028     0.033      0.241 r
+  rd/n3677 (net)                                3        0.020               0.000      0.241 r
+  rd/U102/A1 (SAEDRVT14_OR2_4)                                     0.028     0.000      0.241 r
+  rd/U102/X (SAEDRVT14_OR2_4)                                      0.027     0.042      0.283 r
+  rd/n3909 (net)                                3        0.020               0.000      0.283 r
+  rd/U1075/B (SAEDRVT14_AOI21_4)                                   0.027     0.000      0.283 r
+  rd/U1075/X (SAEDRVT14_AOI21_4)                                   0.065     0.039      0.322 f
+  rd/n3905 (net)                                2        0.014               0.000      0.322 f
+  rd/U790/A1 (SAEDRVT14_NR2_MM_6)                                  0.065     0.000      0.322 f
+  rd/U790/X (SAEDRVT14_NR2_MM_6)                                   0.036     0.044      0.367 r
+  rd/n3698 (net)                                2        0.015               0.000      0.367 r
+  rd/U88/A1 (SAEDRVT14_AOI21_V1_8)                                 0.036     0.000      0.367 r
+  rd/U88/X (SAEDRVT14_AOI21_V1_8)                                  0.028     0.035      0.402 f
+  rd/n3704 (net)                                2        0.013               0.000      0.402 f
+  rd/U3225/A1 (SAEDRVT14_NR2_5)                                    0.028     0.000      0.402 f
+  rd/U3225/X (SAEDRVT14_NR2_5)                                     0.029     0.059      0.462 r
+  rd/n4038 (net)                                3        0.025               0.000      0.462 r
+  rd/U45/A1 (SAEDRVT14_NR2_MM_6)                                   0.029     0.000      0.462 r
+  rd/U45/X (SAEDRVT14_NR2_MM_6)                                    0.033     0.037      0.499 f
+  rd/n4042 (net)                                4        0.029               0.000      0.499 f
+  rd/U19/A1 (SAEDRVT14_NR2_1P5)                                    0.033     0.000      0.499 f
+  rd/U19/X (SAEDRVT14_NR2_1P5)                                     0.043     0.039      0.538 r
+  rd/n3719 (net)                                1        0.005               0.000      0.538 r
+  rd/U727/A1 (SAEDRVT14_OAI21_0P5)                                 0.043     0.000      0.538 r
+  rd/U727/X (SAEDRVT14_OAI21_0P5)                                  0.083     0.060      0.599 f
+  rd/mem_req[5] (net)                           1        0.005               0.000      0.599 f
+  rd/mem_req[5] (mkQRReaderS)                                                0.000      0.599 f
+  mem_req[5] (net)                                       0.005               0.000      0.599 f
+  mem_req[5] (out)                                                 0.083     0.000      0.599 f
+  data arrival time                                                                     0.599
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  output external delay                                                     -0.400      0.600
+  data required time                                                                    0.600
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.600
+  data arrival time                                                                    -0.599
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.001
+
+
+  Startpoint: rd/r_fmtIssued_reg_3_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[13]
+            (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_3_/CK (SAEDRVT14_FDP_V2_4)                    0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_3_/Q (SAEDRVT14_FDP_V2_4)                     0.073     0.107      0.107 f
+  rd/r_pendIdx_D_IN[3] (net)                    7        0.062               0.000      0.107 f
+  rd/U137/A1 (SAEDRVT14_ND2_1P5)                                   0.073     0.000      0.107 f
+  rd/U137/X (SAEDRVT14_ND2_1P5)                                    0.049     0.065      0.172 r
+  rd/n3352 (net)                                2        0.013               0.000      0.172 r
+  rd/U3065/A2 (SAEDRVT14_NR2_MM_4)                                 0.049     0.000      0.172 r
+  rd/U3065/X (SAEDRVT14_NR2_MM_4)                                  0.032     0.035      0.208 f
+  rd/n3353 (net)                                1        0.009               0.000      0.208 f
+  rd/U956/A2 (SAEDRVT14_NR2_MM_8)                                  0.032     0.000      0.208 f
+  rd/U956/X (SAEDRVT14_NR2_MM_8)                                   0.028     0.033      0.241 r
+  rd/n3677 (net)                                3        0.020               0.000      0.241 r
+  rd/U822/A1 (SAEDRVT14_OR2_4)                                     0.028     0.000      0.241 r
+  rd/U822/X (SAEDRVT14_OR2_4)                                      0.027     0.042      0.283 r
+  rd/n4043 (net)                                3        0.020               0.000      0.283 r
+  rd/U949/A1 (SAEDRVT14_NR2_MM_4)                                  0.027     0.000      0.283 r
+  rd/U949/X (SAEDRVT14_NR2_MM_4)                                   0.023     0.022      0.305 f
+  rd/n3360 (net)                                1        0.006               0.000      0.305 f
+  rd/U99/A1 (SAEDRVT14_NR2_MM_4)                                   0.023     0.000      0.305 f
+  rd/U99/X (SAEDRVT14_NR2_MM_4)                                    0.031     0.034      0.339 r
+  rd/n3431 (net)                                2        0.013               0.000      0.339 r
+  rd/U3069/B (SAEDRVT14_AOI21_4)                                   0.031     0.000      0.339 r
+  rd/U3069/X (SAEDRVT14_AOI21_4)                                   0.044     0.033      0.372 f
+  rd/n3361 (net)                                1        0.009               0.000      0.372 f
+  rd/U776/A2 (SAEDRVT14_NR2_MM_8)                                  0.044     0.000      0.372 f
+  rd/U776/X (SAEDRVT14_NR2_MM_8)                                   0.030     0.032      0.405 r
+  rd/n4060 (net)                                2        0.016               0.000      0.405 r
+  rd/U922/A1 (SAEDRVT14_NR2_MM_10)                                 0.030     0.000      0.405 r
+  rd/U922/X (SAEDRVT14_NR2_MM_10)                                  0.060     0.030      0.435 f
+  rd/n4065 (net)                                4        0.032               0.000      0.435 f
+  rd/U916/A2 (SAEDRVT14_ND2_8)                                     0.060     0.000      0.436 f
+  rd/U916/X (SAEDRVT14_ND2_8)                                      0.047     0.044      0.480 r
+  rd/n3693 (net)                                3        0.026               0.000      0.480 r
+  rd/U34/B (SAEDRVT14_OAI21_V1_4)                                  0.047     0.000      0.480 r
+  rd/U34/X (SAEDRVT14_OAI21_V1_4)                                  0.062     0.036      0.516 f
+  rd/n3695 (net)                                1        0.006               0.000      0.516 f
+  rd/U16/A2 (SAEDRVT14_ND2_3)                                      0.062     0.000      0.516 f
+  rd/U16/X (SAEDRVT14_ND2_3)                                       0.023     0.032      0.548 r
+  rd/n3697 (net)                                1        0.005               0.000      0.548 r
+  rd/U668/B (SAEDRVT14_OAI21_0P5)                                  0.023     0.000      0.548 r
+  rd/U668/X (SAEDRVT14_OAI21_0P5)                                  0.060     0.051      0.598 f
+  rd/mem_req[13] (net)                          1        0.005               0.000      0.598 f
+  rd/mem_req[13] (mkQRReaderS)                                               0.000      0.598 f
+  mem_req[13] (net)                                      0.005               0.000      0.598 f
+  mem_req[13] (out)                                                0.060     0.000      0.598 f
+  data arrival time                                                                     0.598
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  output external delay                                                     -0.400      0.600
+  data required time                                                                    0.600
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.600
+  data arrival time                                                                    -0.598
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.002
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[1] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2LP_2)                  0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/QN (SAEDRVT14_FDP_V2LP_2)                  0.096     0.127      0.127 r
+  rd/n4168 (net)                                5        0.039               0.000      0.127 r
+  rd/U116/A2 (SAEDRVT14_OR2_MM_3)                                  0.096     0.000      0.127 r
+  rd/U116/X (SAEDRVT14_OR2_MM_3)                                   0.060     0.099      0.226 r
+  rd/n3952 (net)                                5        0.037               0.000      0.226 r
+  rd/U109/A1 (SAEDRVT14_ND2_CDC_2)                                 0.060     0.000      0.226 r
+  rd/U109/X (SAEDRVT14_ND2_CDC_2)                                  0.049     0.055      0.281 f
+  rd/n3366 (net)                                1        0.009               0.000      0.281 f
+  rd/U101/A1 (SAEDRVT14_ND2_8)                                     0.049     0.000      0.281 f
+  rd/U101/X (SAEDRVT14_ND2_8)                                      0.044     0.053      0.334 r
+  rd/n4062 (net)                                5        0.042               0.000      0.334 r
+  rd/U98/A (SAEDRVT14_INV_6)                                       0.044     0.000      0.335 r
+  rd/U98/X (SAEDRVT14_INV_6)                                       0.024     0.035      0.370 f
+  rd/n3681 (net)                                3        0.022               0.000      0.370 f
+  rd/U801/A1 (SAEDRVT14_ND2_6)                                     0.024     0.000      0.370 f
+  rd/U801/X (SAEDRVT14_ND2_6)                                      0.014     0.020      0.389 r
+  rd/n3680 (net)                                1        0.008               0.000      0.389 r
+  rd/U1048/A (SAEDRVT14_BUF_20)                                    0.014     0.000      0.390 r
+  rd/U1048/X (SAEDRVT14_BUF_20)                                    0.035     0.043      0.432 r
+  rd/n4037 (net)                               11        0.124               0.000      0.432 r
+  rd/U54/A1 (SAEDRVT14_OAI21_0P5)                                  0.035     0.000      0.433 r
+  rd/U54/X (SAEDRVT14_OAI21_0P5)                                   0.065     0.063      0.496 f
+  rd/n3914 (net)                                1        0.005               0.000      0.496 f
+  rd/U29/B (SAEDRVT14_AOI21_1P5)                                   0.065     0.000      0.496 f
+  rd/U29/X (SAEDRVT14_AOI21_1P5)                                   0.041     0.052      0.548 r
+  rd/n3916 (net)                                1        0.005               0.000      0.548 r
+  rd/U910/A2 (SAEDRVT14_ND2_CDC_0P5)                               0.041     0.000      0.548 r
+  rd/U910/X (SAEDRVT14_ND2_CDC_0P5)                                0.044     0.049      0.597 f
+  rd/mem_req[1] (net)                           1        0.005               0.000      0.597 f
+  rd/mem_req[1] (mkQRReaderS)                                                0.000      0.597 f
+  mem_req[1] (net)                                       0.005               0.000      0.597 f
+  mem_req[1] (out)                                                 0.044     0.000      0.597 f
+  data arrival time                                                                     0.597
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  output external delay                                                     -0.400      0.600
+  data required time                                                                    0.600
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.600
+  data arrival time                                                                    -0.597
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.003
+
+
+  Startpoint: rd/r_phase_reg_0_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[12]
+            (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_phase_reg_0_/CK (SAEDRVT14_FDP_V2LP_0P5)                    0.000     0.000 #    0.000 r
+  rd/r_phase_reg_0_/Q (SAEDRVT14_FDP_V2LP_0P5)                     0.112     0.134      0.134 r
+  rd/r_phase_0_ (net)                           2        0.012               0.000      0.134 r
+  rd/U108/A2 (SAEDRVT14_ND2_1)                                     0.112     0.000      0.134 r
+  rd/U108/X (SAEDRVT14_ND2_1)                                      0.088     0.109      0.243 f
+  rd/n4024 (net)                                3        0.019               0.000      0.243 f
+  rd/U105/A1 (SAEDRVT14_OR2_MM_4)                                  0.088     0.000      0.243 f
+  rd/U105/X (SAEDRVT14_OR2_MM_4)                                   0.057     0.083      0.326 f
+  rd/n3368 (net)                                5        0.047               0.000      0.326 f
+  rd/U813/A2 (SAEDRVT14_NR2_MM_10)                                 0.057     0.000      0.327 f
+  rd/U813/X (SAEDRVT14_NR2_MM_10)                                  0.030     0.040      0.367 r
+  rd/n4063 (net)                                3        0.024               0.000      0.367 r
+  rd/U74/A2 (SAEDRVT14_ND2_4)                                      0.030     0.000      0.367 r
+  rd/U74/X (SAEDRVT14_ND2_4)                                       0.085     0.073      0.440 f
+  rd/n4051 (net)                                6        0.049               0.000      0.440 f
+  rd/U36/A (SAEDRVT14_INV_S_3)                                     0.085     0.000      0.441 f
+  rd/U36/X (SAEDRVT14_INV_S_3)                                     0.054     0.069      0.510 r
+  rd/n3696 (net)                                3        0.023               0.000      0.510 r
+  rd/U3070/B (SAEDRVT14_OAI21_V1_4)                                0.054     0.000      0.510 r
+  rd/U3070/X (SAEDRVT14_OAI21_V1_4)                                0.030     0.035      0.545 f
+  rd/n3370 (net)                                1        0.005               0.000      0.545 f
+  rd/U1009/B (SAEDRVT14_OAI21_0P5)                                 0.030     0.000      0.545 f
+  rd/U1009/X (SAEDRVT14_OAI21_0P5)                                 0.053     0.051      0.596 r
+  rd/mem_req[12] (net)                          1        0.005               0.000      0.596 r
+  rd/mem_req[12] (mkQRReaderS)                                               0.000      0.596 r
+  mem_req[12] (net)                                      0.005               0.000      0.596 r
+  mem_req[12] (out)                                                0.053     0.000      0.596 r
+  data arrival time                                                                     0.596
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  output external delay                                                     -0.400      0.600
+  data required time                                                                    0.600
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.600
+  data arrival time                                                                    -0.596
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.004
+
+
+  Startpoint: rd/r_fmtIssued_reg_2_
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: mem_req[7] (output port clocked by CLK)
+  Path Group: f2o
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mkQRDecoder        35000                 saed14rvt_base_ss0p72v125c
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock CLK (rise edge)                                                      0.000      0.000
+  clock network delay (ideal)                                                0.000      0.000
+  rd/r_fmtIssued_reg_2_/CK (SAEDRVT14_FDP_V2LP_2)                  0.000     0.000 #    0.000 r
+  rd/r_fmtIssued_reg_2_/QN (SAEDRVT14_FDP_V2LP_2)                  0.096     0.127      0.127 r
+  rd/n4168 (net)                                5        0.039               0.000      0.127 r
+  rd/U116/A2 (SAEDRVT14_OR2_MM_3)                                  0.096     0.000      0.127 r
+  rd/U116/X (SAEDRVT14_OR2_MM_3)                                   0.060     0.099      0.226 r
+  rd/n3952 (net)                                5        0.037               0.000      0.226 r
+  rd/U109/A1 (SAEDRVT14_ND2_CDC_2)                                 0.060     0.000      0.226 r
+  rd/U109/X (SAEDRVT14_ND2_CDC_2)                                  0.049     0.055      0.281 f
+  rd/n3366 (net)                                1        0.009               0.000      0.281 f
+  rd/U101/A1 (SAEDRVT14_ND2_8)                                     0.049     0.000      0.281 f
+  rd/U101/X (SAEDRVT14_ND2_8)                                      0.044     0.053      0.334 r
+  rd/n4062 (net)                                5        0.042               0.000      0.334 r
+  rd/U98/A (SAEDRVT14_INV_6)                                       0.044     0.000      0.335 r
+  rd/U98/X (SAEDRVT14_INV_6)                                       0.024     0.035      0.370 f
+  rd/n3681 (net)                                3        0.022               0.000      0.370 f
+  rd/U801/A1 (SAEDRVT14_ND2_6)                                     0.024     0.000      0.370 f
+  rd/U801/X (SAEDRVT14_ND2_6)                                      0.014     0.020      0.389 r
+  rd/n3680 (net)                                1        0.008               0.000      0.389 r
+  rd/U1048/A (SAEDRVT14_BUF_20)                                    0.014     0.000      0.390 r
+  rd/U1048/X (SAEDRVT14_BUF_20)                                    0.035     0.043      0.432 r
+  rd/n4037 (net)                               11        0.124               0.000      0.432 r
+  rd/U64/A1 (SAEDRVT14_NR2_MM_3)                                   0.035     0.001      0.433 r
+  rd/U64/X (SAEDRVT14_NR2_MM_3)                                    0.058     0.049      0.482 f
+  rd/n3932 (net)                                2        0.013               0.000      0.482 f
+  rd/U3226/A1 (SAEDRVT14_OR2_4)                                    0.058     0.000      0.482 f
+  rd/U3226/X (SAEDRVT14_OR2_4)                                     0.011     0.038      0.520 f
+  rd/n3706 (net)                                1        0.006               0.000      0.520 f
+  rd/U9/A2 (SAEDRVT14_OAI21_3)                                     0.011     0.000      0.520 f
+  rd/U9/X (SAEDRVT14_OAI21_3)                                      0.046     0.026      0.546 r
+  rd/n3712 (net)                                1        0.005               0.000      0.546 r
+  rd/U890/A1 (SAEDRVT14_ND2_CDC_0P5)                               0.046     0.000      0.546 r
+  rd/U890/X (SAEDRVT14_ND2_CDC_0P5)                                0.043     0.050      0.596 f
+  rd/mem_req[7] (net)                           1        0.005               0.000      0.596 f
+  rd/mem_req[7] (mkQRReaderS)                                                0.000      0.596 f
+  mem_req[7] (net)                                       0.005               0.000      0.596 f
+  mem_req[7] (out)                                                 0.043     0.000      0.596 f
+  data arrival time                                                                     0.596
+
+  clock CLK (rise edge)                                                      1.000      1.000
+  clock network delay (ideal)                                                0.000      1.000
+  output external delay                                                     -0.400      0.600
+  data required time                                                                    0.600
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                    0.600
+  data arrival time                                                                    -0.596
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                           0.004
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -group i2o
+        -max_paths 5
+        -transition_time
+        -capacitance
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Sat Nov  7 22:52:37 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p72v125c   Library: saed14rvt_base_ss0p72v125c
+Wire Load Model Mode: top
+No paths.
+
+1

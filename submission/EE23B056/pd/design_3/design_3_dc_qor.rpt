@@ -1,0 +1,111 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'mkQRDecoder' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : mkQRDecoder
+Version: U-2022.12
+Date   : Sat Nov  7 21:37:34 2026
+****************************************
+
+
+  Timing Path Group 'f2f'
+  -----------------------------------
+  Levels of Logic:              28.00
+  Critical Path Length:          0.98
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'f2o'
+  -----------------------------------
+  Levels of Logic:               7.00
+  Critical Path Length:          0.60
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'i2f'
+  -----------------------------------
+  Levels of Logic:              11.00
+  Critical Path Length:          0.58
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          1
+  Hierarchical Port Count:         70
+  Leaf Cell Count:              41830
+  Buf/Inv Cell Count:            4472
+  Buf Cell Count:                2000
+  Inv Cell Count:                2477
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     32334
+  Sequential Cell Count:         9496
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    17949.321656
+  Noncombinational Area:  8947.088284
+  Buf/Inv Area:           2170.227582
+  Total Buffer Area:          1226.02
+  Total Inverter Area:         951.94
+  Macro/Black Box Area:      0.000000
+  Net Area:              37299.805210
+  -----------------------------------
+  Cell Area:             26896.409940
+  Design Area:           64196.215150
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         43680
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: varaha-eda.cs.iitm.ac.in
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                  127.99
+  Logic Optimization:                390.34
+  Mapping Optimization:             1059.97
+  -----------------------------------------
+  Overall Compile Time:             2163.05
+  Overall Compile Wall Clock Time:   938.77
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
