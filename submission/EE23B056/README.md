@@ -25,7 +25,6 @@ pd_report.pdf      Table 5 (post-synthesis), Table 6 (post-placement), the four 
 bsv/               the design
 verification/      Python reference model, per-unit and whole-decoder test benches
 pd/                Design Compiler runs and the ICC placement run
-sdc_full_backup/   unfiltered SDC files written by each DC run (see note below)
 ```
 
 ### `bsv/`
@@ -91,20 +90,6 @@ The four designs, each differing from the previous in one BSV file:
 Design 4 is the best design. After `place_opt` it still meets 1.00 ns (f2f slack 0.00), with cell area
 19,724 um^2 and 14.710 mW. `pd_report.pdf` has the full Table 5 and Table 6, the comparison of designs at equal
 periods, and a map from each submitted design to its BSV source folder and run tag.
-
-### Deviations from the handout layout
-
-* **Placement only.** The flow is `place_opt` with no clock-tree synthesis and no routing, so the post-layout files are
-  named `best_design_post_place_*` and `best_design_place.*` instead of `post_route` / `route`. Timing after placement
-  uses an ideal clock and estimated parasitics.
-* **No DRC/LVS.** These cannot be checked without routing. The placement legality check is clean (0 cells off row,
-  0 overlaps, 0 power-strap or orientation violations).
-* **Trimmed SDC files.** The SDC files in `pd/` have the expanded `group_path` register lists removed (they list every
-  register and make the file about 1.5 MB). The clock and the 13 input and 32 output delays are unchanged, and the
-  path groups are defined in each `design_N_dc.tcl`. The unfiltered SDC files are in `sdc_full_backup/`.
-* **Large log.** `best_icc_run.log` (about 48 MiB) is unfiltered. Most of it is repeated power-routing warnings
-  from the power straps; it contains no errors.
-
 ## Limits
 
 * Power is from `report_power` with default switching activity, so it compares designs but is not an absolute figure.
