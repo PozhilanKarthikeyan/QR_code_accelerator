@@ -1,6 +1,6 @@
 ####### Placement only (no CTS, no routing) for mkQRDecoder.
 ####### Run from icc1/work/ :  icc_shell -shared_license -f ../scripts/icc_place.tcl | tee ../reports/best_icc_run.log
-set L 210                          ;# core width = height in um (cell area ~25k um^2 -> ~57% utilisation)
+set L 170                          ;# core width = height in um; post-place_opt cell area ~20.0k um^2 -> ~72-73% utilisation
 set TAG design_4_p10               ;# the synthesis run being placed
 set DESIGN mkQRDecoder
 file mkdir ../reports

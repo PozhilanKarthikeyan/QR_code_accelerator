@@ -3,13 +3,13 @@
 Report : qor
 Design : mkQRDecoder
 Version: V-2023.12
-Date   : Sun Nov  8 02:21:33 2026
+Date   : Sun Nov  8 15:29:18 2026
 ****************************************
 
 
   Timing Path Group 'f2f'
   -----------------------------------
-  Levels of Logic:              51.00
+  Levels of Logic:              44.00
   Critical Path Length:          0.98
   Critical Path Slack:           0.00
   Critical Path Clk Period:      1.00
@@ -35,8 +35,8 @@ Date   : Sun Nov  8 02:21:33 2026
 
   Timing Path Group 'i2f'
   -----------------------------------
-  Levels of Logic:              11.00
-  Critical Path Length:          0.57
+  Levels of Logic:               8.00
+  Critical Path Length:          0.59
   Critical Path Slack:           0.00
   Critical Path Clk Period:      1.00
   Total Negative Slack:          0.00
@@ -50,13 +50,13 @@ Date   : Sun Nov  8 02:21:33 2026
   Cell Count
   -----------------------------------
   Hierarchical Cell Count:          1
-  Hierarchical Port Count:         74
-  Leaf Cell Count:              38138
-  Buf/Inv Cell Count:            1773
-  Buf Cell Count:                 315
-  Inv Cell Count:                1459
+  Hierarchical Port Count:         73
+  Leaf Cell Count:              38074
+  Buf/Inv Cell Count:            1710
+  Buf Cell Count:                 276
+  Inv Cell Count:                1435
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:     28630
+  Combinational Cell Count:     28566
   Sequential Cell Count:         9508
   Macro Count:                      0
   -----------------------------------
@@ -64,28 +64,28 @@ Date   : Sun Nov  8 02:21:33 2026
 
   Area
   -----------------------------------
-  Combinational Area:    11136.052748
-  Noncombinational Area:  8889.901088
-  Buf/Inv Area:            421.622396
-  Total Buffer Area:           109.53
-  Total Inverter Area:         313.24
+  Combinational Area:    10848.473949
+  Noncombinational Area:  8875.737487
+  Buf/Inv Area:            375.712797
+  Total Buffer Area:            92.97
+  Total Inverter Area:         283.89
   Macro/Black Box Area:      0.000000
   Net Area:                  0.000000
-  Net XLength        :      185432.47
-  Net YLength        :      210214.97
+  Net XLength        :      153109.31
+  Net YLength        :      169748.73
   -----------------------------------
-  Cell Area:             20025.953836
-  Design Area:           20025.953836
-  Net Length        :       395647.44
+  Cell Area:             19724.211436
+  Design Area:           19724.211436
+  Net Length        :       322858.06
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         48035
-  Nets With Violations:             6
+  Total Number of Nets:         47971
+  Nets With Violations:             4
   Max Trans Violations:             0
   Max Cap Violations:               0
-  Max Fanout Violations:            6
+  Max Fanout Violations:            4
   -----------------------------------
 
 
@@ -95,10 +95,10 @@ Date   : Sun Nov  8 02:21:33 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.00
-  Mapping Optimization:               85.79
+  Mapping Optimization:              131.61
   -----------------------------------------
-  Overall Compile Time:              221.35
-  Overall Compile Wall Clock Time: 1794084352.00
+  Overall Compile Time:              247.71
+  Overall Compile Wall Clock Time: 1794131584.00
 
   --------------------------------------------------------------------
 

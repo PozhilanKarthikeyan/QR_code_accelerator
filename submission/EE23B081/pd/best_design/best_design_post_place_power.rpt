@@ -7,7 +7,7 @@ Report : power
         -analysis_effort low
 Design : mkQRDecoder
 Version: V-2023.12
-Date   : Sun Nov  8 02:21:37 2026
+Date   : Sun Nov  8 15:29:22 2026
 ****************************************
 
 
@@ -34,12 +34,12 @@ Attributes
 i - Including register clock pin internal power
 
 
-  Cell Internal Power  =  14.5826 mW   (99%)
-  Net Switching Power  =  97.6349 uW    (1%)
+  Cell Internal Power  =  14.5775 mW   (99%)
+  Net Switching Power  =  91.6054 uW    (1%)
                          ---------
-Total Dynamic Power    =  14.6803 mW  (100%)
+Total Dynamic Power    =  14.6691 mW  (100%)
 
-Cell Leakage Power     =  42.8967 uW
+Cell Leakage Power     =  41.1514 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -48,10 +48,10 @@ Power Group      Power            Power               Power              Power  
 io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
-clock_network     14.5541            0.0000            0.0000           14.5541  (  98.85%)  i
-register       9.2459e-03        6.6832e-03        1.9036e+07        3.4071e-02  (   0.23%)
+clock_network     14.5495            0.0000            0.0000           14.5495  (  98.91%)  i
+register       8.9588e-03        6.1208e-03        1.8937e+07        3.3181e-02  (   0.23%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  2.0069e-02        9.0952e-02        2.3859e+07            0.1349  (   0.92%)
+combinational  1.9783e-02        8.5485e-02        2.2213e+07            0.1275  (   0.87%)
 --------------------------------------------------------------------------------------------------
-Total             14.5834 mW     9.7635e-02 mW     4.2895e+07 pW        14.7230 mW
+Total             14.5782 mW     9.1605e-02 mW     4.1150e+07 pW        14.7102 mW
 1
